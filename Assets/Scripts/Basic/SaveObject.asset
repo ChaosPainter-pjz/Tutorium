@@ -287,13 +287,13 @@ MonoBehaviour:
       indicatingNow: []
       properties:
       - gradeID: temperament
-        score: 18
+        score: 40
         name: "\u6C14\u8D28"
       - gradeID: thought
-        score: 14
+        score: 40
         name: "\u601D\u7EF4"
       - gradeID: eloquence
-        score: 0
+        score: 40
         name: "\u53E3\u624D"
       - gradeID: physique
         score: 80
@@ -304,31 +304,31 @@ MonoBehaviour:
       interpersonalRelationship: []
       mainGrade:
       - gradeID: 0
-        score: 639
+        score: 800
         name: "\u8BED\u6587"
       - gradeID: 1
-        score: 495
+        score: 800
         name: "\u6570\u5B66"
       - gradeID: 2
-        score: 891
+        score: 800
         name: "\u82F1\u8BED"
       - gradeID: 3
-        score: 157
+        score: 800
         name: "\u653F\u6CBB"
       - gradeID: 4
-        score: 245
+        score: 800
         name: "\u5386\u53F2"
       - gradeID: 5
-        score: 211
+        score: 800
         name: "\u5730\u7406"
       - gradeID: 6
-        score: 141
+        score: 800
         name: "\u7269\u7406"
       - gradeID: 7
-        score: 72
+        score: 800
         name: "\u5316\u5B66"
       - gradeID: 8
-        score: 111
+        score: 800
         name: "\u751F\u7269"
       interestGrade:
       - gradeID: 10
@@ -2045,3 +2045,12 @@ MonoBehaviour:
     - studentName: "\u6587\u6709\u5E0C"
       playerName: "\u4E00\u4E00\u5F97\u4E00"
       overId: 117
+    - studentName: "\u8096\u675C\u8587\u8587"
+      playerName: "\u4E00\u4E00\u5F97\u4E00"
+      overId: 14
+    - studentName: "\u6587\u6709\u5E0C"
+      playerName: "\u4E00\u4E00\u5F97\u4E00"
+      overId: 118
+    - studentName: "\u8096\u675C\u8587\u8587"
+      playerName: "\u4E00\u4E00\u5F97\u4E00"
+      overId: 33

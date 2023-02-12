@@ -25,6 +25,7 @@ ScriptedImporter:
     streamingMipmaps: 1
     streamingMipmapsPriority: 0
     vTOnly: 0
+    ignoreMasterTextureLimit: 0
     nPOTScale: 1
     sRGBTexture: 1
     spriteMode: 2
@@ -46,6 +47,7 @@ ScriptedImporter:
     flipbookRows: 0
     flipbookColumns: 0
     ignorePngGamma: 0
+    cookieMode: 0
     filterMode: 1
     aniso: 1
     mipBias: 0
@@ -79,7 +81,6 @@ ScriptedImporter:
       width: 0
       height: 0
     spriteID: 
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -89,6 +90,7 @@ ScriptedImporter:
     tessellationDetail: 0
     parentGroupIndex: -1
     uvTransform: {x: 0, y: 0}
+    spritePosition: {x: 0, y: 0}
   mosaicSpriteImportData: []
   rigSpriteImportData:
   - name: clothe
@@ -103,7 +105,6 @@ ScriptedImporter:
       width: 801
       height: 2149
     spriteID: 8588d76488d12924aab47aafe85e4f35
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -112,7 +113,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 493, y: -452}
+    uvTransform: {x: 793, y: 4}
+    spritePosition: {x: 300, y: 456}
   - name: hair
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -125,7 +127,6 @@ ScriptedImporter:
       width: 336
       height: 343
     spriteID: 3062786bf41fcb14b89ee8f79deda47d
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -134,7 +135,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -544, y: 163}
+    uvTransform: {x: 4, y: 2839}
+    spritePosition: {x: 548, y: 2676}
   - name: face
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -147,7 +149,6 @@ ScriptedImporter:
       width: 185
       height: 179
     spriteID: c015aa354787f2045ac16b2778603cdd
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -156,7 +157,8 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -662, y: 533}
+    uvTransform: {x: 4, y: 3190}
+    spritePosition: {x: 666, y: 2657}
   - name: body
     originalName: 
     pivot: {x: 0.5, y: 0.5}
@@ -169,7 +171,6 @@ ScriptedImporter:
       width: 781
       height: 2827
     spriteID: bffa0fe21ee513444b771b8bf3426e3f
-    internalID: 0
     spriteBone: []
     spriteOutline: []
     vertices: []
@@ -178,33 +179,48 @@ ScriptedImporter:
     edges: []
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: -313, y: -176}
+    uvTransform: {x: 4, y: 4}
+    spritePosition: {x: 317, y: 180}
+  characterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
+  sharedRigSpriteImportData: []
+  sharedRigCharacterData:
+    bones: []
+    parts: []
+    dimension: {x: 0, y: 0}
+    characterGroups: []
+    boneReadOnly: 0
   platformSettings: []
   mosaicLayers: 1
+  characterMode: 1
   documentPivot: {x: 0, y: 0}
   documentAlignment: 7
   importHiddenLayers: 0
-  importedTextureWidth: 1024
-  importedTextureHeight: 2048
-  documentSize: {x: 1400, y: 3200}
+  layerMappingOption: 2
+  generatePhysicsShape: 0
   paperDollMode: 0
   keepDupilcateSpriteName: 0
+  skeletonAssetReferenceID: 
   spriteCategoryList:
     categories: []
-  textureActualWidth: 2048
-  textureActualHeight: 4096
   spritePackingTag: 
   resliceFromLayer: 0
-  characterMode: 1
   mosaicPSDLayers: []
   rigPSDLayers:
   - name: "\u7EC4 1"
     spriteName: 
     isGroup: 1
     parentIndex: -1
-    spriteID: 00000000000000000000000000000000
+    spriteID: 30db3e7e2056c3c4b89d6f9183d1b672
     layerID: 9
     mosaicPosition: {x: 0, y: 0}
+    flatten: 0
+    isImported: 0
+    isVisible: 1
   - name: clothe
     spriteName: clothe
     isGroup: 0
@@ -212,6 +228,9 @@ ScriptedImporter:
     spriteID: 8588d76488d12924aab47aafe85e4f35
     layerID: 27
     mosaicPosition: {x: 793, y: 4}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: hair
     spriteName: hair
     isGroup: 0
@@ -219,6 +238,9 @@ ScriptedImporter:
     spriteID: 3062786bf41fcb14b89ee8f79deda47d
     layerID: 17
     mosaicPosition: {x: 4, y: 2839}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: face
     spriteName: face
     isGroup: 0
@@ -226,6 +248,9 @@ ScriptedImporter:
     spriteID: c015aa354787f2045ac16b2778603cdd
     layerID: 14
     mosaicPosition: {x: 4, y: 3190}
+    flatten: 0
+    isImported: 1
+    isVisible: 1
   - name: body
     spriteName: body
     isGroup: 0
@@ -233,13 +258,14 @@ ScriptedImporter:
     spriteID: bffa0fe21ee513444b771b8bf3426e3f
     layerID: 6
     mosaicPosition: {x: 4, y: 4}
-  characterData:
-    bones: []
-    parts: []
-    dimension: {x: 0, y: 0}
-    characterGroups: []
+    flatten: 0
+    isImported: 1
+    isVisible: 1
+  sharedRigPSDLayers: []
+  pSDLayerImportSetting: []
   generateGOHierarchy: 0
   textureAssetName: male2_psb 1 Texture
   prefabAssetName: male2_psb 1 Prefab
   spriteLibAssetName: male2_psb 1 Sprite Lib
+  skeletonAssetName: 
   secondarySpriteTextures: []

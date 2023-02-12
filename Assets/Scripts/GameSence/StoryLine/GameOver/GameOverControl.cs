@@ -280,9 +280,8 @@ public class GameOverControl : MonoBehaviour
 
         }
         zhiYe.text = target.EndName;
-        longOverDescription.text = target.Description;
         longOverDescription.text = target.Description.Replace("name",unit.fullName);
-        longOverDescription.text = target.Description.Replace("TA",unit.GetGenderString());
+        longOverDescription.text = longOverDescription.text.Replace("TA",unit.GetGenderString());
         if (gameManager.saveObject.OverSaveData.overUnits.All(un=>un.overId!=target.EndID))
         {
             gameManager.saveObject.OverSaveData.overUnits.Add(new OverUnit(unit.fullName,saveData.playerUnit.fullName,DateTime.Now,target.EndID ));
