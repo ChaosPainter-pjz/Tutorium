@@ -1,0 +1,168 @@
+Documentation is online, follow the link below to view it
+Link: https://carter.games/savemanager
+
+
+Offline Documentation Copy:
+
+
+Contributors: Jonathan Carter
+Documentation Valid for Version: 1.0.2
+Last Updated: 05/10/2020
+
+
+Contents:
+
+1 - Package Information
+2 - First Use Setup
+    2.1 - The Editor Window
+    2.2 - Create New SaveData
+    2.3 - Edit Existing SaveData
+    2.4 - About Asset
+3 - Saving & Loading
+    3.1 - Methods
+    3.2 - Accessing Values
+4 - Error Messages & Common Problems
+
+
+
+1) Package Information
+The package has 4 main folders & 8 files:
+
+Editor/Carter Games/Save Manager: SaveDataEditor.cs
+Resourses/Carter Games/Save Manager: IconSM.png
+Scenes/Carter Games/Save Manager/Example: SaveManagerExampleScene.scene
+Scripts/Carter Games/Save Manager: SaveManager.cs, SaveData.cs & ExtraSaveData.cs
+Scripts/Carter Games/Save Manager/Example: SaveManagerExample.cs
+Readme: Text file that goes over the changelog for the asset.
+Docs: Text file that links to here and provides an offline copy of this page.
+
+This SaveManager supports the all build versions listed below, Note WebGL support is planned for the Save Manager + asset, as and when we get around to making it. 
+This is purely due to the user needing their own webhosting of some kind to make webgl saving work:
+- PC/Mac/Linux
+- Android
+- IOS
+
+2) First Use Setup
+Initial Setup
+When you first install the package you will notice that the SaveData.cs class is empty, this is intentional as we don't knwo what you want to save. You can add values to save in two ways. 
+
+1) By using the SaveData Editor window provided in the asset package
+2) By writing in the fields yourself into the class.
+
+Note, not all values in Unity as saveable, or serializable as it is known. A list of that can be saved with this asset is listed below, you can refer to the official documentation for other 
+types that can be serialized if you add them manually:
+
+This asset officially supports:
+- int
+- float
+- short
+- long
+- bool
+- string
+- Vector2 (using SaveVector2 Class)
+- Vector3 (using SaveVector3 Class)
+- Vector4 (using SaveVector4 Class)
+- Color (using SaveColor Class)
+- Custom Classes
+
+See more on this here: https://docs.unity3d.com/Manual/script-Serialization.html#FieldSerliaized2
+
+Unsure how the asset works? before going further we recommend you open the example scene and give it a go to see that asset in action. Note this will not ework if you have edited the 
+SaveData.cs class in anyway.  The scene has a prompt at the top so you can get it back up if you want to try it out. 
+
+
+The Editor Window
+
+For ease of use, the Save Manager comes with its own editor window which is designed to help new users setup the SaveData.cs class without needing to write it themselves. 
+The editor has 3 tabs, "Create New SaveData", "Edit Existing SaveData", "About Asset". This can be access via the navigation bar under "Carter Games/Save Manager/Save Data Editor
+
+
+Create New SaveData
+
+This tab gives you the tools to create a new SaveData class, it is best to use this when you are settings up the class for the first time or need to clear the class.
+When you first open the tab you will see this screen. Press the "+ Add Field" to start creating the new file. The following will be generated, each grouping of these options 
+is one variable. From here you can select what type the variable should be from the yellow dropdown list. Set whether or not the type is an Array or List as well as set the name for the variable.
+If you are using a class value you will also be promoted to enter the class name into an additional field. Please make sure you enter a class name and that it is spelt correctly! 
+This field is CaSe SeNsItIvE. Once you are happy with the fields, press the "Generate New SaveData Class" button to generate the SaveData file. Note the editor will reload at this point.
+
+
+Edit Exsisting SaveData
+
+If you have already generated a SaveData.cs you may use this window to edit the class, add additional fields and remove unnecessary fields. There are a couple of different 
+buttons compared to the creation tab. When you first open this tab there won't be anything below these buttons. Press the "Refresh File" button the load the values currently in the SaveData.cs class. 
+Then make the changes you wish and press the "Save Changes" button to update the SaveData.cs class with the changes you've made. 
+
+
+About Asset
+
+The about asset tab provides some basic information about the asset. These include the version of the asset you are using, the release date of the version you are using as well as links 
+to this documentation and our community discord where we provide asset support. 
+
+
+3) Saving & Loading
+
+All of this up until now has been to create the class that is used in the manager. This section will go over how to use the manager.
+
+This manager is a static manager, so there is no need for a reference to be made to the class for it to be used. Instead all you need to do is call the SaveManager class followed by the 
+method you wish to call. To save the game you will need to pass through an instance of the SaveData class holding all the value you wish to save. It is best that you have this on a Game 
+Manager or something similar that you can access when needed. You may also load the game before making the changes needed and saving it again, though this is less efficient. We leave this 
+part up to you as everyone does this differently based on the product they are working on.
+
+Note that the example code is not meant to be copied as it uses a seperate set of classes to function. 
+
+
+Save Manager Namespaces:
+
+CarterGames.Assets.SaveManager
+The main namespace for all the code in the asset, use this namespace to access the manager and its functions.
+
+CarterGames.Assets.SaveManager.Example
+The example namespace, this is purely used for the example classes and should not be edited if you want the example scene to work at all.
+
+
+
+Save Manager Methods:
+
+SaveGame(SaveData data)
+Saves the game using the provided SaveData instance overwriting the previous data saved.
+
+LoadGame()
+Loads the game if the game has been saved before, if not there will be a message in the console.
+Returns: SaveData
+
+ResetSaveFile()
+Resets the game save file to be blank with no data in it. Handy for a erase save data button.
+
+
+
+Accessing Values
+
+You can access all the values you have placed in the SaveData class as you would with any other class, say you have a string for the player name and a float for the player score & a 
+SaveData instance called data, you would access this via the following:
+
+data.playerName
+data.playerScore
+
+However, you will note that Vectors and Colors have a custom class assigned to them. These types will not look the same in the inspector, but function as you would expect in code. 
+Below is how you would access the Vector2 value from the within a SaveVector2 for an example:
+
+data.**SaveVector2VariableName**.Vector2
+
+
+4) Error Messages & Common Problems
+If you run into a problem or get an error and are unsure, feel free to drop me an email at (hello@carter.games) and I'll do my best to help you out.
+
+My SaveData.cs class has an error after I generated/changed the class from the editor:
+Please make sure you didn't do any of the following:
+- Set a class field that was not spelt correctly
+- Have another script in the same namescape called SaveData.cs
+
+I can't save a Vector or Color:
+Please make sure the ExtraSaveTypes.cs class is imported and that you are using the Save variants added in this manager, so "SaveVector2" & "SaveColor". 
+
+Why can't I find the Save Manager in my code?
+Please make sure that you are using the namespace and have imported th eporject correctly.
+
+Where do I put the save/load code?
+This is up to you. You put it where you need it! We recommend that you put it in Awake/Start Methods or in a custom method that only gets called once. 
+If you are going to put the loading code in Update we recommend you have a boolean that is used to check if the game has loaded, once run you set it to true it running more than once. 

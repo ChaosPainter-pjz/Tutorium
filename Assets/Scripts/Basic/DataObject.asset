@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c78b3b95ef65354e88fa0fdc0d66ca5, type: 3}
+  m_Name: DataObject
+  m_EditorClassIdentifier: 
+  studentsCourseList: {fileID: 4900000, guid: 77ccd80cb380c1443a3757262f833ed9, type: 3}
+  studentList: {fileID: 4900000, guid: 99cb33367d0e61d4c9173d672c2381ba, type: 3}
+  studentMarkList: {fileID: 4900000, guid: a3469e11c0586464ab40cd72cdb352ee, type: 3}
+  studentWeeklyPropertyList: {fileID: 4900000, guid: b8c6f6bb44f4ced409ed52067812d64e, type: 3}
+  playerWorkList: {fileID: 4900000, guid: 84752f6b23ec2bf44b485dd153af8cce, type: 3}
+  playerCourseList: {fileID: 4900000, guid: 11ce6ce336ef24c4184e06b05f11fe63, type: 3}
+  playerCourseLevelList: {fileID: 4900000, guid: 4f37ba039baa4414fa13d5db5db64ee5, type: 3}
+  storeGoodsList: {fileID: 4900000, guid: 78eccadd1eeeaca4f967e4847119b18a, type: 3}
+  supermarketGoodsList: {fileID: 4900000, guid: 1d8695270462fd24aba747fe1bb06aa7, type: 3}
+  articleList: {fileID: 4900000, guid: 1446065c42dd515438969d43ce4fb552, type: 3}
+  npcList: {fileID: 4900000, guid: a36c09b1612e66a49911ea46f5d7dc52, type: 3}
+  plotJudgmentList: {fileID: 4900000, guid: 6b31c7bf26716e9409c11d2970c2015b, type: 3}
+  branchedPlotList: {fileID: 4900000, guid: 9d60e3e0a8e0fa543a287bd21ffe13e2, type: 3}
+  linearPlotList: {fileID: 4900000, guid: d35f838aa85a70046984275e8114967f, type: 3}
+  studentsAttributePlotList: {fileID: 4900000, guid: dc826e84882b72248a9d4182d26e7f97, type: 3}
+  universalPlotList: {fileID: 4900000, guid: 73fc0a655d9ccbc44b929f0743e01cc4, type: 3}
+  timerAndHintList: {fileID: 4900000, guid: 481494ca76406fb4bacc49b244656f9f, type: 3}
+  enterHigherSchool: {fileID: 4900000, guid: dd97bbcbdcdbce14a9f453e7c7277773, type: 3}
+  gameOverList: {fileID: 4900000, guid: 7541aa341c72cb44c960ac89bde9b404, type: 3}
+  schoolWorkList: {fileID: 4900000, guid: b1f2717ab908d8d4a9a5cf8a2bb438b9, type: 3}
+  otherPlotJudgmentList: {fileID: 4900000, guid: ce5c6c4d677107a428668d259a847005, type: 3}
+  randomName:
+  - "\u677E\u601D\u8FDC"
+  - "\u8499\u5947\u80DC"
+  - "\u6842\u5F18\u6587"
+  - "\u9F9A\u96E8\u4FE1"
+  - "\u4EFB\u5929\u6750"
+  - "\u6D66\u534E\u8363"
+  - "\u767D\u529B\u884C"
+  - "\u90B0\u5FD7\u5C1A"
+  - "\u6000\u98DE\u6377"
+  - "\u6B27\u82F1\u54F2"
+  - "\u6D82\u94A6\u98DE\u7FF0"
+  - "\u5468\u9633\u5609\u796F"
+  - "\u9644\u5EB8\u98DE\u661F"
+  - "\u7B2C\u4E09\u7FF0\u98DE"
+  - "\u516C\u7EEA\u6DB5\u610F"
+  - "\u91CD\u4E18\u4FCA\u96C5"
+  - "\u8463\u960F\u5143\u607A"
+  - "\u8006\u95E8\u9AD8\u683C"
+  - "\u5218\u738B\u5609\u8363"
+  - "\u9C9C\u9633\u82F1\u5586"
+  - "\u9686\u5C14\u5B89"
+  - "\u90B1\u9F99\u6885"
+  - "\u8303\u6B23\u5408"
+  - "\u83F1\u96C5\u67D4"
+  - "\u7530\u5143\u7EFF"
+  - "\u59DA\u7D2B\u4E1D"
+  - "\u8303\u6155\u9752"
+  - "\u8427\u96C5\u51E1"
+  - "\u7126\u51DD\u6D01"
+  - "\u4E07\u8212\u5C9A"
+  - "\u6BDB\u771F"
+  - "\u675C\u64CE"
+  - "\u79E6\u53D4"
+  - "\u8427\u6678"
+  - "\u6881\u64CD"
+  - "\u767D\u7AEF"
+  - "\u5362\u5C71"
+  - "\u80E1\u4F1F"
+  - "\u6F58\u6B27"
+  - "\u6B66\u8239"
+  - "\u94B1\u67D4"
+  - "\u4F59\u8BC4"
+  - "\u6613\u59F2"
+  - "\u9093\u5C9A"
+  - "\u5E38\u6D1B"
+  - "\u8521\u601D"
+  - "\u9A6C\u6D01"
+  - "\u5EB7\u8273"
+  - "\u5EB7\u70C1"
+  - "\u9646\u7EE3"
+  dailyNews: {fileID: 4900000, guid: d8909f8a4f0cac540b89ecf31ea1bde8, type: 3}

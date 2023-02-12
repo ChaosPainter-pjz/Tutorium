@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="c1a7eb3f-39e0-494b-89e2-9167e4a4cd9f" name="默认变更列表" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tutorium/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tutorium/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tutorium/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tutorium/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Season/spring1.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Season/spring1.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefab/Season/summer.prefab" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Prefab/Season/summer.prefab" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Game.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Game.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/GameSence/Setting/SettingMainControl.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/GameSence/Setting/SettingMainControl.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/StartScene/ArchivesManage.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/StartScene/ArchivesManage.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/manifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/manifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Packages/packages-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Packages/packages-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/HDRPProjectSettings.asset" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Game/SelecStudent/SelectStudentCardControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/Hint/HintManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/GiveGiftsControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.high-definition@10.5.1/Runtime/Material/DiffusionProfile/DiffusionProfileSettings.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/8F9A7EA3-47A4-4FFD-AD6C-91B550598CCD/00/2d894a8d/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Game/StartGame/PhotographyGameStart.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/FC5DF23E-B380-4721-8E34-C2C523F2DFB3/0f/0528e429/AudioMixer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/UI/Core/Toggle.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoBigControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/Date/DateAnimEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Game/WorldGameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.2d.common@4.0.3/Editor/TextureGenerator/TextureGeneratorHelper.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/ArticleCard.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/ParticularsPanelControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/ExitUIControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Park.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Game/AwardCardControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/DragControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/PortrayalsMask.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/Hint/HintControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoAlbumControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.render-pipelines.core@10.5.1/Runtime/RenderGraph/RenderGraphResourceRegistry.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/WorldManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/BookstorePanelControl.cs" root0="FORCE_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/ResourceManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/Universal.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/MoneyManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/CSV2Table/ArticleList.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/RowToUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/PlayerUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Game/GameAwardControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/ArticleCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Plan/PlanManger.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Plan/PlayerWorkControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/SelectManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Classroom/Article.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/StudentUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/GameManager/ResourceManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoBigControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/PhotoAlbumControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/GiveGiftsControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/BackpackControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Classroom/ClassroomControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/ScheduleManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Setting/SettingMainControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartScene/ArchivesManage.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/CommmodityUnitControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/TranscriptControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/StudentPropertiesControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/EnterPanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Steamworks.NET/SteamManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartScene/StartManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/DialogueManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/Grade.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/DataObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PropertyChange/ExecuteControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/MainButtonControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/StudentRoomControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/BookstorePanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/Station.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager/Scripts/SaveManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/AudioControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/ExecuteManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PlayerProperties/PlayerPropertiesManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PlayerProperties/PlayerSkillItemControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/StoryLineManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/Date.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager/Scripts/SaveData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/ScheduleControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/ScheduleCardControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/WorldManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs" />
+    </changedPaths>
+  </component>
+  <component name="ProjectId" id="1vNmVvblsiYxYv0RQHw75ZjEDH5" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$USER_HOME$/OneDrive/桌面/全托教师项目/0.11\Tutorium.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="C:\Users\zoa\OneDrive\桌面\全托教师项目\0.11" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost" ignored-value-for-modified-check="22912">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" value="22912" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <option name="LAST_COMMIT_MESSAGE" value="" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Unit/Grade.cs</url>
+          <line>36</line>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" initialLine="36" containingFunctionPresentation="property 'GradeScore'">
+            <startOffsets>
+              <option value="763" />
+            </startOffsets>
+            <endOffsets>
+              <option value="776" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
+          <line>80</line>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="80" containingFunctionPresentation="method 'Midterm'">
+            <startOffsets>
+              <option value="2321" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2404" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
+          <line>76</line>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="76" containingFunctionPresentation="method 'Midterm'">
+            <startOffsets>
+              <option value="2182" />
+            </startOffsets>
+            <endOffsets>
+              <option value="2272" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

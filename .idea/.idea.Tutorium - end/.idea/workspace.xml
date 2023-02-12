@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="219ee224-4a36-4cbc-bf65-bc813b3d63c3" name="默认变更列表" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/695D1CC9-3CCA-4506-9C52-8C15C9FDD749/03/edef1002/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/MoodControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/StartScene/Galleries/GalleriesControl.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/GameSence/World/Court.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/5A92AD44-406B-4318-9677-3A464E9EC96E/c4/d6d660fc/List`1.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <changedPaths>
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PlayerProperties/PlayerPropertiesManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager/Scripts/SaveManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/SaveObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartScene/StartManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartScene/Galleries/GalleriesCardControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager/Scripts/OverSaveData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/StartScene/Galleries/GalleriesControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Csv/Plot/LinearPlotList.csv" />
+      <option value="$PROJECT_DIR$/Assets/Csv/Plot/TimerAndHintList.csv" />
+      <option value="$PROJECT_DIR$/Assets/Csv/World/OtherOtherPlotJudgmentList.csv" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Court.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PropertyChange/PropertyUpdateGlossaryControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/ParticularsPanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Schedule/CourseAttributesEntry.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/MoodControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/StudentPropertiesControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/GameOver/GameOverControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentsProperties/分班/DivideIntoClassesControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Csv/World/SupermarketGoodsList.txt" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/GameManager/GameManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/DataObject.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/SaveManager/Scripts/SaveData.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/BookstoreManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/EnterPanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/BookstorePanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Bookstore/CommmodityUnitControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/WorldManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Supermarket/SupermarketCard.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/StoryLineManager.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/RowToUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/BackpackControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StudentRoom/GiveGiftsControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Supermarket/EnterPanelControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Unit/PlayerUnit.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/Classroom/Article.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/Basic/AudioControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/World/Supermarket/SupermarketControl.cs" />
+      <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/PropertyChange/ExecuteControl.cs" />
+    </changedPaths>
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="22HhM0rHoM8IXynXNFINbueIhwj" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.3502052" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.0" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="rider.run.widget.enabled.cache" value="false" />
+    <property name="settings.editor.selected.configurable" value="project.scopes" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Standalone Player" type="RunUnityExe" factoryName="Unity Executable">
+      <option name="EXE_PATH" value="$PROJECT_DIR$/../../辅导班/全托教师项目/E3t\HostingTheTeacher.exe" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="D:\辅导班\全托教师项目\E3t" />
+      <option name="PASS_PARENT_ENVS" value="1" />
+      <option name="USE_EXTERNAL_CONSOLE" value="0" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <list />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/StartScene/StartManager.cs</url>
+          <line>31</line>
+          <properties documentPath="D:\Xiang Mu\Tutorium - end\Assets\Scripts\StartScene\StartManager.cs" initialLine="31" containingFunctionPresentation="method 'InitGalleries'">
+            <startOffsets>
+              <option value="936" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1007" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

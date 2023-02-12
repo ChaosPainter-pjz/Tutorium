@@ -1,0 +1,17 @@
+PlotId,StudentID,Money,SkillID,MusicID,SceneID,SoundID,ArticleID,ArticleNumber
+UpJF,,10000,,,,,,
+0upXQ,,0,,,,,1,8
+1023,,0,,forward-looking,class,stop,,
+UpDoor,,0,,,,Open the door,,
+1up01,1,0,,,,,,
+1up02,,0,,,,,4,2
+1up1102,,0,,,,,13,1
+2up01,2,0,,,,,,
+2up03,,0,,,cg2001,,,
+3up01,3,0,,,,,,
+3up02,,0,,,park,,,
+3up03,,0,,,,,7,2
+3upClass,,0,,,class,Open the door,,
+4up01,4,0,,,,,,
+4upLS,,0,,,,,5,2
+4upDG,,0,,,,,5,1
