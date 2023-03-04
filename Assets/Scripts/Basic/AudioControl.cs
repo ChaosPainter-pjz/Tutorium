@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AudioControl : MonoBehaviour
+public class AudioControl : MonoInstance<AudioControl>
 {
     [Header("BGM")] public AudioClip[] audioClips;
     [Header("音效")] public AudioClip[] soundAudioClips;

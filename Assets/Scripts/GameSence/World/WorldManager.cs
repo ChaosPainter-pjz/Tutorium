@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Supermarket;
 using UnityEngine;
+using World;
 
 public class WorldManager : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private SupermarketControl supermarketControl;
     [SerializeField] private KTVControl ktvControl;
     private PlotJudgmentList otherPlotJudgment;
+    [SerializeField] private MarketControl marketControl;
+
     public void OnExit()
     {
         if (worldPanel.activeSelf)
@@ -67,6 +70,39 @@ public class WorldManager : MonoBehaviour
         {
             supermarketControl.gameObject.SetActive(true);
         }
+    }
+    /// <summary>
+    /// 点击朋克城
+    /// </summary>
+    public void OnMarket()
+    {
+        if (IsMarket())
+        {
+            marketControl.gameObject.SetActive(true);
+        }
+        else
+        {
+            HintManager.Instance.AddHint(new Hint("施工即将完成", "工作人员告诉你：该商户还在装修中，尚不知晓何时开业"));
+        }
+    }
+    /// <summary>
+    /// 返回现在朋克城是否开业了
+    /// </summary>
+    /// <returns></returns>
+    private bool IsMarket()
+    {
+        if (gameManager.saveObject.SaveData.gameDate.year < gameManager.saveObject.SaveData.InitYear + 1)
+        {
+            return false;
+        }
+
+        if (gameManager.saveObject.SaveData.gameDate.year == gameManager.saveObject.SaveData.InitYear + 1
+            && gameManager.saveObject.SaveData.gameDate.Semester == 0)
+        {
+            return false;
+        }
+
+        return true;
     }
 
 

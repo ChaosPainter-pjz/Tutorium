@@ -50,6 +50,9 @@ public class Date
     /// </summary>
     [SerializeField]
     private int semester;
+    /// <summary>
+    /// 今天是上学期还是下学期，0：上学期。1：下学期
+    /// </summary>
     public int Semester
     {
         get => semester;
