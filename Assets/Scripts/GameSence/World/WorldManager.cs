@@ -15,7 +15,7 @@ public class WorldManager : MonoBehaviour
     [SerializeField] private SupermarketControl supermarketControl;
     [SerializeField] private KTVControl ktvControl;
     private PlotJudgmentList otherPlotJudgment;
-    [SerializeField] private MarketControl marketControl;
+    [SerializeField] private CoexControl coexControl;
 
     public void OnExit()
     {
@@ -72,13 +72,13 @@ public class WorldManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// 点击朋克城
+    /// 点击会展中心
     /// </summary>
-    public void OnMarket()
+    public void OnCoex()
     {
-        if (IsMarket())
+        if (IsCoex())
         {
-            marketControl.gameObject.SetActive(true);
+            coexControl.gameObject.SetActive(true);
         }
         else
         {
@@ -86,10 +86,10 @@ public class WorldManager : MonoBehaviour
         }
     }
     /// <summary>
-    /// 返回现在朋克城是否开业了
+    /// 返回现在会展广场是否开业了
     /// </summary>
     /// <returns></returns>
-    private bool IsMarket()
+    private bool IsCoex()
     {
         if (gameManager.saveObject.SaveData.gameDate.year < gameManager.saveObject.SaveData.InitYear + 1)
         {
