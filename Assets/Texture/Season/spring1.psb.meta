@@ -802,8 +802,8 @@ ScriptedImporter:
     - {x: 46, y: 0}
     tessellationDetail: 0
     parentGroupIndex: -1
-    uvTransform: {x: 4, y: 687}
-    spritePosition: {x: 65, y: -2}
+    uvTransform: {x: 4, y: 658}
+    spritePosition: {x: 65, y: 29}
   - name: "\u56FE\u5C42 5"
     originalName: 
     pivot: {x: 0.5, y: 0.5}

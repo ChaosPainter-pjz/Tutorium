@@ -104,6 +104,9 @@
       <option value="$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs" />
     </changedPaths>
   </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
   <component name="ProjectId" id="1vNmVvblsiYxYv0RQHw75ZjEDH5" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -112,18 +115,23 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\zoa\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache",
-      "C:\\Users\\zoa\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache",
-      "C:\\Users\\zoa\\AppData\\Local\\Symbols\\src"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;
+  },
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.1\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\panji\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected="独立播放器.Standalone Player">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\2021.3.15f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.21f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -147,21 +155,11 @@
       <method v="2" />
     </configuration>
     <configuration name="单元测试(批处理模式)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="D:\Program Files\Unity\2021.3.15f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.21f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
       <option name="USE_EXTERNAL_CONSOLE" value="0" />
-      <method v="2" />
-    </configuration>
-    <configuration name="附加到 Unity 编辑器并运行" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
-      <option name="allowRunningInParallel" value="false" />
-      <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
       <method v="2" />
     </configuration>
     <configuration name="附加到 Unity 编辑器" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
@@ -174,17 +172,7 @@
       </option>
       <method v="2" />
     </configuration>
-    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
-      <option name="allowRunningInParallel" value="false" />
-      <option name="listenPortForConnections" value="false" />
-      <option name="pid" />
-      <option name="projectPathOnTarget" />
-      <option name="selectedOptions">
-        <list />
-      </option>
-      <method v="2" />
-    </configuration>
-    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+    <configuration name="附加到 Unity 编辑器并运行" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
       <option name="allowRunningInParallel" value="false" />
       <option name="listenPortForConnections" value="false" />
       <option name="pid" />
@@ -210,40 +198,19 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Unit/Grade.cs</url>
           <line>36</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" initialLine="36" containingFunctionPresentation="property 'GradeScore'">
-            <startOffsets>
-              <option value="763" />
-            </startOffsets>
-            <endOffsets>
-              <option value="776" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" initialLine="36" containingFunctionPresentation="property 'GradeScore'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
           <line>80</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="80" containingFunctionPresentation="method 'Midterm'">
-            <startOffsets>
-              <option value="2321" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2404" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="80" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
           <line>76</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="76" containingFunctionPresentation="method 'Midterm'">
-            <startOffsets>
-              <option value="2182" />
-            </startOffsets>
-            <endOffsets>
-              <option value="2272" />
-            </endOffsets>
-          </properties>
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="76" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
