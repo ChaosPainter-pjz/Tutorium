@@ -5,16 +5,18 @@ using Random = UnityEngine.Random;
 /// <summary>
 /// 成绩
 /// </summary>
-[Serializable]public class Grade
+[Serializable]
+public class Grade
 {
     /// <summary>
     /// 成绩的ID
     /// </summary>
-    [SerializeField]public string gradeID;
+    [SerializeField] public string gradeID;
+
     /// <summary>
     /// 得分
     /// </summary>
-    [SerializeField]public int score;
+    [SerializeField] public int score;
 
     public int MAXScore => 100;
 
@@ -25,18 +27,24 @@ using Random = UnityEngine.Random;
     {
         get
         {
-            int range = (int) (Mathf.Pow(1 - (score / 1000.0f - 1) * (score / 1000.0f - 1), 0.5f) * 100) + Random.Range(-2, 3);
-            if (range<0)
-            {
+            int range = (int)(Mathf.Pow(1 - (score / 1000.0f - 1) * (score / 1000.0f - 1), 0.5f) * 100) +
+                        Random.Range(-2, 3);
+            if (range < 0)
                 range = 0;
-            }else if (range>MAXScore)
-            {
-                range = MAXScore;
-            }
+            else if (range > MAXScore) range = MAXScore;
 
             return range;
         }
     }
 
-    [SerializeField]public string name;
+    [SerializeField] public string name;
+
+    public Grade Copy()
+    {
+        return new Grade()
+        {
+            gradeID = gradeID,
+            score = score
+        };
+    }
 }

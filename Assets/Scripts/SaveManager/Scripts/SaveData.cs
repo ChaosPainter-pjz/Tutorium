@@ -13,7 +13,7 @@ public class SaveData
     /// <summary>
     /// 历史每日新闻
     /// </summary>
-    [SerializeField] public List<string> dailyNews = new List<string>();
+    [SerializeField] public List<string> dailyNews = new();
 
     public int InitYear
     {
@@ -37,7 +37,7 @@ public class SaveData
     /// <summary>
     /// 更新日期必须使用DatetimeManager
     /// </summary>
-    [SerializeField] public Date gameDate = new Date(2000, 0, 1, 0);
+    [SerializeField] public Date gameDate = new(2000, 0, 1, 0);
 
     /// <summary>
     /// 世界的解锁状态
@@ -47,24 +47,27 @@ public class SaveData
     /// <summary>
     /// 上次访问公园的时间
     /// </summary>
-    [SerializeField] public Date parkDate = new Date(2000, 0, 1, 0);
+    [SerializeField] public Date parkDate = new(2000, 0, 1, 0);
 
     /// <summary>
     /// 超市上次进货时间
     /// </summary>
-    [SerializeField] public Date supermarketDate = new Date(2000, 0, 1, 0);
+    [SerializeField] public Date supermarketDate = new(2000, 0, 1, 0);
 
     /// <summary>
     /// 超市商品
     /// </summary>
-    [SerializeField] public List<Article> supermarketCommodities = new List<Article>();
+    [SerializeField] public List<Article> supermarketCommodities = new();
 
     /// <summary>
     /// 上次期中考试的时间
     /// </summary>
-    [SerializeField] public Date midtermDate = new Date(2000, 0, 1, 0);
+    [SerializeField] public Date midtermDate = new(2000, 0, 1, 0);
 
-    public CoexData coexData = new CoexData();
+    /// <summary>
+    /// 朋克城
+    /// </summary>
+    public CoexData coexData = new();
 
     /// <summary>
     /// 期中考试提升倍率
@@ -83,15 +86,16 @@ public class SaveData
 
     [SerializeField] public DateTime dateTime = DateTime.Now;
 
-    [SerializeField] public PlayerUnit playerUnit = new PlayerUnit();
-    [SerializeField] public List<StudentUnit> studentUnits = new List<StudentUnit>();
+    [SerializeField] public PlayerUnit playerUnit = new();
+    [SerializeField] public List<StudentUnit> studentUnits = new();
 
     /// <summary>
     /// 教室的日程
     /// </summary>
     [SerializeField] public Schedule[] classroomSchedule =
     {
-        new Schedule { id = "2" }, new Schedule { id = "2" }, new Schedule { id = "0" }, new Schedule { id = "1" }, new Schedule { id = "3" }, new Schedule { id = "0" }
+        new() { id = "2" }, new() { id = "2" }, new() { id = "0" }, new() { id = "1" }, new() { id = "3" },
+        new() { id = "0" }
     };
 
     /// <summary>
@@ -107,28 +111,39 @@ public class SaveData
     /// <summary>
     /// 剧情所用的存档id
     /// </summary>
-    [SerializeField] public List<string> plotSaveID = new List<string>();
+    [SerializeField] public List<string> plotSaveID = new();
 
     /// <summary>
     /// 时间轴记录
     /// </summary>
-    [SerializeField] public List<TimerShaftNode> timerShaftNodes = new List<TimerShaftNode>();
+    [SerializeField] public List<TimerShaftNode> timerShaftNodes = new();
 
     /// <summary>
     /// 消息记录
     /// </summary>
-    [SerializeField] public List<Hint> hints = new List<Hint>();
+    [SerializeField] public List<Hint> hints = new();
 }
+
 /// <summary>
 /// 朋克城数据记录
 /// </summary>
 [Serializable]
 public class CoexData
 {
-    public Date date = new Date(2000, 0, 1, 0);
-    //未领取的任务
-    public Dictionary<StudentUnit, Grade> tasks = new Dictionary<StudentUnit, Grade>();
-    //已经领取的任务
-    public Dictionary<StudentUnit, Grade> lockTasks = new Dictionary<StudentUnit, Grade>();
+    /// <summary>
+    /// 注意，先复制一份再复制
+    /// </summary>
+    public Date date = new(2000, 0, 1, 0);
 
+    //未领取的任务
+    public List<Task> Tasks = new();
+
+    //已经领取的任务
+    public List<Task> LockTasks = new();
+
+    public class Task
+    {
+        public string UnitId = "-1";
+        public Grade Grade = new();
+    }
 }
