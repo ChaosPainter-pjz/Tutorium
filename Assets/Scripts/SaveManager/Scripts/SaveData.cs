@@ -145,5 +145,7 @@ public class CoexData
     {
         public string UnitId = "-1";
         public Grade Grade = new();
+        public int RewardValue;
+        public Date LockingTime;
     }
 }
