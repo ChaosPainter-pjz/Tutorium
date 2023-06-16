@@ -141,6 +141,7 @@ public class CoexData
     //已经领取的任务
     public List<Task> LockTasks = new();
 
+    [Serializable]
     public class Task
     {
         public string UnitId = "-1";

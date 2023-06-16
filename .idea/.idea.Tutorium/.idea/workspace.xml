@@ -134,7 +134,7 @@
 }</component>
   <component name="RunManager" selected="独立播放器.Standalone Player">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.21f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -158,7 +158,7 @@
       <method v="2" />
     </configuration>
     <configuration name="单元测试(批处理模式)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2021.3.21f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.0f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
