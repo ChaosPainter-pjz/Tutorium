@@ -144,7 +144,11 @@ public class CoexData
     [Serializable]
     public class Task
     {
+        /// <summary>
+        /// 接取者ID
+        /// </summary>
         public string UnitId = "-1";
+
         public Grade Grade = new();
         public int RewardValue;
         public Date LockingTime;
