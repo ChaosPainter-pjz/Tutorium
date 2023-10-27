@@ -59,18 +59,21 @@ public class ExecuteControl : MonoBehaviour
     /// </summary>
     private void InitEntry()
     {
-        void InstantiateEntry(string gradeName,PropertyUpdateGlossaryControl.AttributeType type)
+        void InstantiateEntry(string gradeName, PropertyUpdateGlossaryControl.AttributeType type)
         {
             var control = Instantiate(attributeText, parent).GetComponent<PropertyUpdateGlossaryControl>();
-            control.Init(gradeName,type);
+            control.Init(gradeName, type);
             propertyUpdateGlossaryControls.Add(control);
         }
 
-        StudentUnit tUnit = new StudentUnit();
-        foreach (Grade grade in tUnit.properties) InstantiateEntry(grade.name,PropertyUpdateGlossaryControl.AttributeType.Property);
-        foreach (Grade grade in tUnit.mainGrade) InstantiateEntry(grade.name,PropertyUpdateGlossaryControl.AttributeType.Main);
-        foreach (Grade grade in tUnit.interestGrade) InstantiateEntry(grade.name,PropertyUpdateGlossaryControl.AttributeType.Interest);
-        InstantiateEntry("信任",PropertyUpdateGlossaryControl.AttributeType.Other);
+        var tUnit = new StudentUnit();
+        foreach (Grade grade in tUnit.properties)
+            InstantiateEntry(grade.name, PropertyUpdateGlossaryControl.AttributeType.Property);
+        foreach (Grade grade in tUnit.mainGrade)
+            InstantiateEntry(grade.name, PropertyUpdateGlossaryControl.AttributeType.Main);
+        foreach (Grade grade in tUnit.interestGrade)
+            InstantiateEntry(grade.name, PropertyUpdateGlossaryControl.AttributeType.Interest);
+        InstantiateEntry("信任", PropertyUpdateGlossaryControl.AttributeType.Other);
     }
 
     /// <summary>
@@ -79,13 +82,10 @@ public class ExecuteControl : MonoBehaviour
     /// <param name="_studentUnit"></param>
     public void LoadStudent(StudentUnit _studentUnit)
     {
-        this.studentUnit = _studentUnit;
+        studentUnit = _studentUnit;
         studentName.text = _studentUnit.fullName;
         //这里固定肖像
-        foreach (var obj in studentsPortrayals)
-        {
-            obj.SetActive(obj.CompareTag(_studentUnit.id));
-        }
+        foreach (GameObject obj in studentsPortrayals) obj.SetActive(obj.CompareTag(_studentUnit.id));
 
         StudentAttributeUpdate();
     }
@@ -95,9 +95,9 @@ public class ExecuteControl : MonoBehaviour
     /// </summary>
     private void ReviewSchedule()
     {
-        for (int i = 0; i < studentUnit.schedule.Length; i++)
+        for (var i = 0; i < studentUnit.schedule.Length; i++)
         {
-            var schedule = studentUnit.schedule[i];
+            Schedule schedule = studentUnit.schedule[i];
             if (schedule.lockTime > 0)
             {
                 schedule.lockTime--;
@@ -116,8 +116,8 @@ public class ExecuteControl : MonoBehaviour
     private void StudentAttributeUpdate()
     {
         //该学生的日程集合
-        List<CourseList.Row> rows = new List<CourseList.Row>();
-        foreach (var schedule in studentUnit.schedule)
+        var rows = new List<CourseList.Row>();
+        foreach (Schedule schedule in studentUnit.schedule)
         {
             CourseList.Row row = courseList.Find_Id(schedule.id);
             rows.Add(row);
@@ -128,38 +128,51 @@ public class ExecuteControl : MonoBehaviour
         //这个是初始的学生数值
         StudentUnit lowStudent = Copy(studentUnit);
         //这个是结算仅课程加成的学生数值
-        for (int i = 0; i < rows.Count; i++)
+        for (var i = 0; i < rows.Count; i++)
         {
-            float learningMultiple = 1f; //学习效率的倍数，教室的提升效果
+            var learningMultiple = 1f; //学习效率的倍数，教室的提升效果
             if (classroomSchedule[i].id == rows[i].Id)
-            {
                 //此时当前课程是在教室上的
                 learningMultiple = GameManager.Instance.saveObject.SaveData.classroomEfficiency;
-            }
 
             //变更学生的属性
-            string[] mainStrings = { rows[i].语文, rows[i].数学, rows[i].英语, rows[i].政治, rows[i].历史, rows[i].地理, rows[i].物理, rows[i].化学, rows[i].生物 };
-            int[] mainRows = Array.ConvertAll(mainStrings, int.Parse);
-            for (int j = 0; j < mainRows.Length; j++) studentUnit.mainGrade[j].score += Convert.ToInt32(mainRows[j] * learningMultiple * studentUnit.MoodRate);
+            string[] mainStrings =
+            {
+                rows[i].语文, rows[i].数学, rows[i].英语, rows[i].政治, rows[i].历史, rows[i].地理, rows[i].物理, rows[i].化学,
+                rows[i].生物
+            };
+            var mainRows = Array.ConvertAll(mainStrings, int.Parse);
+            for (var j = 0; j < mainRows.Length; j++)
+                studentUnit.mainGrade[j].score +=
+                    Convert.ToInt32(mainRows[j] * learningMultiple * studentUnit.MoodRate);
 
-            string[] interestStrings = { rows[i].音乐, rows[i].表演, rows[i].舞蹈, rows[i].手工, rows[i].棋技, rows[i].种植,  rows[i].摄影,rows[i].烹饪, rows[i].考古, rows[i].编程, rows[i].绘画, rows[i].运动 };
-            int[] interestRows = Array.ConvertAll(interestStrings, int.Parse);
-            for (int j = 0; j < interestRows.Length; j++) studentUnit.interestGrade[j].score += Convert.ToInt32(interestRows[j] * learningMultiple * studentUnit.MoodRate);
+            string[] interestStrings =
+            {
+                rows[i].音乐, rows[i].表演, rows[i].舞蹈, rows[i].手工, rows[i].棋技, rows[i].种植, rows[i].摄影, rows[i].烹饪,
+                rows[i].考古, rows[i].编程, rows[i].绘画, rows[i].运动
+            };
+            var interestRows = Array.ConvertAll(interestStrings, int.Parse);
+            for (var j = 0; j < interestRows.Length; j++)
+                studentUnit.interestGrade[j].score +=
+                    Convert.ToInt32(interestRows[j] * learningMultiple * studentUnit.MoodRate);
 
             string[] propertyString = { rows[i].气质, rows[i].思维, rows[i].口才, rows[i].体质, rows[i].善恶 };
-            int[] propertyRows = Array.ConvertAll(propertyString, int.Parse);
+            var propertyRows = Array.ConvertAll(propertyString, int.Parse);
 
-            for (int j = 0; j < propertyRows.Length; j++) studentUnit.properties[j].score += Convert.ToInt32(propertyRows[j] * learningMultiple * studentUnit.MoodRate);
+            for (var j = 0; j < propertyRows.Length; j++)
+                studentUnit.properties[j].score +=
+                    Convert.ToInt32(propertyRows[j] * learningMultiple * studentUnit.MoodRate);
+
             studentUnit.Trust += Convert.ToInt32(int.Parse(rows[i].信任) * learningMultiple * studentUnit.MoodRate);
             studentUnit.Mood += Convert.ToInt32(int.Parse(rows[i].心情) * learningMultiple); //最后变心情,且心情不受自身倍率影响
         }
 
         StudentUnit classStudent = Copy(studentUnit); //class
-        for (int i = 0; i < rows.Count; i++)
+        for (var i = 0; i < rows.Count; i++)
         {
-            bool isClassroom = classroomSchedule[i].id == rows[i].Id;
+            var isClassroom = classroomSchedule[i].id == rows[i].Id;
             //存储当前课程可以触发的老师的技能
-            List<PlayerCourseLevelList.Row> targets = new List<PlayerCourseLevelList.Row>();
+            var targets = new List<PlayerCourseLevelList.Row>();
             //遍历老师当前已有的技能
             foreach (PlayerCourse playerCourse in playerCourses)
             {
@@ -195,21 +208,17 @@ public class ExecuteControl : MonoBehaviour
                         break;
                 }
 
-                if (target != null)
-                {
-                    targets.Add(target);
-                }
+                if (target != null) targets.Add(target);
 
                 PlayerCourseLevelList.Row GetTarget() //局部函数，通过playerCourse的数据来寻找合适的row条目
                 {
                     //找到符合该技能ID的升级数据
                     List<PlayerCourseLevelList.Row> allId = playerCourseLevelList.FindAll_id(playerCourse.id);
                     //找到符合该技能等级的升级数据
-                    List<PlayerCourseLevelList.Row> allIdLevel = allId.FindAll(x => int.Parse(x.等级) == playerCourse.level);
+                    List<PlayerCourseLevelList.Row> allIdLevel =
+                        allId.FindAll(x => int.Parse(x.等级) == playerCourse.level);
                     if (allIdLevel.Count == 0)
-                    {
                         Debug.Log("未找到指定id：" + playerCourse.id + "对应的" + playerCourse.level + "级条目");
-                    }
 
                     //抽取一条来作为属性变化依据
                     return allIdLevel[Random.Range(0, allIdLevel.Count - 1)];
@@ -217,17 +226,30 @@ public class ExecuteControl : MonoBehaviour
             }
 
             //开始老师技能影响的属性变化
-            foreach (var target in targets)
+            foreach (PlayerCourseLevelList.Row target in targets)
             {
-                string[] mainRowsString = { target.语文, target.数学, target.英语, target.政治, target.历史, target.地理, target.物理, target.化学, target.生物 };
-                int[] mainRows = Array.ConvertAll(mainRowsString, int.Parse);
-                for (int j = 0; j < mainRows.Length; j++) studentUnit.mainGrade[j].score += Convert.ToInt32(mainRows[j] * studentUnit.MoodRate);
-                string[] interestRowsString = { target.音乐, target.表演, target.舞蹈, target.手工, target.棋技, target.种植,  target.摄影,target.烹饪, target.考古, target.编程, target.绘画, target.运动 };
-                int[] interestRows = Array.ConvertAll(interestRowsString, int.Parse);
-                for (int j = 0; j < interestRows.Length; j++) studentUnit.interestGrade[j].score += Convert.ToInt32(interestRows[j] * studentUnit.MoodRate);
+                string[] mainRowsString =
+                {
+                    target.语文, target.数学, target.英语, target.政治, target.历史, target.地理, target.物理, target.化学, target.生物
+                };
+                var mainRows = Array.ConvertAll(mainRowsString, int.Parse);
+                for (var j = 0; j < mainRows.Length; j++)
+                    studentUnit.mainGrade[j].score += Convert.ToInt32(mainRows[j] * studentUnit.MoodRate);
+
+                string[] interestRowsString =
+                {
+                    target.音乐, target.表演, target.舞蹈, target.手工, target.棋技, target.种植, target.摄影, target.烹饪, target.考古,
+                    target.编程, target.绘画, target.运动
+                };
+                var interestRows = Array.ConvertAll(interestRowsString, int.Parse);
+                for (var j = 0; j < interestRows.Length; j++)
+                    studentUnit.interestGrade[j].score += Convert.ToInt32(interestRows[j] * studentUnit.MoodRate);
+
                 string[] propertyString = { target.气质, target.思维, target.口才, target.体质, target.善恶 };
-                int[] propertyRows = Array.ConvertAll(propertyString, int.Parse);
-                for (int j = 0; j < propertyRows.Length; j++) studentUnit.properties[j].score += Convert.ToInt32(propertyRows[j] * studentUnit.MoodRate);
+                var propertyRows = Array.ConvertAll(propertyString, int.Parse);
+                for (var j = 0; j < propertyRows.Length; j++)
+                    studentUnit.properties[j].score += Convert.ToInt32(propertyRows[j] * studentUnit.MoodRate);
+
                 studentUnit.Trust += Convert.ToInt32(int.Parse(target.信任) * studentUnit.MoodRate);
                 studentUnit.Mood += Convert.ToInt32(int.Parse(target.心情));
             }
@@ -242,13 +264,14 @@ public class ExecuteControl : MonoBehaviour
     {
         Low2New,
         Low2Class,
-        Class2Player,
+        Class2Player
     }
 
     /// <summary>
     /// 生成属性更改条目
     /// </summary>
-    private void GenerateAttributeChangeEntries(StudentUnit newStudentUnit, StudentUnit lowStudentUnit, Location location)
+    private void GenerateAttributeChangeEntries(StudentUnit newStudentUnit, StudentUnit lowStudentUnit,
+        Location location)
     {
         switch (location)
         {
@@ -258,7 +281,7 @@ public class ExecuteControl : MonoBehaviour
                 //传入课程本身的分数变化值
                 void Low2New(IReadOnlyList<Grade> newUnit, IReadOnlyList<Grade> lowUnit)
                 {
-                    for (int i = 0; i < lowUnit.Count; i++)
+                    for (var i = 0; i < lowUnit.Count; i++)
                     {
                         Grade lowGrade = lowUnit[i];
                         Grade newGrade = newUnit[i];
@@ -280,7 +303,7 @@ public class ExecuteControl : MonoBehaviour
             {
                 void Default(IReadOnlyList<Grade> newUnit, IReadOnlyList<Grade> lowUnit)
                 {
-                    for (int i = 0; i < lowUnit.Count; i++)
+                    for (var i = 0; i < lowUnit.Count; i++)
                     {
                         Grade lowGrade = lowUnit[i];
                         Grade newGrade = newUnit[i];

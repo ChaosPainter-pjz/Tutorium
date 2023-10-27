@@ -60,6 +60,9 @@ namespace World
             }
         }
 
+        /// <summary>
+        /// 接取任务
+        /// </summary>
         public void OnTakeButton()
         {
             if (isTask)
@@ -77,7 +80,9 @@ namespace World
             _buttonCallback?.Invoke();
         }
 
-
+        /// <summary>
+        /// 交任务
+        /// </summary>
         public void OnAccomplishButton()
         {
             _saveData.coexData.LockTasks.Remove(_task);

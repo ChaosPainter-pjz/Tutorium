@@ -11,9 +11,10 @@ namespace World
     public class CoexControl : MonoBehaviour
     {
         [SerializeField] private SaveObject saveObject;
+        [SerializeField] private Transform m_taskContents;
+
         private CoexData coexData;
         [SerializeField] private CoexCard[] m_tasks;
-        [SerializeField] private CoexCard[] m_lockTasks;
 
         private void OnEnable()
         {
@@ -37,19 +38,12 @@ namespace World
         /// </summary>
         private void OnTaskPanel()
         {
-            //显示任务列表
-            //生成随机任务
-            int days = Random.Range(1, 7);
-            int attribute = Random.Range(1, 4);
-            int value = Random.Range(10, 21);
-            string taskContent = $"在{days}天内将{attribute}属性提升至{value}";
-
-            //显示任务内容
-            // taskContentText.text = $"任务内容：{taskContent}";
-            //
-            //
-            // //奖励属性数值
-            // rewardText.text = $"奖励{attribute}属性{value}点";
+            //显示未接任务
+            for (var i = 0; i < m_tasks.Length; i++)
+                if (i < coexData.LockTasks.Count)
+                    m_tasks[i].Init(saveObject.SaveData, coexData.LockTasks[i], OnFetchTask);
+                else if (i < coexData.LockTasks.Count + coexData.Tasks.Count)
+                    m_tasks[i].Init(saveObject.SaveData, coexData.Tasks[i - coexData.LockTasks.Count], OnFetchTask);
         }
 
         /// <summary>
@@ -85,7 +79,7 @@ namespace World
                 else
                 {
                     // 刷新2-3条
-                    int number = Random.Range(2, 4);
+                    var number = Random.Range(2, 4);
                     int index1, index2, index3;
                     index1 = Random.Range(0, 5);
 
@@ -108,7 +102,7 @@ namespace World
         private CoexData.Task GetATask()
         {
             CoexData.Task task = new();
-            int studentIndex = Random.Range(0, saveObject.SaveData.studentUnits.Count);
+            var studentIndex = Random.Range(0, saveObject.SaveData.studentUnits.Count);
             StudentUnit studentUnit = saveObject.SaveData.studentUnits[studentIndex];
             task.UnitId = studentUnit.id;
 
@@ -136,7 +130,9 @@ namespace World
         }
 
 
-        //接取任务
+        /// <summary>
+        /// 点击了卡片的按钮，需要刷新面板
+        /// </summary>
         private void OnFetchTask()
         {
         }

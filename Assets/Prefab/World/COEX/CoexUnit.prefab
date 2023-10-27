@@ -223,11 +223,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   studentName: {fileID: 1758504121811255692}
-  grade: {fileID: 0}
-  rewardText: {fileID: 0}
-  buttonTake: {fileID: 0}
-  buttonAbandon: {fileID: 0}
-  buttonAccomplish: {fileID: 0}
+  grade: {fileID: 1396756600332858528}
+  buttonTake: {fileID: 7577243487296121765}
+  buttonText: {fileID: 2084696463083684088}
+  buttonAccomplish: {fileID: 8571809714558346615}
 --- !u!1 &2186177747544919122
 GameObject:
   m_ObjectHideFlags: 0

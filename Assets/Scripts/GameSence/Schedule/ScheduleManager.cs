@@ -13,9 +13,12 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
     public CourseList CourseList;
     public ScheduleControl classroomScheduleControl;
     public ScheduleControl[] scheduleControl;
+
     private List<StudentUnit> studentUnits;
+
     //卡片的背景
     [SerializeField] public Sprite[] courseImage;
+
     public override void Awake()
     {
         base.Awake();
@@ -27,7 +30,7 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
     {
         CourseList = gameManager.CourseList;
         studentUnits = gameManager.saveObject.SaveData.studentUnits;
-        classroomScheduleControl.Init(gameManager.saveObject.SaveData.classroomSchedule,CourseList);
+        classroomScheduleControl.Init(gameManager.saveObject.SaveData.classroomSchedule, CourseList);
 
         ScheduleControlUpdate();
         //UpdateUI();
@@ -35,18 +38,18 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
 
     private void ScheduleControlUpdate()
     {
-        for (int i = 0; i < studentUnits.Count; i++)
+        for (var i = 0; i < studentUnits.Count; i++)
         {
             scheduleControl[i].gameObject.SetActive(true);
-            scheduleControl[i].Init(studentUnits[i],CourseList);
+            scheduleControl[i].Init(studentUnits[i], CourseList);
         }
 
-        for (int i = studentUnits.Count; i < scheduleControl.Length; i++)
+        for (var i = studentUnits.Count; i < scheduleControl.Length; i++)
             scheduleControl[i].gameObject.SetActive(false);
     }
-     public void UIUpdate()
-    {
 
+    public void UIUpdate()
+    {
         classroomScheduleControl.UpdateUI();
         ScheduleControlUpdate();
         SelectManager.Instance.UpdateUI();
@@ -55,10 +58,11 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
     /// <summary>
     /// 点亮最近的卡片
     /// </summary>
-     public void LightNearestCard(Vector3 dragPosition)
-     {
-         SearchNearestCard(dragPosition)?.UpdateTemporaryUI(selectManager.row.Row2StudentCourse());
-     }
+    public void LightNearestCard(Vector3 dragPosition)
+    {
+        SearchNearestCard(dragPosition)?.UpdateTemporaryUI(selectManager.row.Row2StudentCourse());
+    }
+
     /// <summary>
     /// 设置最近的卡片为拖拽的卡片
     /// </summary>
@@ -66,6 +70,7 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
     {
         SearchNearestCard(dragPosition)?.UpdateCourse(selectManager.row.Row2StudentCourse());
     }
+
     /// <summary>
     /// 寻找最近的卡片
     /// </summary>
@@ -73,12 +78,12 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
     /// <returns></returns>
     private ScheduleCardControl SearchNearestCard(Vector3 dragPosition)
     {
-        float distance = MaxValue;
+        var distance = MaxValue;
         ScheduleCardControl scheduleCardControl = null;
-        foreach (var control in classroomScheduleControl.scheduleCards)
+        foreach (ScheduleCardControl control in classroomScheduleControl.scheduleCards)
         {
             control.CancelTemporaryUI();
-            float dis = Vector3.Distance(control.transform.position, dragPosition);
+            var dis = Vector3.Distance(control.transform.position, dragPosition);
             if (dis < distance)
             {
                 distance = dis;
@@ -86,14 +91,14 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
             }
         }
 
-        foreach (var control in scheduleControl)
+        foreach (ScheduleControl control in scheduleControl)
         {
-            if (!control.gameObject.activeSelf) continue;//如果这个日程表没有被激活，就跳过
-            foreach (var cardControl in control.scheduleCards)
+            if (!control.gameObject.activeSelf) continue; //如果这个日程表没有被激活，就跳过
+            foreach (ScheduleCardControl cardControl in control.scheduleCards)
             {
                 cardControl.CancelTemporaryUI();
-                float dis = Vector3.Distance(cardControl.transform.position, dragPosition);
-                if (dis<distance)
+                var dis = Vector3.Distance(cardControl.transform.position, dragPosition);
+                if (dis < distance)
                 {
                     distance = dis;
                     scheduleCardControl = cardControl;
@@ -101,10 +106,7 @@ public class ScheduleManager : MonoInstance<ScheduleManager>
             }
         }
 
-        if (Vector3.Distance(scheduleCardControl.gameObject.transform.position,dragPosition)>0.1f)
-        {
-            return null;
-        }
+        if (Vector3.Distance(scheduleCardControl.gameObject.transform.position, dragPosition) > 0.1f) return null;
         //Debug.Log(distance);
         return scheduleCardControl;
     }

@@ -6963,8 +6963,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   saveObject: {fileID: 11400000, guid: 9e663ab8659301d4383172329c35b9cf, type: 2}
+  m_taskContents: {fileID: 0}
   m_tasks: []
-  m_lockTasks: []
 --- !u!114 &117727034
 MonoBehaviour:
   m_ObjectHideFlags: 0

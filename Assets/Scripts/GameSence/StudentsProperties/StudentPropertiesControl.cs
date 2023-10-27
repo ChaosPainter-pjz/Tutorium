@@ -9,7 +9,7 @@ using UnityEngine.UI;
 public class StudentPropertiesControl : MonoBehaviour
 {
     [SerializeField] public StudentUnit studentUnit;
-    [Header("初始选择")] [SerializeField]private Toggle toggle;
+    [Header("初始选择")] [SerializeField] private Toggle toggle;
     [Header("心情、信任条绑定")] [SerializeField] private MoodControl moodControl;
     [SerializeField] private TrustControl trustControl;
     [SerializeField] private List<Text> basicList;
@@ -23,10 +23,12 @@ public class StudentPropertiesControl : MonoBehaviour
 
     [Header("基本属性页面")] [SerializeField] [FormerlySerializedAs("propertys")]
     private List<Text> properties;
+
     /// <summary>
     /// 肖像的父物体
     /// </summary>
     [SerializeField] private RectTransform portrayalParent;
+
     /// <summary>
     /// 肖像
     /// </summary>
@@ -63,7 +65,7 @@ public class StudentPropertiesControl : MonoBehaviour
     public void UIUpdate()
     {
         gameObject.SetActive(true);
-        moodControl.DoubleSet(studentUnit.Mood,studentUnit.Mood);
+        moodControl.DoubleSet(studentUnit.Mood, studentUnit.Mood);
         trustControl.InitTrust(studentUnit);
         SetBasic();
         SetMainScore();
@@ -79,12 +81,8 @@ public class StudentPropertiesControl : MonoBehaviour
     /// </summary>
     private void SetPortrayal()
     {
-        foreach (var obj in studentsPortrayals)
-        {
-            obj.SetActive(obj.CompareTag(studentUnit.id));
-        }
+        foreach (GameObject obj in studentsPortrayals) obj.SetActive(obj.CompareTag(studentUnit.id));
     }
-
 
 
     /// <summary>
@@ -104,17 +102,14 @@ public class StudentPropertiesControl : MonoBehaviour
         basicList[3].text = studentUnit.birthday.ToString();
         basicList[4].text = studentUnit.school + "  " + DatetimeManager.Instance.Grade + "年级";
         basicList[5].text = studentUnit.personalData;
-        if (GameManager.Instance.saveObject.SaveData.gameDate.year - DatetimeManager.Instance.InitYear==0)
+        if (GameManager.Instance.saveObject.SaveData.gameDate.year - DatetimeManager.Instance.InitYear == 0)
         {
             gaoKaoObj.SetActive(false);
         }
         else
         {
             basicList[6].text = "";
-            foreach (var grade in studentUnit.NCEESelect)
-            {
-                basicList[6].text += grade.name;
-            }
+            foreach (Grade grade in studentUnit.NCEESelect) basicList[6].text += grade.name;
 
             gaoKaoObj.SetActive(true);
         }
@@ -125,8 +120,10 @@ public class StudentPropertiesControl : MonoBehaviour
     /// </summary>
     private void SetProperty()
     {
-        for (int i = 0; i < properties.Count; i++) properties[i].text = studentUnit.properties[i].score.ToString();
-        goodAndEvilPointer.anchoredPosition = new Vector2(studentUnit.properties.Find(x => x.gradeID == "goodAndEvil").score / 2f, 0);
+        for (var i = 0; i < properties.Count; i++) properties[i].text = studentUnit.properties[i].score.ToString();
+
+        goodAndEvilPointer.anchoredPosition =
+            new Vector2(studentUnit.properties.Find(x => x.gradeID == "goodAndEvil").score / 2f, 0);
     }
 
     /// <summary>
@@ -134,10 +131,7 @@ public class StudentPropertiesControl : MonoBehaviour
     /// </summary>
     private void SetMainScore()
     {
-        for (int i = 0; i < studentUnit.mainGrade.Count; i++)
-        {
-            mainScores[i].UIUpdate(studentUnit.mainGrade[i]);
-        }
+        for (var i = 0; i < studentUnit.mainGrade.Count; i++) mainScores[i].UIUpdate(studentUnit.mainGrade[i]);
     }
 
     /// <summary>
@@ -145,8 +139,8 @@ public class StudentPropertiesControl : MonoBehaviour
     /// </summary>
     private void SetInterestGrade()
     {
-        bool isNotInterested = false;
-        foreach (var grade in studentUnit.interestGrade)
+        var isNotInterested = false;
+        foreach (Grade grade in studentUnit.interestGrade)
         {
             ScoreEntryControl entryControl = interestGrades.Find(x => x.grade.gradeID == grade.gradeID);
             if (entryControl == null)
@@ -155,12 +149,10 @@ public class StudentPropertiesControl : MonoBehaviour
                 interestGrades.Add(entryControl);
             }
 
-            bool b = entryControl.UIUpdate(grade);
-            if (b)
-            {
-                isNotInterested = true;
-            }
+            var b = entryControl.UIUpdate(grade);
+            if (b) isNotInterested = true;
         }
+
         //设置无兴趣提示的显示
         //Debug.Log(!isNotInterested);
         NotInterested.SetActive(!isNotInterested);
@@ -171,33 +163,23 @@ public class StudentPropertiesControl : MonoBehaviour
     /// </summary>
     private void SetFriendList()
     {
-        foreach (var control in friendControls)
-        {
-            control.gameObject.SetActive(false);
-        }
+        foreach (FriendEntryControl control in friendControls) control.gameObject.SetActive(false);
 
-        while (friendControls.Count<studentUnit.interpersonalRelationship.Count)
+        while (friendControls.Count < studentUnit.interpersonalRelationship.Count)
         {
-            FriendEntryControl control = Instantiate(friendPrefab, friendListParent).GetComponent<FriendEntryControl>();
+            var control = Instantiate(friendPrefab, friendListParent).GetComponent<FriendEntryControl>();
             friendControls.Add(control);
         }
 
-        for (int i = 0; i < studentUnit.interpersonalRelationship.Count; i++)
-        {
+        for (var i = 0; i < studentUnit.interpersonalRelationship.Count; i++)
             friendControls[i].UpdateUI(studentUnit.interpersonalRelationship[i]);
-        }
 
         //设置无朋友的提示
         //Debug.Log(friendListParent.childCount);
-        if (friendControls.Count==0)
-        {
+        if (friendControls.Count == 0)
             nptFriends.SetActive(true);
-        }
         else
-        {
-            nptFriends.SetActive(friendControls.All(control=>!control.gameObject.activeSelf));
-
-        }
+            nptFriends.SetActive(friendControls.All(control => !control.gameObject.activeSelf));
     }
 
     public void OnExit()
@@ -207,7 +189,7 @@ public class StudentPropertiesControl : MonoBehaviour
 
     public void Exit()
     {
-        portrayalParent.anchoredPosition = new Vector2(portrayalParent.anchoredPosition.x,0);
+        portrayalParent.anchoredPosition = new Vector2(portrayalParent.anchoredPosition.x, 0);
         GetComponentInChildren<CanvasGroup>().alpha = 1;
         gameObject.SetActive(false);
     }
