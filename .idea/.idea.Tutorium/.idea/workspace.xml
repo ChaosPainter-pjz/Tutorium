@@ -152,7 +152,7 @@
       <method v="2" />
     </configuration>
     <configuration name="独立播放器" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="$PROJECT_DIR$/../../辅导班/全托教师项目/N/N3.2\HostingTheTeacher.exe" />
+      <option name="EXE_PATH" value="E:/辅导班/发布版/202411\HostingTheTeacher.exe" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="D:\辅导班\全托教师项目\N\N3.2" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -205,7 +205,8 @@
       <updated>1698417201555</updated>
       <workItem from="1698417203898" duration="1065000" />
       <workItem from="1704095746686" duration="1208000" />
-      <workItem from="1704097098883" duration="489000" />
+      <workItem from="1704097098883" duration="1115000" />
+      <workItem from="1706104290905" duration="2345000" />
     </task>
     <servers />
   </component>

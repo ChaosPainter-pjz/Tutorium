@@ -38,20 +38,29 @@ namespace World
             _buttonCallback = buttonCallback;
             _saveData = saveData;
             _task = task;
+            CardUpdate();
+        }
 
-            if (saveData.coexData.Tasks.Contains(task))
+        /// <summary>
+        /// 刷新卡片的显示
+        /// </summary>
+        public void CardUpdate()
+        {
+            if (!gameObject.activeSelf) return;
+            if (_saveData.coexData.Tasks.Contains(_task))
                 buttonText.text = "参加";
-            else if (saveData.coexData.LockTasks.Contains(task)) buttonText.text = "放弃";
-            grade.text = $"类目：{task.Grade.name}    要求分数：{task.Grade.score}";
-            StudentUnit student = saveData.studentUnits.Find(st => st.id == task.UnitId);
+            else if (_saveData.coexData.LockTasks.Contains(_task))
+                buttonText.text = "放弃";
+            grade.text = $"类目：{_task.Grade.name}    要求分数：{_task.Grade.score}";
+            var student = _saveData.studentUnits.Find(st => st.id == _task.UnitId);
             if (student != null)
             {
-                Grade pro = student.properties.Find(grade => grade.gradeID == task.Grade.gradeID);
-                if (pro == null) pro = student.interestGrade.Find(grade => grade.gradeID == task.Grade.gradeID);
+                var pro = student.properties.Find(grade => grade.gradeID == _task.Grade.gradeID);
+                if (pro == null) pro = student.interestGrade.Find(grade => grade.gradeID == _task.Grade.gradeID);
 
-                if (pro == null) pro = student.mainGrade.Find(grade => grade.gradeID == task.Grade.gradeID);
+                if (pro == null) pro = student.mainGrade.Find(grade => grade.gradeID == _task.Grade.gradeID);
 
-                if (pro.score >= task.Grade.score) buttonAccomplish.gameObject.SetActive(true);
+                if (pro.score >= _task.Grade.score) buttonAccomplish.gameObject.SetActive(true);
                 studentName.text = $"接取人：{student.fullName}";
             }
             else

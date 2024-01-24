@@ -22,6 +22,9 @@ namespace World
             coexData ??= saveObject.SaveData.coexData;
             RefreshTaskList();
             OnTaskPanel();
+            CardUpdate();
+
+            gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -99,11 +102,15 @@ namespace World
             coexData.date = saveObject.SaveData.gameDate.Copy();
         }
 
+        /// <summary>
+        /// 生成一个新的任务
+        /// </summary>
+        /// <returns></returns>
         private CoexData.Task GetATask()
         {
             CoexData.Task task = new();
             var studentIndex = Random.Range(0, saveObject.SaveData.studentUnits.Count);
-            StudentUnit studentUnit = saveObject.SaveData.studentUnits[studentIndex];
+            var studentUnit = saveObject.SaveData.studentUnits[studentIndex];
             task.UnitId = studentUnit.id;
 
             if (Random.Range(0, 5f) < 1)
@@ -135,6 +142,15 @@ namespace World
         /// </summary>
         private void OnFetchTask()
         {
+            CardUpdate();
+        }
+
+        /// <summary>
+        /// 刷新卡片的显示
+        /// </summary>
+        private void CardUpdate()
+        {
+            foreach (var card in m_tasks) card.CardUpdate();
         }
     }
 }
