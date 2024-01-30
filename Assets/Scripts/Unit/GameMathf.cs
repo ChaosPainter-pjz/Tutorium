@@ -1,22 +1,22 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
-public static class GameMathf
+namespace Unit
 {
-    public static List<int> RandomList(int min, int max, int number)
+    public static class GameMathf
     {
-        List<int> list = new List<int>();
-        for (int i = 0; i < number; i++)
+        public static List<int> RandomList(int min, int max, int number)
         {
-            list.Add(i);
-        }
+            var list = new List<int>();
+            for (var i = 0; i < number; i++) list.Add(i);
 
-        for (int index = 0; index < list.Count; index++)
-        {
-            Random.InitState(list[index]);
-            list[index] = Random.Range(min, max);
-        }
+            for (var index = 0; index < list.Count; index++)
+            {
+                Random.InitState(list[index]);
+                list[index] = Random.Range(min, max);
+            }
 
-        return list;
+            return list;
+        }
     }
 }

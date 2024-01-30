@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct SiteId_t : System.IEquatable<SiteId_t>, System.IComparable<SiteId_t>
     {
-        public static readonly SiteId_t Invalid = new SiteId_t(0);
+        public static readonly SiteId_t Invalid = new(0);
         public ulong m_SiteId;
 
         public SiteId_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SiteId_t && this == (SiteId_t) other;
+            return other is SiteId_t && this == (SiteId_t)other;
         }
 
         public override int GetHashCode()

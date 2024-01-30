@@ -11,13 +11,11 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamRemoteplay
 {
     [System.Serializable]
-    public struct RemotePlaySessionID_t : System.IEquatable<RemotePlaySessionID_t>, System.IComparable<RemotePlaySessionID_t>
+    public struct RemotePlaySessionID_t : System.IEquatable<RemotePlaySessionID_t>,
+        System.IComparable<RemotePlaySessionID_t>
     {
         public uint m_RemotePlaySessionID;
 
@@ -33,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is RemotePlaySessionID_t && this == (RemotePlaySessionID_t) other;
+            return other is RemotePlaySessionID_t && this == (RemotePlaySessionID_t)other;
         }
 
         public override int GetHashCode()

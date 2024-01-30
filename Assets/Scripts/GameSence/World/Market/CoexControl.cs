@@ -1,9 +1,10 @@
 using System;
+using Basic;
+using SaveManager.Scripts;
 using UnityEngine;
-using UnityEngine.UI;
 using Random = UnityEngine.Random;
 
-namespace World
+namespace GameSence.World.Market
 {
     /// <summary>
     /// 朋克城控制器

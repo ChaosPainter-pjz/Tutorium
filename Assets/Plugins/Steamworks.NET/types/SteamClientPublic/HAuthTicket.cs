@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamClientPublic
 {
     [System.Serializable]
     public struct HAuthTicket : System.IEquatable<HAuthTicket>, System.IComparable<HAuthTicket>
     {
-        public static readonly HAuthTicket Invalid = new HAuthTicket(0);
+        public static readonly HAuthTicket Invalid = new(0);
         public uint m_HAuthTicket;
 
         public HAuthTicket(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HAuthTicket && this == (HAuthTicket) other;
+            return other is HAuthTicket && this == (HAuthTicket)other;
         }
 
         public override int GetHashCode()

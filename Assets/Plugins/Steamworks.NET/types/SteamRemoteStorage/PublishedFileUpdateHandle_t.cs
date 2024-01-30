@@ -11,15 +11,13 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamRemoteStorage
 {
     [System.Serializable]
-    public struct PublishedFileUpdateHandle_t : System.IEquatable<PublishedFileUpdateHandle_t>, System.IComparable<PublishedFileUpdateHandle_t>
+    public struct PublishedFileUpdateHandle_t : System.IEquatable<PublishedFileUpdateHandle_t>,
+        System.IComparable<PublishedFileUpdateHandle_t>
     {
-        public static readonly PublishedFileUpdateHandle_t Invalid = new PublishedFileUpdateHandle_t(0xffffffffffffffff);
+        public static readonly PublishedFileUpdateHandle_t Invalid = new(0xffffffffffffffff);
         public ulong m_PublishedFileUpdateHandle;
 
         public PublishedFileUpdateHandle_t(ulong value)
@@ -34,7 +32,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is PublishedFileUpdateHandle_t && this == (PublishedFileUpdateHandle_t) other;
+            return other is PublishedFileUpdateHandle_t && this == (PublishedFileUpdateHandle_t)other;
         }
 
         public override int GetHashCode()

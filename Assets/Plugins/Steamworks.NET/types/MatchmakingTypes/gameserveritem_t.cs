@@ -12,10 +12,11 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
 using System.Text;
+using Plugins.Steamworks.NET.autogen;
+using Plugins.Steamworks.NET.types.SteamClientPublic;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.MatchmakingTypes
 {
     //-----------------------------------------------------------------------------
     // Purpose: Data describing a single server

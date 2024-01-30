@@ -1,27 +1,30 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-/// <summary>
-/// 关闭面板时，所用到的控制器
-/// </summary>
-public class ExitUIControl : MonoBehaviour
+
+namespace GameSence
 {
-    public void OnExit()
+    /// <summary>
+    /// 关闭面板时，所用到的控制器
+    /// </summary>
+    public class ExitUIControl : MonoBehaviour
     {
-        GetComponent<Animator>().Play("ExitPanel");
-    }
+        public void OnExit()
+        {
+            GetComponent<Animator>().Play("ExitPanel");
+        }
 
-    public void OnScheduleEExit()
-    {
-        GetComponent<Animator>().SetBool("isExit",true);
-    }
-    public void Exit()
-    {
-        gameObject.SetActive(false);
-    }
+        public void OnScheduleEExit()
+        {
+            GetComponent<Animator>().SetBool("isExit", true);
+        }
 
-    public void OnExitSettingPanel()
-    {
-        GetComponent<Animator>().Play("GameSceneSettingExitPanel");
+        public void Exit()
+        {
+            gameObject.SetActive(false);
+        }
+
+        public void OnExitSettingPanel()
+        {
+            GetComponent<Animator>().Play("GameSceneSettingExitPanel");
+        }
     }
 }

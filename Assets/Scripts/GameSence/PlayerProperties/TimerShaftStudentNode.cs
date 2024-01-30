@@ -1,15 +1,17 @@
 using UnityEngine;
-[System.Serializable]
-public class TimerShaftStudentNode
-{
-    [SerializeField]
-    public string studentID;
-    [SerializeField]
-    public string text;
 
-    public TimerShaftStudentNode(string studentID, string text)
+namespace GameSence.PlayerProperties
+{
+    [System.Serializable]
+    public class TimerShaftStudentNode
     {
-        this.studentID = studentID;
-        this.text = text;
+        [SerializeField] public string studentID;
+        [SerializeField] public string text;
+
+        public TimerShaftStudentNode(string studentID, string text)
+        {
+            this.studentID = studentID;
+            this.text = text;
+        }
     }
 }

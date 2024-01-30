@@ -13,7 +13,7 @@
 
 // If we're running in the Unity Editor we need the editors platform.
 #if UNITY_EDITOR_WIN
-	#define VALVE_CALLBACK_PACK_LARGE
+#define VALVE_CALLBACK_PACK_LARGE
 #elif UNITY_EDITOR_OSX
 	#define VALVE_CALLBACK_PACK_SMALL
 
@@ -35,37 +35,41 @@
 #endif
 
 using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.autogen;
 
-namespace Steamworks {
-	public static class Packsize {
+namespace Plugins.Steamworks.NET
+{
+    public static class Packsize
+    {
 #if VALVE_CALLBACK_PACK_LARGE
-		public const int value = 8;
+        public const int value = 8;
 #elif VALVE_CALLBACK_PACK_SMALL
 		public const int value = 4;
 #endif
 
-		public static bool Test() {
-			int sentinelSize = Marshal.SizeOf(typeof(ValvePackingSentinel_t));
-			int subscribedFilesSize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSubscribedFilesResult_t));
+        public static bool Test()
+        {
+            var sentinelSize = Marshal.SizeOf(typeof(ValvePackingSentinel_t));
+            var subscribedFilesSize = Marshal.SizeOf(typeof(RemoteStorageEnumerateUserSubscribedFilesResult_t));
 #if VALVE_CALLBACK_PACK_LARGE
-			if (sentinelSize != 32 || subscribedFilesSize != (1 + 1 + 1 + 50 + 100) * 4 + 4)
-				return false;
+            if (sentinelSize != 32 || subscribedFilesSize != (1 + 1 + 1 + 50 + 100) * 4 + 4)
+                return false;
 #elif VALVE_CALLBACK_PACK_SMALL
 			if (sentinelSize != 24 || subscribedFilesSize != (1 + 1 + 1 + 50 + 100) * 4)
 				return false;
 #endif
-			return true;
-		}
+            return true;
+        }
 
-		[StructLayout(LayoutKind.Sequential, Pack = Packsize.value)]
-		struct ValvePackingSentinel_t {
-			uint m_u32;
-			ulong m_u64;
-			ushort m_u16;
-			double m_d;
-		};
-	}
+        [StructLayout(LayoutKind.Sequential, Pack = value)]
+        private struct ValvePackingSentinel_t
+        {
+            private uint m_u32;
+            private ulong m_u64;
+            private ushort m_u16;
+            private double m_d;
+        };
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

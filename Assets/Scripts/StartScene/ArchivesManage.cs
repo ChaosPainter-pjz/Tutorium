@@ -1,40 +1,40 @@
 using System.Collections;
+using Basic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-/// <summary>
-/// 存档管理器
-/// </summary>
-public class ArchivesManage : MonoInstance<ArchivesManage>
+namespace StartScene
 {
-    [SerializeField] private ArchiveControl[] archiveControls;
-    [SerializeField] private GameObject loadPanel;
-    private void Start()
+    /// <summary>
+    /// 存档管理器
+    /// </summary>
+    public class ArchivesManage : MonoInstance<ArchivesManage>
     {
-        Init();
-    }
+        [SerializeField] private ArchiveControl[] archiveControls;
+        [SerializeField] private GameObject loadPanel;
 
-    private void Init()
-    {
-        for (int i = 0; i < archiveControls.Length; i++)
+        private void Start()
         {
-            archiveControls[i].Init(i);
+            Init();
         }
-    }
 
-    public void LoadScene()
-    {
-        StartCoroutine(LoadLeaver());
-    }
-
-    private IEnumerator LoadLeaver()
-    {
-        loadPanel.SetActive(true);
-        AsyncOperation operation = SceneManager.LoadSceneAsync(1);
-        operation.allowSceneActivation = true;
-        while(!operation.isDone)   //当场景没有加载完毕
+        private void Init()
         {
-            yield return null;
+            for (var i = 0; i < archiveControls.Length; i++) archiveControls[i].Init(i);
+        }
+
+        public void LoadScene()
+        {
+            StartCoroutine(LoadLeaver());
+        }
+
+        private IEnumerator LoadLeaver()
+        {
+            loadPanel.SetActive(true);
+            var operation = SceneManager.LoadSceneAsync(1);
+            operation.allowSceneActivation = true;
+            while (!operation.isDone) //当场景没有加载完毕
+                yield return null;
         }
     }
 }

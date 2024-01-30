@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamInventory
 {
     [System.Serializable]
     public struct SteamItemDef_t : System.IEquatable<SteamItemDef_t>, System.IComparable<SteamItemDef_t>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamItemDef_t && this == (SteamItemDef_t) other;
+            return other is SteamItemDef_t && this == (SteamItemDef_t)other;
         }
 
         public override int GetHashCode()

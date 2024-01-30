@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct RTime32 : System.IEquatable<RTime32>, System.IComparable<RTime32>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is RTime32 && this == (RTime32) other;
+            return other is RTime32 && this == (RTime32)other;
         }
 
         public override int GetHashCode()

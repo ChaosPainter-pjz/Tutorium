@@ -11,14 +11,14 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.autogen;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// Setup callback for debug output, and the desired verbosity you want.
     [System.Runtime.InteropServices.UnmanagedFunctionPointer(System.Runtime.InteropServices.CallingConvention.Cdecl)]
-    public delegate void FSteamNetworkingSocketsDebugOutput(ESteamNetworkingSocketsDebugOutputType nType, System.Text.StringBuilder pszMsg);
+    public delegate void FSteamNetworkingSocketsDebugOutput(ESteamNetworkingSocketsDebugOutputType nType,
+        System.Text.StringBuilder pszMsg);
 }
 
 #endif // !DISABLESTEAMWORKS

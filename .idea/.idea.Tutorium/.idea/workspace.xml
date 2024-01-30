@@ -107,6 +107,9 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
 }</component>
@@ -119,29 +122,51 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "rider.code.cleanup.on.save": "true",
+    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
+    "settings.editor.selected.configurable": "settings.qodana",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\panji\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
+      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
+      "C:\\Users\\panji\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
+  <component name="QodanaHighlightedReportService">
+    <option name="localRunPublishedPersistedInfo">
+      <LocalRunPublishedPersistedInfo>
+        <option name="fileReportPersistedInfo">
+          <LocalReportPersistedInfo>
+            <option name="path" value="C:\Users\panji\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
+            <option name="reportGuid" value="5f512519-4329-45ea-9cea-37d545edba2b" />
+            <option name="reportName" value="Tutorium/qodana/2024-01-30" />
+          </LocalReportPersistedInfo>
+        </option>
+        <option name="reportLink" value="https://qodana.cloud/projects/AG0RY/reports/Ylg0a" />
+      </LocalRunPublishedPersistedInfo>
+    </option>
+  </component>
+  <component name="QodanaIsSelectedPersistenceService">
+    <option name="selectedOrLoading" value="true" />
+  </component>
+  <component name="QodanaReportsService">
+    <option name="descriptions">
+      <ReportDescription localRun="true" path="C:\Users\panji\AppData\Local\Temp\qodana_output\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/AG0RY/reports/Ylg0a" reportGuid="5f512519-4329-45ea-9cea-37d545edba2b" reportId="Tutorium/qodana/2024-01-30" />
+    </option>
+  </component>
   <component name="RunManager" selected="独立播放器.Standalone Player">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
       <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.4f1c1\Editor\Unity.exe" />
@@ -207,6 +232,7 @@
       <workItem from="1704095746686" duration="1208000" />
       <workItem from="1704097098883" duration="1115000" />
       <workItem from="1706104290905" duration="2345000" />
+      <workItem from="1706584275963" duration="1429000" />
     </task>
     <servers />
   </component>
@@ -226,23 +252,27 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Unit/Grade.cs</url>
-          <line>35</line>
+          <line>37</line>
           <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" initialLine="36" containingFunctionPresentation="property 'GradeScore'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
-          <line>80</line>
+          <line>67</line>
           <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="80" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
-          <line>76</line>
+          <line>66</line>
           <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="76" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

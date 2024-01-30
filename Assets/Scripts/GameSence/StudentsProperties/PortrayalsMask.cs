@@ -1,32 +1,27 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class PortrayalsMask : MonoBehaviour
+namespace GameSence.StudentsProperties
 {
-    [SerializeField] private CanvasGroup canvasGroup;
-    [SerializeField] private StudentPropertiesControl studentPropertiesControl;
-    private SpriteRenderer[] spriteRenderers;
-    public void Awake()
+    public class PortrayalsMask : MonoBehaviour
     {
-        studentPropertiesControl.UIUpdateEvent += UpdateUI;
-    }
+        [SerializeField] private CanvasGroup canvasGroup;
+        [SerializeField] private StudentPropertiesControl studentPropertiesControl;
+        private SpriteRenderer[] spriteRenderers;
 
-    private void UpdateUI()
-    {
-        spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
-    }
-
-    private void Update()
-    {
-        if (spriteRenderers==null)
+        public void Awake()
         {
-            UpdateUI();
+            studentPropertiesControl.UIUpdateEvent += UpdateUI;
         }
-        foreach (var renderer in spriteRenderers)
+
+        private void UpdateUI()
         {
-            renderer.color = new Color(1,1,1,canvasGroup.alpha) ;
+            spriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+        }
+
+        private void Update()
+        {
+            if (spriteRenderers == null) UpdateUI();
+            foreach (var renderer in spriteRenderers) renderer.color = new Color(1, 1, 1, canvasGroup.alpha);
         }
     }
 }

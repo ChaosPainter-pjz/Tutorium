@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamScreenshots
 {
     [System.Serializable]
     public struct ScreenshotHandle : System.IEquatable<ScreenshotHandle>, System.IComparable<ScreenshotHandle>
     {
-        public static readonly ScreenshotHandle Invalid = new ScreenshotHandle(0);
+        public static readonly ScreenshotHandle Invalid = new(0);
         public uint m_ScreenshotHandle;
 
         public ScreenshotHandle(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is ScreenshotHandle && this == (ScreenshotHandle) other;
+            return other is ScreenshotHandle && this == (ScreenshotHandle)other;
         }
 
         public override int GetHashCode()

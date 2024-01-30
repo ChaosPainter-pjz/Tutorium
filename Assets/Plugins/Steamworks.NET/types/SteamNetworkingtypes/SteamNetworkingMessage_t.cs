@@ -12,9 +12,10 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// A message that has been received.
     [System.Serializable]

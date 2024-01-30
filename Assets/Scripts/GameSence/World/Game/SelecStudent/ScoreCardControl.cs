@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-namespace WorldGame
+namespace GameSence.World.Game.SelecStudent
 {
     /// <summary>
     /// 小游戏选人界面，小卡片下显示学生属性的词条控制器

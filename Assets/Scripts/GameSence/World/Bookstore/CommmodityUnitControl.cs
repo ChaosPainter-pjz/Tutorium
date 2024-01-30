@@ -1,10 +1,11 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Basic.CSV2Table;
+using Basic.CSV2Table.World;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Bookstore
+namespace GameSence.World.Bookstore
 {
     /// <summary>
     /// 
@@ -34,7 +35,7 @@ namespace Bookstore
             isBuy = course != null;
             commodityName.text = row.name;
             commodityDescription.text = row.description;
-            CourseList.Row courseRow = GameManager.Instance.CourseList.Find_Id(row.courseID);
+            var courseRow = GameManager.GameManager.Instance.CourseList.Find_Id(row.courseID);
             if (courseRow == null)
             {
                 Debug.Log("错误的row.courseID：" + row.courseID);
@@ -43,10 +44,10 @@ namespace Bookstore
             {
                 if (courseRow.Type == "O")
                     commodityDescription2.text =
-                        $"订阅后可解锁“{GameManager.Instance.CourseList.Find_Id(row.courseID).Name}”外出项目。";
+                        $"订阅后可解锁“{GameManager.GameManager.Instance.CourseList.Find_Id(row.courseID).Name}”外出项目。";
                 else
                     commodityDescription2.text =
-                        $"订阅后可解锁“{GameManager.Instance.CourseList.Find_Id(row.courseID).Name}”兴趣课程。";
+                        $"订阅后可解锁“{GameManager.GameManager.Instance.CourseList.Find_Id(row.courseID).Name}”兴趣课程。";
             }
 
             descriptionPrice.text = row.price;

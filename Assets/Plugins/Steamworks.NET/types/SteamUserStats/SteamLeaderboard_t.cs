@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamUserStats
 {
     [System.Serializable]
     public struct SteamLeaderboard_t : System.IEquatable<SteamLeaderboard_t>, System.IComparable<SteamLeaderboard_t>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamLeaderboard_t && this == (SteamLeaderboard_t) other;
+            return other is SteamLeaderboard_t && this == (SteamLeaderboard_t)other;
         }
 
         public override int GetHashCode()

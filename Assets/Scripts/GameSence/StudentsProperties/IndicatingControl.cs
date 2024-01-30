@@ -1,57 +1,63 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unit;
 using UnityEngine;
-/// <summary>
-/// 指示图标控制器
-/// </summary>
-public class IndicatingControl : MonoBehaviour
+
+namespace GameSence.StudentsProperties
 {
-    [SerializeField] private GameObject checkmark;
-    private StudentPropertiesControl studentPropertiesControl;
-    private ScoreEntryControl scoreEntryControl;
-    private bool isInit = false;
-    void Start()
+    /// <summary>
+    /// 指示图标控制器
+    /// </summary>
+    public class IndicatingControl : MonoBehaviour
     {
-        GetComponentInParent<StudentPropertiesControl>().UIUpdateEvent += UIUpdate;
-        UIUpdate();
-    }
+        [SerializeField] private GameObject checkmark;
+        private StudentPropertiesControl studentPropertiesControl;
+        private ScoreEntryControl scoreEntryControl;
+        private bool isInit = false;
 
-    private void UIUpdate()
-    {
-        if (!isInit)
+        private void Start()
         {
-            studentPropertiesControl = GetComponentInParent<StudentPropertiesControl>();
-            scoreEntryControl = GetComponentInParent<ScoreEntryControl>();
-            isInit = true;
+            GetComponentInParent<StudentPropertiesControl>().UIUpdateEvent += UIUpdate;
+            UIUpdate();
         }
-        Grade grade = studentPropertiesControl.studentUnit.indicatingNow.Find(x => x.gradeID == scoreEntryControl.grade.gradeID);
-        checkmark.SetActive(grade != null);
-    }
 
-    public void OnClick()
-    {
-        if (!isInit)
+        private void UIUpdate()
         {
-            studentPropertiesControl = GetComponentInParent<StudentPropertiesControl>();
-            scoreEntryControl = GetComponentInParent<ScoreEntryControl>();
-            isInit = true;
-        }
-        checkmark.SetActive(!checkmark.activeSelf);
-        if (studentPropertiesControl.studentUnit.indicatingNow.Find(x => x.gradeID == scoreEntryControl.grade.gradeID) == null)
-        {
-            if (studentPropertiesControl.studentUnit.indicatingNow.Count >= studentPropertiesControl.studentUnit.indicatingPoints)
+            if (!isInit)
             {
-                studentPropertiesControl.studentUnit.indicatingNow.RemoveAt(0);
+                studentPropertiesControl = GetComponentInParent<StudentPropertiesControl>();
+                scoreEntryControl = GetComponentInParent<ScoreEntryControl>();
+                isInit = true;
             }
 
-            studentPropertiesControl.studentUnit.indicatingNow.Add(scoreEntryControl.grade);
-        }
-        else
-        {
-            studentPropertiesControl.studentUnit.indicatingNow.Remove(scoreEntryControl.grade);
+            var grade = studentPropertiesControl.studentUnit.indicatingNow.Find(x =>
+                x.gradeID == scoreEntryControl.grade.gradeID);
+            checkmark.SetActive(grade != null);
         }
 
-        GetComponentInParent<StudentPropertiesControl>().UIUpdate();
+        public void OnClick()
+        {
+            if (!isInit)
+            {
+                studentPropertiesControl = GetComponentInParent<StudentPropertiesControl>();
+                scoreEntryControl = GetComponentInParent<ScoreEntryControl>();
+                isInit = true;
+            }
+
+            checkmark.SetActive(!checkmark.activeSelf);
+            if (studentPropertiesControl.studentUnit.indicatingNow.Find(x =>
+                    x.gradeID == scoreEntryControl.grade.gradeID) == null)
+            {
+                if (studentPropertiesControl.studentUnit.indicatingNow.Count >=
+                    studentPropertiesControl.studentUnit.indicatingPoints)
+                    studentPropertiesControl.studentUnit.indicatingNow.RemoveAt(0);
+
+                studentPropertiesControl.studentUnit.indicatingNow.Add(scoreEntryControl.grade);
+            }
+            else
+            {
+                studentPropertiesControl.studentUnit.indicatingNow.Remove(scoreEntryControl.grade);
+            }
+
+            GetComponentInParent<StudentPropertiesControl>().UIUpdate();
+        }
     }
 }

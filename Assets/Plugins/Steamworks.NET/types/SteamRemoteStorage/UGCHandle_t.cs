@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamRemoteStorage
 {
     [System.Serializable]
     public struct UGCHandle_t : System.IEquatable<UGCHandle_t>, System.IComparable<UGCHandle_t>
     {
-        public static readonly UGCHandle_t Invalid = new UGCHandle_t(0xffffffffffffffff);
+        public static readonly UGCHandle_t Invalid = new(0xffffffffffffffff);
         public ulong m_UGCHandle;
 
         public UGCHandle_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is UGCHandle_t && this == (UGCHandle_t) other;
+            return other is UGCHandle_t && this == (UGCHandle_t)other;
         }
 
         public override int GetHashCode()

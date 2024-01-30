@@ -2,7 +2,7 @@
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Supermarket
+namespace GameSence.World.Supermarket
 {
     public class EnterPanelControl : MonoBehaviour
     {
@@ -14,7 +14,8 @@ namespace Supermarket
         private UnityAction<string> enterEvent;
         private string goodId;
 
-        public void UpdateUI(string _goodId, string _price, string _goodName, Sprite sprite, bool canBuy, int _haveNumber, UnityAction<string> callBack)
+        public void UpdateUI(string _goodId, string _price, string _goodName, Sprite sprite, bool canBuy,
+            int _haveNumber, UnityAction<string> callBack)
         {
             image.sprite = sprite;
             price.text = "￥" + _price;

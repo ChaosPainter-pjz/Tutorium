@@ -10,80 +10,91 @@
 
 // Add 'DISABLEREDISTCOPY' to your custom platform defines to disable automatic copying!
 #if UNITY_5_3_OR_NEWER
-	#define DISABLEREDISTCOPY
+#define DISABLEREDISTCOPY
 #endif // UNITY_5_3_OR_NEWER
 
-using UnityEngine;
+using System.IO;
+using Plugins.Steamworks.NET;
 using UnityEditor;
 using UnityEditor.Callbacks;
-using Steamworks;
-using System.IO;
 
-public class RedistCopy {
-	[PostProcessBuild]
-	public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject) {
-		string baseDir;
+namespace Editor.Steamworks.NET
+{
+    public class RedistCopy
+    {
+        [PostProcessBuild]
+        public static void OnPostprocessBuild(BuildTarget target, string pathToBuiltProject)
+        {
+            string baseDir;
 
-		switch(target)
-		{
-			case BuildTarget.StandaloneWindows:
-			{
-				baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject), Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
-				CopyFile("steam_api.dll", "steam_api.dll", "Assets/Plugins/x86", pathToBuiltProject);
-				break;
-			}
-			case BuildTarget.StandaloneWindows64:
-			{
-				baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject), Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
-				CopyFile("steam_api64.dll", "steam_api64.dll", "Assets/Plugins/x86_64", pathToBuiltProject);
-				break;
-			}
+            switch (target)
+            {
+                case BuildTarget.StandaloneWindows:
+                {
+                    baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject),
+                        Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
+                    CopyFile("steam_api.dll", "steam_api.dll", "Assets/Plugins/x86", pathToBuiltProject);
+                    break;
+                }
+                case BuildTarget.StandaloneWindows64:
+                {
+                    baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject),
+                        Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
+                    CopyFile("steam_api64.dll", "steam_api64.dll", "Assets/Plugins/x86_64", pathToBuiltProject);
+                    break;
+                }
 #if !UNITY_2019_2_OR_NEWER
 			case BuildTarget.StandaloneLinux:
 			case BuildTarget.StandaloneLinuxUniversal:
 #endif // !UNITY_2019_2_OR_NEWER
-			case BuildTarget.StandaloneLinux64:
-			{
-				baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject), Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
-				break;
-			}
+                case BuildTarget.StandaloneLinux64:
+                {
+                    baseDir = Path.Combine(Path.GetDirectoryName(pathToBuiltProject),
+                        Path.GetFileNameWithoutExtension(pathToBuiltProject) + "_Data");
+                    break;
+                }
 #if UNITY_2017_3_OR_NEWER
-			case BuildTarget.StandaloneOSX:
+                case BuildTarget.StandaloneOSX:
 #else
 			case BuildTarget.StandaloneOSXIntel:
 			case BuildTarget.StandaloneOSXIntel64:
 			case BuildTarget.StandaloneOSXUniversal:
 #endif // UNITY_2017_3_OR_NEWER
-			{
-				baseDir = Path.Combine(Path.Combine(Path.GetDirectoryName(pathToBuiltProject), Path.GetFileNameWithoutExtension(pathToBuiltProject) + ".app"), "Contents");
-				break;
-			}
-		default:
-			{
-				return;
-			}
-		}
+                {
+                    baseDir = Path.Combine(
+                        Path.Combine(Path.GetDirectoryName(pathToBuiltProject),
+                            Path.GetFileNameWithoutExtension(pathToBuiltProject) + ".app"), "Contents");
+                    break;
+                }
+                default:
+                {
+                    return;
+                }
+            }
 
-		string pluginsDir = Path.Combine(baseDir, "Plugins");
+            var pluginsDir = Path.Combine(baseDir, "Plugins");
 
-		// Create if it doesn't exist yet
-		Directory.CreateDirectory(pluginsDir);
+            // Create if it doesn't exist yet
+            Directory.CreateDirectory(pluginsDir);
 
-		string[] DebugInfo = {
-			"Steamworks.NET created by Riley Labrecque",
-			"http://steamworks.github.io",
-			"",
-			"Steamworks.NET Version: " + Steamworks.Version.SteamworksNETVersion,
-			"Steamworks SDK Version: " + Steamworks.Version.SteamworksSDKVersion,
-			"Steam API DLL Version:  " + Steamworks.Version.SteamAPIDLLVersion,
-			"Steam API DLL Size:     " + Steamworks.Version.SteamAPIDLLSize,
-			"Steam API64 DLL Size:   " + Steamworks.Version.SteamAPI64DLLSize,
-			""
-		};
-		File.WriteAllLines(Path.Combine(pluginsDir, "Steamworks.NET.txt"), DebugInfo);
-	}
+            string[] DebugInfo =
+            {
+                "Steamworks.NET created by Riley Labrecque",
+                "http://steamworks.github.io",
+                "",
+                "Steamworks.NET Version: " + Version.SteamworksNETVersion,
+                "Steamworks SDK Version: " + Version.SteamworksSDKVersion,
+                "Steam API DLL Version:  " + Version.SteamAPIDLLVersion,
+                "Steam API DLL Size:     " + Version.SteamAPIDLLSize,
+                "Steam API64 DLL Size:   " + Version.SteamAPI64DLLSize,
+                ""
+            };
+            File.WriteAllLines(Path.Combine(pluginsDir, "Steamworks.NET.txt"), DebugInfo);
+        }
 
-	static void CopyFile(string filename, string outputfilename, string pathToFile, string pathToBuiltProject) {
+        private static void CopyFile(string filename, string outputfilename, string pathToFile,
+            string pathToBuiltProject)
+        {
 #if !DISABLEREDISTCOPY
 		string strCWD = Directory.GetCurrentDirectory();
 		string strSource = Path.Combine(Path.Combine(strCWD, pathToFile), filename);
@@ -111,7 +122,8 @@ public class RedistCopy {
 			Debug.LogWarning(string.Format("[Steamworks.NET] Could not copy {0} into the built project. File.Copy() Failed. Place {0} from the redist folder into the output dir manually.", filename));
 		}
 #endif // !DISABLEREDISTCOPY
-	}
+        }
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

@@ -1,62 +1,63 @@
 using Basic;
+using Basic.CSV2Table;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
-/// <summary>
-/// 单个学生的日程的控制器
-/// </summary>
-public class ScheduleControl : MonoBehaviour
+
+namespace GameSence.Schedule
 {
-    [SerializeField] private Text fullName;
-    [SerializeField] private Text mood;
-    [SerializeField] public ScheduleCardControl[] scheduleCards;
-    public bool isClassroom = false;
-    private CourseList courseList;
-    private Schedule[] schedule;
-    private StudentUnit unit;
     /// <summary>
-    /// 初始化，当前管理的是学生
+    /// 单个学生的日程的控制器
     /// </summary>
-    public void Init(StudentUnit unit,CourseList _courseList)
+    public class ScheduleControl : MonoBehaviour
     {
-        fullName.text = unit.fullName;
-        this.unit = unit;
-        Init(unit.schedule,_courseList);
-    }
-    /// <summary>
-    /// 初始化，当前管理的是教室或者学生
-    /// </summary>
-    public void Init (Schedule[] _schedule,CourseList _courseList)
-    {
-        this.schedule = _schedule;
-        courseList = _courseList;
-        InitCard();
-    }
+        [SerializeField] private Text fullName;
+        [SerializeField] private Text mood;
+        [SerializeField] public ScheduleCardControl[] scheduleCards;
+        public bool isClassroom = false;
+        private CourseList courseList;
+        private Unit.Schedule[] schedule;
+        private StudentUnit unit;
 
-    private void InitCard()
-    {
-        for (int i = 0; i < scheduleCards.Length; i++)
+        /// <summary>
+        /// 初始化，当前管理的是学生
+        /// </summary>
+        public void Init(StudentUnit unit, CourseList _courseList)
         {
-            scheduleCards[i].Init(schedule[i],courseList.Find_Id(schedule[i].id).Row2StudentCourse(),isClassroom);
+            fullName.text = unit.fullName;
+            this.unit = unit;
+            Init(unit.schedule, _courseList);
         }
-    }
-    /// <summary>
-    /// 刷新卡片的UI为存档的日程
-    /// </summary>
-    public void UpdateUI()
-    {
-        if (!gameObject.activeSelf)
-            return;
-        foreach (var control in scheduleCards)
-        {
-            control.UpdateUI();
-        }
-    }
 
-    public void UpdateMood()
-    {
-        if (!isClassroom)
+        /// <summary>
+        /// 初始化，当前管理的是教室或者学生
+        /// </summary>
+        public void Init(Unit.Schedule[] _schedule, CourseList _courseList)
         {
-            mood.text = $"心情:{unit.Mood}";
+            schedule = _schedule;
+            courseList = _courseList;
+            InitCard();
+        }
+
+        private void InitCard()
+        {
+            for (var i = 0; i < scheduleCards.Length; i++)
+                scheduleCards[i].Init(schedule[i], courseList.Find_Id(schedule[i].id).Row2StudentCourse(), isClassroom);
+        }
+
+        /// <summary>
+        /// 刷新卡片的UI为存档的日程
+        /// </summary>
+        public void UpdateUI()
+        {
+            if (!gameObject.activeSelf)
+                return;
+            foreach (var control in scheduleCards) control.UpdateUI();
+        }
+
+        public void UpdateMood()
+        {
+            if (!isClassroom) mood.text = $"心情:{unit.Mood}";
         }
     }
 }

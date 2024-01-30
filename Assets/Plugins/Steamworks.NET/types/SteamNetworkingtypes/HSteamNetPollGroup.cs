@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     [System.Serializable]
     public struct HSteamNetPollGroup : System.IEquatable<HSteamNetPollGroup>, System.IComparable<HSteamNetPollGroup>
     {
-        public static readonly HSteamNetPollGroup Invalid = new HSteamNetPollGroup(0);
+        public static readonly HSteamNetPollGroup Invalid = new(0);
         public uint m_HSteamNetPollGroup;
 
         public HSteamNetPollGroup(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HSteamNetPollGroup && this == (HSteamNetPollGroup) other;
+            return other is HSteamNetPollGroup && this == (HSteamNetPollGroup)other;
         }
 
         public override int GetHashCode()

@@ -12,100 +12,97 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using System.Text;
+using Plugins.Steamworks.NET.autogen;
 using IntPtr = System.IntPtr;
 
-using System.Text;
-
-namespace Steamworks {
-	public class InteropHelp {
-		public static void TestIfPlatformSupported() {
+namespace Plugins.Steamworks.NET
+{
+    public class InteropHelp
+    {
+        public static void TestIfPlatformSupported()
+        {
 #if !UNITY_EDITOR && !UNITY_STANDALONE && !STEAMWORKS_WIN && !STEAMWORKS_LIN_OSX
 			throw new System.InvalidOperationException("Steamworks functions can only be called on platforms that Steam is available on.");
 #endif
-		}
+        }
 
-		public static void TestIfAvailableClient() {
-			TestIfPlatformSupported();
-			if (CSteamAPIContext.GetSteamClient() == System.IntPtr.Zero) {
-				if (!CSteamAPIContext.Init()) {
-					throw new System.InvalidOperationException("Steamworks is not initialized.");
-				}
-			}
-		}
+        public static void TestIfAvailableClient()
+        {
+            TestIfPlatformSupported();
+            if (CSteamAPIContext.GetSteamClient() == IntPtr.Zero)
+                if (!CSteamAPIContext.Init())
+                    throw new System.InvalidOperationException("Steamworks is not initialized.");
+        }
 
-		public static void TestIfAvailableGameServer() {
-			TestIfPlatformSupported();
-			if (CSteamGameServerAPIContext.GetSteamClient() == System.IntPtr.Zero) {
-				if (!CSteamGameServerAPIContext.Init()) {
-					throw new System.InvalidOperationException("Steamworks GameServer is not initialized.");
-				}
-			}
-		}
+        public static void TestIfAvailableGameServer()
+        {
+            TestIfPlatformSupported();
+            if (CSteamGameServerAPIContext.GetSteamClient() == IntPtr.Zero)
+                if (!CSteamGameServerAPIContext.Init())
+                    throw new System.InvalidOperationException("Steamworks GameServer is not initialized.");
+        }
 
-		// This continues to exist for both 'out string' and strings returned by Steamworks functions.
-		public static string PtrToStringUTF8(IntPtr nativeUtf8) {
-			if (nativeUtf8 == IntPtr.Zero) {
-				return null;
-			}
+        // This continues to exist for both 'out string' and strings returned by Steamworks functions.
+        public static string PtrToStringUTF8(IntPtr nativeUtf8)
+        {
+            if (nativeUtf8 == IntPtr.Zero) return null;
 
-			int len = 0;
+            var len = 0;
 
-			while (Marshal.ReadByte(nativeUtf8, len) != 0) {
-				++len;
-			}
+            while (Marshal.ReadByte(nativeUtf8, len) != 0) ++len;
 
-			if (len == 0) {
-				return string.Empty;
-			}
+            if (len == 0) return string.Empty;
 
-			byte[] buffer = new byte[len];
-			Marshal.Copy(nativeUtf8, buffer, 0, buffer.Length);
-			return Encoding.UTF8.GetString(buffer);
-		}
+            var buffer = new byte[len];
+            Marshal.Copy(nativeUtf8, buffer, 0, buffer.Length);
+            return Encoding.UTF8.GetString(buffer);
+        }
 
-		public static string ByteArrayToStringUTF8(byte[] buffer) {
-			int length = 0;
-			while (length < buffer.Length && buffer[length] != 0) {
-				length++;
-			}
+        public static string ByteArrayToStringUTF8(byte[] buffer)
+        {
+            var length = 0;
+            while (length < buffer.Length && buffer[length] != 0) length++;
 
-			return Encoding.UTF8.GetString(buffer, 0, length);
-		}
+            return Encoding.UTF8.GetString(buffer, 0, length);
+        }
 
-		public static void StringToByteArrayUTF8(string str, byte[] outArrayBuffer, int outArrayBufferSize)
-		{
-			outArrayBuffer = new byte[outArrayBufferSize];
-			int length = Encoding.UTF8.GetBytes(str, 0, str.Length, outArrayBuffer, 0);
-			outArrayBuffer[length] = 0;
-		}
+        public static void StringToByteArrayUTF8(string str, byte[] outArrayBuffer, int outArrayBufferSize)
+        {
+            outArrayBuffer = new byte[outArrayBufferSize];
+            var length = Encoding.UTF8.GetBytes(str, 0, str.Length, outArrayBuffer, 0);
+            outArrayBuffer[length] = 0;
+        }
 
-		// This is for 'const char *' arguments which we need to ensure do not get GC'd while Steam is using them.
-		// We can't use an ICustomMarshaler because Unity crashes when a string between 96 and 127 characters long is defined/initialized at the top of class scope...
+        // This is for 'const char *' arguments which we need to ensure do not get GC'd while Steam is using them.
+        // We can't use an ICustomMarshaler because Unity crashes when a string between 96 and 127 characters long is defined/initialized at the top of class scope...
 #if UNITY_EDITOR || UNITY_STANDALONE || STEAMWORKS_WIN || STEAMWORKS_LIN_OSX
-		public class UTF8StringHandle : Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid {
-			public UTF8StringHandle(string str)
-				: base(true) {
-				if (str == null) {
-					SetHandle(IntPtr.Zero);
-					return;
-				}
+        public class UTF8StringHandle : Microsoft.Win32.SafeHandles.SafeHandleZeroOrMinusOneIsInvalid
+        {
+            public UTF8StringHandle(string str)
+                : base(true)
+            {
+                if (str == null)
+                {
+                    SetHandle(IntPtr.Zero);
+                    return;
+                }
 
-				// +1 for '\0'
-				byte[] strbuf = new byte[Encoding.UTF8.GetByteCount(str) + 1];
-				Encoding.UTF8.GetBytes(str, 0, str.Length, strbuf, 0);
-				IntPtr buffer = Marshal.AllocHGlobal(strbuf.Length);
-				Marshal.Copy(strbuf, 0, buffer, strbuf.Length);
+                // +1 for '\0'
+                var strbuf = new byte[Encoding.UTF8.GetByteCount(str) + 1];
+                Encoding.UTF8.GetBytes(str, 0, str.Length, strbuf, 0);
+                var buffer = Marshal.AllocHGlobal(strbuf.Length);
+                Marshal.Copy(strbuf, 0, buffer, strbuf.Length);
 
-				SetHandle(buffer);
-			}
+                SetHandle(buffer);
+            }
 
-			protected override bool ReleaseHandle() {
-				if (!IsInvalid) {
-					Marshal.FreeHGlobal(handle);
-				}
-				return true;
-			}
-		}
+            protected override bool ReleaseHandle()
+            {
+                if (!IsInvalid) Marshal.FreeHGlobal(handle);
+                return true;
+            }
+        }
 #else
 		public class UTF8StringHandle : IDisposable {
 			public UTF8StringHandle(string str) { }
@@ -113,98 +110,99 @@ namespace Steamworks {
 		}
 #endif
 
-		// TODO - Should be IDisposable
-		// We can't use an ICustomMarshaler because Unity dies when MarshalManagedToNative() gets called with a generic type.
-		public class SteamParamStringArray {
-			// The pointer to each AllocHGlobal() string
-			IntPtr[] m_Strings;
-			// The pointer to the condensed version of m_Strings
-			IntPtr m_ptrStrings;
-			// The pointer to the StructureToPtr version of SteamParamStringArray_t that will get marshaled
-			IntPtr m_pSteamParamStringArray;
+        // TODO - Should be IDisposable
+        // We can't use an ICustomMarshaler because Unity dies when MarshalManagedToNative() gets called with a generic type.
+        public class SteamParamStringArray
+        {
+            // The pointer to each AllocHGlobal() string
+            private IntPtr[] m_Strings;
 
-			public SteamParamStringArray(System.Collections.Generic.IList<string> strings) {
-				if (strings == null) {
-					m_pSteamParamStringArray = IntPtr.Zero;
-					return;
-				}
+            // The pointer to the condensed version of m_Strings
+            private IntPtr m_ptrStrings;
 
-				m_Strings = new IntPtr[strings.Count];
-				for (int i = 0; i < strings.Count; ++i) {
-					byte[] strbuf = new byte[Encoding.UTF8.GetByteCount(strings[i]) + 1];
-					Encoding.UTF8.GetBytes(strings[i], 0, strings[i].Length, strbuf, 0);
-					m_Strings[i] = Marshal.AllocHGlobal(strbuf.Length);
-					Marshal.Copy(strbuf, 0, m_Strings[i], strbuf.Length);
-				}
+            // The pointer to the StructureToPtr version of SteamParamStringArray_t that will get marshaled
+            private IntPtr m_pSteamParamStringArray;
 
-				m_ptrStrings = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)) * m_Strings.Length);
-				SteamParamStringArray_t stringArray = new SteamParamStringArray_t() {
-					m_ppStrings = m_ptrStrings,
-					m_nNumStrings = m_Strings.Length
-				};
-				Marshal.Copy(m_Strings, 0, stringArray.m_ppStrings, m_Strings.Length);
+            public SteamParamStringArray(System.Collections.Generic.IList<string> strings)
+            {
+                if (strings == null)
+                {
+                    m_pSteamParamStringArray = IntPtr.Zero;
+                    return;
+                }
 
-				m_pSteamParamStringArray = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SteamParamStringArray_t)));
-				Marshal.StructureToPtr(stringArray, m_pSteamParamStringArray, false);
-			}
+                m_Strings = new IntPtr[strings.Count];
+                for (var i = 0; i < strings.Count; ++i)
+                {
+                    var strbuf = new byte[Encoding.UTF8.GetByteCount(strings[i]) + 1];
+                    Encoding.UTF8.GetBytes(strings[i], 0, strings[i].Length, strbuf, 0);
+                    m_Strings[i] = Marshal.AllocHGlobal(strbuf.Length);
+                    Marshal.Copy(strbuf, 0, m_Strings[i], strbuf.Length);
+                }
 
-			~SteamParamStringArray() {
-				foreach (IntPtr ptr in m_Strings) {
-					Marshal.FreeHGlobal(ptr);
-				}
+                m_ptrStrings = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)) * m_Strings.Length);
+                var stringArray = new SteamParamStringArray_t()
+                {
+                    m_ppStrings = m_ptrStrings,
+                    m_nNumStrings = m_Strings.Length
+                };
+                Marshal.Copy(m_Strings, 0, stringArray.m_ppStrings, m_Strings.Length);
 
-				if (m_ptrStrings != IntPtr.Zero) {
-					Marshal.FreeHGlobal(m_ptrStrings);
-				}
+                m_pSteamParamStringArray = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(SteamParamStringArray_t)));
+                Marshal.StructureToPtr(stringArray, m_pSteamParamStringArray, false);
+            }
 
-				if (m_pSteamParamStringArray != IntPtr.Zero) {
-					Marshal.FreeHGlobal(m_pSteamParamStringArray);
-				}
-			}
+            ~SteamParamStringArray()
+            {
+                foreach (var ptr in m_Strings) Marshal.FreeHGlobal(ptr);
 
-			public static implicit operator IntPtr(SteamParamStringArray that) {
-				return that.m_pSteamParamStringArray;
-			}
-		}
-	}
+                if (m_ptrStrings != IntPtr.Zero) Marshal.FreeHGlobal(m_ptrStrings);
 
-	// TODO - Should be IDisposable
-	// MatchMaking Key-Value Pair Marshaller
-	public class MMKVPMarshaller {
-		private IntPtr m_pNativeArray;
-		private IntPtr m_pArrayEntries;
+                if (m_pSteamParamStringArray != IntPtr.Zero) Marshal.FreeHGlobal(m_pSteamParamStringArray);
+            }
 
-		public MMKVPMarshaller(MatchMakingKeyValuePair_t[] filters) {
-			if (filters == null) {
-				return;
-			}
+            public static implicit operator IntPtr(SteamParamStringArray that)
+            {
+                return that.m_pSteamParamStringArray;
+            }
+        }
+    }
 
-			int sizeOfMMKVP = Marshal.SizeOf(typeof(MatchMakingKeyValuePair_t));
+    // TODO - Should be IDisposable
+    // MatchMaking Key-Value Pair Marshaller
+    public class MMKVPMarshaller
+    {
+        private IntPtr m_pNativeArray;
+        private IntPtr m_pArrayEntries;
 
-			m_pNativeArray = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)) * filters.Length);
-			m_pArrayEntries = Marshal.AllocHGlobal(sizeOfMMKVP * filters.Length);
-			for (int i = 0; i < filters.Length; ++i) {
-				Marshal.StructureToPtr(filters[i], new IntPtr(m_pArrayEntries.ToInt64() + (i * sizeOfMMKVP)), false);
-			}
+        public MMKVPMarshaller(MatchMakingKeyValuePair_t[] filters)
+        {
+            if (filters == null) return;
 
-			Marshal.WriteIntPtr(m_pNativeArray, m_pArrayEntries);
-		}
+            var sizeOfMMKVP = Marshal.SizeOf(typeof(MatchMakingKeyValuePair_t));
 
-		~MMKVPMarshaller() {
-			if (m_pArrayEntries != IntPtr.Zero) {
-				Marshal.FreeHGlobal(m_pArrayEntries);
-			}
-			if (m_pNativeArray != IntPtr.Zero) {
-				Marshal.FreeHGlobal(m_pNativeArray);
-			}
-		}
+            m_pNativeArray = Marshal.AllocHGlobal(Marshal.SizeOf(typeof(IntPtr)) * filters.Length);
+            m_pArrayEntries = Marshal.AllocHGlobal(sizeOfMMKVP * filters.Length);
+            for (var i = 0; i < filters.Length; ++i)
+                Marshal.StructureToPtr(filters[i], new IntPtr(m_pArrayEntries.ToInt64() + i * sizeOfMMKVP), false);
 
-		public static implicit operator IntPtr(MMKVPMarshaller that) {
-			return that.m_pNativeArray;
-		}
-	}
+            Marshal.WriteIntPtr(m_pNativeArray, m_pArrayEntries);
+        }
 
-	public class DllCheck {
+        ~MMKVPMarshaller()
+        {
+            if (m_pArrayEntries != IntPtr.Zero) Marshal.FreeHGlobal(m_pArrayEntries);
+            if (m_pNativeArray != IntPtr.Zero) Marshal.FreeHGlobal(m_pNativeArray);
+        }
+
+        public static implicit operator IntPtr(MMKVPMarshaller that)
+        {
+            return that.m_pNativeArray;
+        }
+    }
+
+    public class DllCheck
+    {
 #if DISABLED
 		[DllImport("kernel32.dll")]
 		public static extern IntPtr GetModuleHandle(string lpModuleName);
@@ -213,15 +211,16 @@ namespace Steamworks {
 		extern static int GetModuleFileName(IntPtr hModule, StringBuilder strFullPath, int nSize);
 #endif
 
-		/// <summary>
-		/// This is an optional runtime check to ensure that the dlls are the correct version. Returns false only if the steam_api.dll is found and it's the wrong size or version number.
-		/// </summary>
-		public static bool Test() {
+        /// <summary>
+        /// This is an optional runtime check to ensure that the dlls are the correct version. Returns false only if the steam_api.dll is found and it's the wrong size or version number.
+        /// </summary>
+        public static bool Test()
+        {
 #if DISABLED
 			bool ret = CheckSteamAPIDLL();
 #endif
-			return true;
-		}
+            return true;
+        }
 
 #if DISABLED
 		private static bool CheckSteamAPIDLL() {
@@ -259,7 +258,7 @@ namespace Steamworks {
 			return true;
 		}
 #endif
-	}
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

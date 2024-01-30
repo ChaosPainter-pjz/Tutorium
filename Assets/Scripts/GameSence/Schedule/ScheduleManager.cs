@@ -1,113 +1,118 @@
 using System.Collections.Generic;
 using Basic;
+using Basic.CSV2Table;
+using Unit;
 using UnityEngine;
 using static System.Single;
 
-/// <summary>
-/// 安排面板管理器
-/// </summary>
-public class ScheduleManager : MonoInstance<ScheduleManager>
+namespace GameSence.Schedule
 {
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private SelectManager selectManager;
-    public CourseList CourseList;
-    public ScheduleControl classroomScheduleControl;
-    public ScheduleControl[] scheduleControl;
-
-    private List<StudentUnit> studentUnits;
-
-    //卡片的背景
-    [SerializeField] public Sprite[] courseImage;
-
-    public override void Awake()
+    /// <summary>
+    /// 安排面板管理器
+    /// </summary>
+    public class ScheduleManager : MonoInstance<ScheduleManager>
     {
-        base.Awake();
-        gameManager.InitGameEvent += Init;
-    }
+        [SerializeField] private GameManager.GameManager gameManager;
+        [SerializeField] private SelectManager selectManager;
+        public CourseList CourseList;
+        public ScheduleControl classroomScheduleControl;
+        public ScheduleControl[] scheduleControl;
 
+        private List<StudentUnit> studentUnits;
 
-    private void Init()
-    {
-        CourseList = gameManager.CourseList;
-        studentUnits = gameManager.saveObject.SaveData.studentUnits;
-        classroomScheduleControl.Init(gameManager.saveObject.SaveData.classroomSchedule, CourseList);
+        //卡片的背景
+        [SerializeField] public Sprite[] courseImage;
 
-        ScheduleControlUpdate();
-        //UpdateUI();
-    }
-
-    private void ScheduleControlUpdate()
-    {
-        for (var i = 0; i < studentUnits.Count; i++)
+        public override void Awake()
         {
-            scheduleControl[i].gameObject.SetActive(true);
-            scheduleControl[i].Init(studentUnits[i], CourseList);
+            base.Awake();
+            gameManager.InitGameEvent += Init;
         }
 
-        for (var i = studentUnits.Count; i < scheduleControl.Length; i++)
-            scheduleControl[i].gameObject.SetActive(false);
-    }
 
-    public void UIUpdate()
-    {
-        classroomScheduleControl.UpdateUI();
-        ScheduleControlUpdate();
-        SelectManager.Instance.UpdateUI();
-    }
-
-    /// <summary>
-    /// 点亮最近的卡片
-    /// </summary>
-    public void LightNearestCard(Vector3 dragPosition)
-    {
-        SearchNearestCard(dragPosition)?.UpdateTemporaryUI(selectManager.row.Row2StudentCourse());
-    }
-
-    /// <summary>
-    /// 设置最近的卡片为拖拽的卡片
-    /// </summary>
-    public void LockNearestCard(Vector3 dragPosition)
-    {
-        SearchNearestCard(dragPosition)?.UpdateCourse(selectManager.row.Row2StudentCourse());
-    }
-
-    /// <summary>
-    /// 寻找最近的卡片
-    /// </summary>
-    /// <param name="dragPosition"></param>
-    /// <returns></returns>
-    private ScheduleCardControl SearchNearestCard(Vector3 dragPosition)
-    {
-        var distance = MaxValue;
-        ScheduleCardControl scheduleCardControl = null;
-        foreach (ScheduleCardControl control in classroomScheduleControl.scheduleCards)
+        private void Init()
         {
-            control.CancelTemporaryUI();
-            var dis = Vector3.Distance(control.transform.position, dragPosition);
-            if (dis < distance)
+            CourseList = gameManager.CourseList;
+            studentUnits = gameManager.saveObject.SaveData.studentUnits;
+            classroomScheduleControl.Init(gameManager.saveObject.SaveData.classroomSchedule, CourseList);
+
+            ScheduleControlUpdate();
+            //UpdateUI();
+        }
+
+        private void ScheduleControlUpdate()
+        {
+            for (var i = 0; i < studentUnits.Count; i++)
             {
-                distance = dis;
-                scheduleCardControl = control;
+                scheduleControl[i].gameObject.SetActive(true);
+                scheduleControl[i].Init(studentUnits[i], CourseList);
             }
+
+            for (var i = studentUnits.Count; i < scheduleControl.Length; i++)
+                scheduleControl[i].gameObject.SetActive(false);
         }
 
-        foreach (ScheduleControl control in scheduleControl)
+        public void UIUpdate()
         {
-            if (!control.gameObject.activeSelf) continue; //如果这个日程表没有被激活，就跳过
-            foreach (ScheduleCardControl cardControl in control.scheduleCards)
+            classroomScheduleControl.UpdateUI();
+            ScheduleControlUpdate();
+            SelectManager.Instance.UpdateUI();
+        }
+
+        /// <summary>
+        /// 点亮最近的卡片
+        /// </summary>
+        public void LightNearestCard(Vector3 dragPosition)
+        {
+            SearchNearestCard(dragPosition)?.UpdateTemporaryUI(selectManager.row.Row2StudentCourse());
+        }
+
+        /// <summary>
+        /// 设置最近的卡片为拖拽的卡片
+        /// </summary>
+        public void LockNearestCard(Vector3 dragPosition)
+        {
+            SearchNearestCard(dragPosition)?.UpdateCourse(selectManager.row.Row2StudentCourse());
+        }
+
+        /// <summary>
+        /// 寻找最近的卡片
+        /// </summary>
+        /// <param name="dragPosition"></param>
+        /// <returns></returns>
+        private ScheduleCardControl SearchNearestCard(Vector3 dragPosition)
+        {
+            var distance = MaxValue;
+            ScheduleCardControl scheduleCardControl = null;
+            foreach (var control in classroomScheduleControl.scheduleCards)
             {
-                cardControl.CancelTemporaryUI();
-                var dis = Vector3.Distance(cardControl.transform.position, dragPosition);
+                control.CancelTemporaryUI();
+                var dis = Vector3.Distance(control.transform.position, dragPosition);
                 if (dis < distance)
                 {
                     distance = dis;
-                    scheduleCardControl = cardControl;
+                    scheduleCardControl = control;
                 }
             }
-        }
 
-        if (Vector3.Distance(scheduleCardControl.gameObject.transform.position, dragPosition) > 0.1f) return null;
-        //Debug.Log(distance);
-        return scheduleCardControl;
+            foreach (var control in scheduleControl)
+            {
+                if (!control.gameObject.activeSelf) continue; //如果这个日程表没有被激活，就跳过
+                foreach (var cardControl in control.scheduleCards)
+                {
+                    cardControl.CancelTemporaryUI();
+                    var dis = Vector3.Distance(cardControl.transform.position, dragPosition);
+                    if (dis < distance)
+                    {
+                        distance = dis;
+                        scheduleCardControl = cardControl;
+                    }
+                }
+            }
+
+            if (Vector3.Distance(scheduleCardControl.gameObject.transform.position, dragPosition) > 0.1f) return null;
+            //Debug.Log(distance);
+            return scheduleCardControl;
+        }
     }
 }

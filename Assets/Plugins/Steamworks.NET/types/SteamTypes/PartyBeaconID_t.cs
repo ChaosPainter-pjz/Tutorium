@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct PartyBeaconID_t : System.IEquatable<PartyBeaconID_t>, System.IComparable<PartyBeaconID_t>
     {
-        public static readonly PartyBeaconID_t Invalid = new PartyBeaconID_t(0);
+        public static readonly PartyBeaconID_t Invalid = new(0);
         public ulong m_PartyBeaconID;
 
         public PartyBeaconID_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is PartyBeaconID_t && this == (PartyBeaconID_t) other;
+            return other is PartyBeaconID_t && this == (PartyBeaconID_t)other;
         }
 
         public override int GetHashCode()

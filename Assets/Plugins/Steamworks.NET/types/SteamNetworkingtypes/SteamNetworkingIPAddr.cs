@@ -12,9 +12,10 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// Store an IP and port.  IPv6 is always used; IPv4 is represented using
     /// "IPv4-mapped" addresses: IPv4 aa.bb.cc.dd => IPv6 ::ffff:aabb:ccdd
@@ -89,7 +90,7 @@ namespace Steamworks
         /// See also SteamNetworkingIdentityRender
         public void ToString(out string buf, bool bWithPort)
         {
-            IntPtr buf2 = Marshal.AllocHGlobal(k_cchMaxString);
+            var buf2 = Marshal.AllocHGlobal(k_cchMaxString);
             NativeMethods.SteamNetworkingIPAddr_ToString(ref this, buf2, k_cchMaxString, bWithPort);
             buf = InteropHelp.PtrToStringUTF8(buf2);
             Marshal.FreeHGlobal(buf2);

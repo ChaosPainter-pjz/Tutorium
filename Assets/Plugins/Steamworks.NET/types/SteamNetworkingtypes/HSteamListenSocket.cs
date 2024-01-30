@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     [System.Serializable]
     public struct HSteamListenSocket : System.IEquatable<HSteamListenSocket>, System.IComparable<HSteamListenSocket>
     {
-        public static readonly HSteamListenSocket Invalid = new HSteamListenSocket(0);
+        public static readonly HSteamListenSocket Invalid = new(0);
         public uint m_HSteamListenSocket;
 
         public HSteamListenSocket(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HSteamListenSocket && this == (HSteamListenSocket) other;
+            return other is HSteamListenSocket && this == (HSteamListenSocket)other;
         }
 
         public override int GetHashCode()

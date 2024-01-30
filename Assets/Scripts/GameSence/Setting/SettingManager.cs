@@ -1,54 +1,49 @@
-using Steamworks;
+using StartScene;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SettingManager : MonoBehaviour
+namespace GameSence.Setting
 {
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private ArchiveControl[] loadArchiveControls;
-    [SerializeField] private ArchiveControl[] saveArchiveControls;
-    [SerializeField] private FullScreenModeControl fullScreenModeControl;
-    [SerializeField] private SettingMainControl[] settingMainControls;
-
-    private void Awake()
+    public class SettingManager : MonoBehaviour
     {
-        gameManager.StartEvent += Init;
-    }
+        [SerializeField] private GameManager.GameManager gameManager;
+        [SerializeField] private ArchiveControl[] loadArchiveControls;
+        [SerializeField] private ArchiveControl[] saveArchiveControls;
+        [SerializeField] private FullScreenModeControl fullScreenModeControl;
+        [SerializeField] private SettingMainControl[] settingMainControls;
 
-    private void Init()
-    {
-        for (int i = 0; i < loadArchiveControls.Length; i++)
+        private void Awake()
         {
-            loadArchiveControls[i].Init(i);
+            gameManager.StartEvent += Init;
         }
 
-        for (int i = 0; i < saveArchiveControls.Length; i++)
+        private void Init()
         {
-            saveArchiveControls[i].Init(i);
-        }
-        fullScreenModeControl.Init();
-        foreach (var control in settingMainControls)
-        {
-            control.Init();
-        }
-    }
+            for (var i = 0; i < loadArchiveControls.Length; i++) loadArchiveControls[i].Init(i);
 
-    /// <summary>
-    /// 返回主菜单页面
-    /// </summary>
-    public void ReturnMain()
-    {
-        SceneManager.LoadSceneAsync(sceneBuildIndex: 0);
-    }
-    /// <summary>
-    /// 退出游戏
-    /// </summary>
-    public void ExitGame()
-    {
+            for (var i = 0; i < saveArchiveControls.Length; i++) saveArchiveControls[i].Init(i);
+            fullScreenModeControl.Init();
+            foreach (var control in settingMainControls) control.Init();
+        }
+
+        /// <summary>
+        /// 返回主菜单页面
+        /// </summary>
+        public void ReturnMain()
+        {
+            SceneManager.LoadSceneAsync(0);
+        }
+
+        /// <summary>
+        /// 退出游戏
+        /// </summary>
+        public void ExitGame()
+        {
 #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
+            UnityEditor.EditorApplication.isPlaying = false;
 #else
         Application.Quit();
 #endif
+        }
     }
 }

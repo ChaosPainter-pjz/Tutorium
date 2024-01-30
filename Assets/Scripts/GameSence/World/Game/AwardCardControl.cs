@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WorldGame
+namespace GameSence.World.Game
 {
     /// <summary>
     /// 奖励界面的奖励控制器

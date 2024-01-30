@@ -11,13 +11,11 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     [System.Serializable]
-    public struct SteamNetworkingMicroseconds : System.IEquatable<SteamNetworkingMicroseconds>, System.IComparable<SteamNetworkingMicroseconds>
+    public struct SteamNetworkingMicroseconds : System.IEquatable<SteamNetworkingMicroseconds>,
+        System.IComparable<SteamNetworkingMicroseconds>
     {
         public long m_SteamNetworkingMicroseconds;
 
@@ -33,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamNetworkingMicroseconds && this == (SteamNetworkingMicroseconds) other;
+            return other is SteamNetworkingMicroseconds && this == (SteamNetworkingMicroseconds)other;
         }
 
         public override int GetHashCode()

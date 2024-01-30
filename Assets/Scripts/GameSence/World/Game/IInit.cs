@@ -1,4 +1,6 @@
-﻿namespace WorldGame
+﻿using Unit;
+
+namespace GameSence.World.Game
 {
     public interface IInit
     {

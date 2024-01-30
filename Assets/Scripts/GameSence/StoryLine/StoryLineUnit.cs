@@ -1,5 +1,7 @@
-public class StoryLineUnit
+namespace GameSence.StoryLine
 {
-    public string ID;
-
+    public class StoryLineUnit
+    {
+        public string ID;
+    }
 }

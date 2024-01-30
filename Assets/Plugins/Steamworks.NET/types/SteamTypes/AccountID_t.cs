@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct AccountID_t : System.IEquatable<AccountID_t>, System.IComparable<AccountID_t>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is AccountID_t && this == (AccountID_t) other;
+            return other is AccountID_t && this == (AccountID_t)other;
         }
 
         public override int GetHashCode()

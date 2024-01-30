@@ -11,13 +11,11 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamInput
 {
     [System.Serializable]
-    public struct InputAnalogActionHandle_t : System.IEquatable<InputAnalogActionHandle_t>, System.IComparable<InputAnalogActionHandle_t>
+    public struct InputAnalogActionHandle_t : System.IEquatable<InputAnalogActionHandle_t>,
+        System.IComparable<InputAnalogActionHandle_t>
     {
         public ulong m_InputAnalogActionHandle;
 
@@ -33,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is InputAnalogActionHandle_t && this == (InputAnalogActionHandle_t) other;
+            return other is InputAnalogActionHandle_t && this == (InputAnalogActionHandle_t)other;
         }
 
         public override int GetHashCode()

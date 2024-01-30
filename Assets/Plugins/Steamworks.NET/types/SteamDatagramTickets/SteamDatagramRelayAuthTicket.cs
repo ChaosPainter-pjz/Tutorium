@@ -12,9 +12,10 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.types.SteamNetworkingtypes;
+using Plugins.Steamworks.NET.types.SteamTypes;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamDatagramTickets
 {
     /// Network-routable identifier for a service.  This is an intentionally
     /// opaque byte blob.  The relays know how to use this to forward it on
@@ -26,16 +27,16 @@ namespace Steamworks
     public struct SteamDatagramRelayAuthTicket
     {
         /// Identity of the gameserver we want to talk to.  This is required.
-        SteamNetworkingIdentity m_identityGameserver;
+        private SteamNetworkingIdentity m_identityGameserver;
 
         /// Identity of the person who was authorized.  This is required.
-        SteamNetworkingIdentity m_identityAuthorizedClient;
+        private SteamNetworkingIdentity m_identityAuthorizedClient;
 
         /// SteamID is authorized to send from a particular public IP.  If this
         /// is 0, then the sender is not restricted to a particular IP.
         ///
         /// Recommend to leave this set to zero.
-        uint m_unPublicIP;
+        private uint m_unPublicIP;
 
         /// Time when the ticket expires.  Recommended: take the current
         /// time and add 6 hours, or maybe a bit longer if your gameplay
@@ -44,7 +45,7 @@ namespace Steamworks
         /// NOTE: relays may reject tickets with expiry times excessively
         /// far in the future, so contact us if you wish to use an expiry
         /// longer than, say, 24 hours.
-        RTime32 m_rtimeTicketExpiry;
+        private RTime32 m_rtimeTicketExpiry;
 
         /// Routing information where the gameserver is listening for
         /// relayed traffic.  You should fill this in when generating
@@ -66,12 +67,12 @@ namespace Steamworks
         ///   to set up an explicit port forward.
         /// On the client:
         /// - this field will always be blank.
-        SteamDatagramHostedAddress m_routing;
+        private SteamDatagramHostedAddress m_routing;
 
         /// App ID this is for.  This is required, and should be the
         /// App ID the client is running.  (Even if your gameserver
         /// uses a different App ID.)
-        uint m_nAppID;
+        private uint m_nAppID;
 
         /// Restrict this ticket to be used for a particular virtual port?
         /// Set to -1 to allow any virtual port.
@@ -83,7 +84,7 @@ namespace Steamworks
         ///
         /// Note: if a client has more that one acceptable ticket, they will
         /// always use the one expiring the latest.
-        int m_nRestrictToVirtualPort;
+        private int m_nRestrictToVirtualPort;
 
         //
         // Extra fields.
@@ -98,40 +99,40 @@ namespace Steamworks
         // get visibility into network conditions.)
         //
         [StructLayout(LayoutKind.Sequential, Pack = Packsize.value)]
-        struct ExtraField
+        private struct ExtraField
         {
-            enum EType
+            private enum EType
             {
                 k_EType_String,
                 k_EType_Int, // For most small integral values.  Uses google protobuf sint64, so it's small on the wire.  WARNING: In some places this value may be transmitted in JSON, in which case precision may be lost in backend analytics.  Don't use this for an "identifier", use it for a scalar quantity.
-                k_EType_Fixed64, // 64 arbitrary bits.  This value is treated as an "identifier".  In places where JSON format is used, it will be serialized as a string.  No aggregation / analytics can be performed on this value.
+                k_EType_Fixed64 // 64 arbitrary bits.  This value is treated as an "identifier".  In places where JSON format is used, it will be serialized as a string.  No aggregation / analytics can be performed on this value.
             };
 
-            EType m_eType;
+            private EType m_eType;
 
             [MarshalAs(UnmanagedType.ByValArray, SizeConst = 28)]
-            byte[] m_szName;
+            private byte[] m_szName;
 
             [StructLayout(LayoutKind.Explicit)]
-            struct OptionValue
+            private struct OptionValue
             {
                 [FieldOffset(0)] [MarshalAs(UnmanagedType.ByValArray, SizeConst = 128)]
-                byte[] m_szStringValue;
+                private byte[] m_szStringValue;
 
-                [FieldOffset(0)] long m_nIntValue;
+                [FieldOffset(0)] private long m_nIntValue;
 
-                [FieldOffset(0)] ulong m_nFixed64Value;
+                [FieldOffset(0)] private ulong m_nFixed64Value;
             }
 
-            OptionValue m_val;
+            private OptionValue m_val;
         };
 
-        const int k_nMaxExtraFields = 16;
+        private const int k_nMaxExtraFields = 16;
 
-        int m_nExtraFields;
+        private int m_nExtraFields;
 
         [MarshalAs(UnmanagedType.ByValArray, SizeConst = k_nMaxExtraFields)]
-        ExtraField[] m_vecExtraFields;
+        private ExtraField[] m_vecExtraFields;
 
         // Reset all fields
         public void Clear()

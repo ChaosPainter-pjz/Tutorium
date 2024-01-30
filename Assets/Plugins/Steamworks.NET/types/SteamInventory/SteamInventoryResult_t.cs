@@ -11,15 +11,13 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamInventory
 {
     [System.Serializable]
-    public struct SteamInventoryResult_t : System.IEquatable<SteamInventoryResult_t>, System.IComparable<SteamInventoryResult_t>
+    public struct SteamInventoryResult_t : System.IEquatable<SteamInventoryResult_t>,
+        System.IComparable<SteamInventoryResult_t>
     {
-        public static readonly SteamInventoryResult_t Invalid = new SteamInventoryResult_t(-1);
+        public static readonly SteamInventoryResult_t Invalid = new(-1);
         public int m_SteamInventoryResult;
 
         public SteamInventoryResult_t(int value)
@@ -34,7 +32,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamInventoryResult_t && this == (SteamInventoryResult_t) other;
+            return other is SteamInventoryResult_t && this == (SteamInventoryResult_t)other;
         }
 
         public override int GetHashCode()

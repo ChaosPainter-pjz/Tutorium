@@ -1,19 +1,16 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Basic;
 using UnityEngine;
 
-namespace Bookstore
+namespace GameSence.World.Bookstore
 {
-
     public class BookstorePanelControl : MonoBehaviour
     {
-        [SerializeField]private BookstoreManager bookstoreManager;
+        [SerializeField] private BookstoreManager bookstoreManager;
         [SerializeField] private AudioControl bgmAudioControl;
+
         private void OnEnable()
         {
             bookstoreManager.UpdateUI();
-
         }
 
         public void OnDisable()

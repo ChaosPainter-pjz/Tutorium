@@ -1,10 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using SaveManager.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace World
+namespace GameSence.World.Market
 {
     /// <summary>
     /// 任务卡片

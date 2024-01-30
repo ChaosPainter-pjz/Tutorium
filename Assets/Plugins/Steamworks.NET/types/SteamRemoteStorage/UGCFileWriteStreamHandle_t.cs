@@ -11,15 +11,13 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamRemoteStorage
 {
     [System.Serializable]
-    public struct UGCFileWriteStreamHandle_t : System.IEquatable<UGCFileWriteStreamHandle_t>, System.IComparable<UGCFileWriteStreamHandle_t>
+    public struct UGCFileWriteStreamHandle_t : System.IEquatable<UGCFileWriteStreamHandle_t>,
+        System.IComparable<UGCFileWriteStreamHandle_t>
     {
-        public static readonly UGCFileWriteStreamHandle_t Invalid = new UGCFileWriteStreamHandle_t(0xffffffffffffffff);
+        public static readonly UGCFileWriteStreamHandle_t Invalid = new(0xffffffffffffffff);
         public ulong m_UGCFileWriteStreamHandle;
 
         public UGCFileWriteStreamHandle_t(ulong value)
@@ -34,7 +32,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is UGCFileWriteStreamHandle_t && this == (UGCFileWriteStreamHandle_t) other;
+            return other is UGCFileWriteStreamHandle_t && this == (UGCFileWriteStreamHandle_t)other;
         }
 
         public override int GetHashCode()

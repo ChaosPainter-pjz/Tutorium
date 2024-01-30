@@ -11,25 +11,30 @@
 
 #if !DISABLESTEAMWORKS
 
-namespace Steamworks {
-	class CallbackIdentities {
-		public static int GetCallbackIdentity(System.Type callbackStruct) {
+namespace Plugins.Steamworks.NET
+{
+    internal class CallbackIdentities
+    {
+        public static int GetCallbackIdentity(System.Type callbackStruct)
+        {
 #if UNITY_EDITOR || UNITY_STANDALONE || STEAMWORKS_WIN || STEAMWORKS_LIN_OSX
-			foreach (CallbackIdentityAttribute attribute in callbackStruct.GetCustomAttributes(typeof(CallbackIdentityAttribute), false)) {
-				return attribute.Identity;
-			}
+            foreach (CallbackIdentityAttribute attribute in callbackStruct.GetCustomAttributes(
+                         typeof(CallbackIdentityAttribute), false)) return attribute.Identity;
 #endif
-			throw new System.Exception("Callback number not found for struct " + callbackStruct);
-		}
-	}
+            throw new System.Exception("Callback number not found for struct " + callbackStruct);
+        }
+    }
 
-	[System.AttributeUsage(System.AttributeTargets.Struct, AllowMultiple = false)]
-	internal class CallbackIdentityAttribute : System.Attribute {
-		public int Identity { get; set; }
-		public CallbackIdentityAttribute(int callbackNum) {
-			Identity = callbackNum;
-		}
-	}
+    [System.AttributeUsage(System.AttributeTargets.Struct, AllowMultiple = false)]
+    internal class CallbackIdentityAttribute : System.Attribute
+    {
+        public int Identity { get; set; }
+
+        public CallbackIdentityAttribute(int callbackNum)
+        {
+            Identity = callbackNum;
+        }
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

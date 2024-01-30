@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct DepotId_t : System.IEquatable<DepotId_t>, System.IComparable<DepotId_t>
     {
-        public static readonly DepotId_t Invalid = new DepotId_t(0x0);
+        public static readonly DepotId_t Invalid = new(0x0);
         public uint m_DepotId;
 
         public DepotId_t(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is DepotId_t && this == (DepotId_t) other;
+            return other is DepotId_t && this == (DepotId_t)other;
         }
 
         public override int GetHashCode()

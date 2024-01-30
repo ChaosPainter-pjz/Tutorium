@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct SteamAPICall_t : System.IEquatable<SteamAPICall_t>, System.IComparable<SteamAPICall_t>
     {
-        public static readonly SteamAPICall_t Invalid = new SteamAPICall_t(0x0);
+        public static readonly SteamAPICall_t Invalid = new(0x0);
         public ulong m_SteamAPICall;
 
         public SteamAPICall_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamAPICall_t && this == (SteamAPICall_t) other;
+            return other is SteamAPICall_t && this == (SteamAPICall_t)other;
         }
 
         public override int GetHashCode()

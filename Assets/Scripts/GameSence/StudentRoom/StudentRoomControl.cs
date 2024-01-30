@@ -1,77 +1,76 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
-/// <summary>
-/// 学生房间控制器
-/// </summary>
-public class StudentRoomControl : MonoBehaviour
+
+namespace GameSence.StudentRoom
 {
-    public StudentUnit studentUnit;
-    [SerializeField] private GameObject backpackPanel;
-    [SerializeField] private GameObject enterPanel;
-    [SerializeField] private Text studentName;
-    [SerializeField] private BackpackControl backpackControl;
-    //[SerializeField] private GameObject enterPanel;
     /// <summary>
-    /// 游戏主场景UI
+    /// 学生房间控制器
     /// </summary>
-    [SerializeField]
-    private GameObject mainPanel;
-    public void Init(StudentUnit studentUnit)
+    public class StudentRoomControl : MonoBehaviour
     {
-        gameObject.SetActive(true);
-        //mainPanel.transform.localScale = Vector3.zero;
-        this.studentUnit = studentUnit;
-        backpackPanel.SetActive(false);
-        enterPanel.SetActive(false);
-        //UpdateUI();
-        //UpdateScene();
-        OnBackpack();
-    }
+        public StudentUnit studentUnit;
+        [SerializeField] private GameObject backpackPanel;
+        [SerializeField] private GameObject enterPanel;
+        [SerializeField] private Text studentName;
 
-    public void UpdateUI()
-    {
-        studentName.text = studentUnit.fullName;
-        backpackControl.gameObject.SetActive(false);
-    }
+        [SerializeField] private BackpackControl backpackControl;
 
-    public void UpdateScene()
-    {
+        //[SerializeField] private GameObject enterPanel;
+        /// <summary>
+        /// 游戏主场景UI
+        /// </summary>
+        [SerializeField] private GameObject mainPanel;
 
-    }
-
-    private void OnDisable()
-    {
-        backpackPanel.SetActive(false);
-        enterPanel.SetActive(false);
-        //mainPanel.transform.localScale = Vector3.one;
-    }
-    /// <summary>
-    /// 打开背包
-    /// </summary>
-    public void OnBackpack()
-    {
-        backpackControl.Init(studentUnit);
-    }
-
-    public void ExitPanel()
-    {
-        if (enterPanel.activeSelf)
+        public void Init(StudentUnit studentUnit)
         {
-            enterPanel.GetComponent<Animator>().Play("ExitPanel");
+            gameObject.SetActive(true);
+            //mainPanel.transform.localScale = Vector3.zero;
+            this.studentUnit = studentUnit;
+            backpackPanel.SetActive(false);
+            enterPanel.SetActive(false);
+            //UpdateUI();
+            //UpdateScene();
+            OnBackpack();
         }
-        else
+
+        public void UpdateUI()
         {
-            GetComponent<Animator>().Play("StudentPropertiesExitPanel");
+            studentName.text = studentUnit.fullName;
+            backpackControl.gameObject.SetActive(false);
+        }
+
+        public void UpdateScene()
+        {
+        }
+
+        private void OnDisable()
+        {
+            backpackPanel.SetActive(false);
+            enterPanel.SetActive(false);
+            //mainPanel.transform.localScale = Vector3.one;
+        }
+
+        /// <summary>
+        /// 打开背包
+        /// </summary>
+        public void OnBackpack()
+        {
+            backpackControl.Init(studentUnit);
+        }
+
+        public void ExitPanel()
+        {
+            if (enterPanel.activeSelf)
+                enterPanel.GetComponent<Animator>().Play("ExitPanel");
+            else
+                GetComponent<Animator>().Play("StudentPropertiesExitPanel");
+        }
+
+        public void Exit()
+        {
+            GetComponentInChildren<CanvasGroup>().alpha = 1;
+            gameObject.SetActive(false);
         }
     }
-
-    public void Exit()
-    {
-        GetComponentInChildren<CanvasGroup>().alpha = 1;
-        gameObject.SetActive(false);
-    }
-
 }

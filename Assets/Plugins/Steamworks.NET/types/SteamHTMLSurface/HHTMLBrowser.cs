@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamHTMLSurface
 {
     [System.Serializable]
     public struct HHTMLBrowser : System.IEquatable<HHTMLBrowser>, System.IComparable<HHTMLBrowser>
     {
-        public static readonly HHTMLBrowser Invalid = new HHTMLBrowser(0);
+        public static readonly HHTMLBrowser Invalid = new(0);
         public uint m_HHTMLBrowser;
 
         public HHTMLBrowser(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HHTMLBrowser && this == (HHTMLBrowser) other;
+            return other is HHTMLBrowser && this == (HHTMLBrowser)other;
         }
 
         public override int GetHashCode()

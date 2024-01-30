@@ -12,43 +12,51 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.types.SteamTypes;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks {
-	public static class SteamVideo {
-		/// <summary>
-		/// <para> Get a URL suitable for streaming the given Video app ID's video</para>
-		/// </summary>
-		public static void GetVideoURL(AppId_t unVideoAppID) {
-			InteropHelp.TestIfAvailableClient();
-			NativeMethods.ISteamVideo_GetVideoURL(CSteamAPIContext.GetSteamVideo(), unVideoAppID);
-		}
+namespace Plugins.Steamworks.NET.autogen
+{
+    public static class SteamVideo
+    {
+        /// <summary>
+        /// <para> Get a URL suitable for streaming the given Video app ID's video</para>
+        /// </summary>
+        public static void GetVideoURL(AppId_t unVideoAppID)
+        {
+            InteropHelp.TestIfAvailableClient();
+            NativeMethods.ISteamVideo_GetVideoURL(CSteamAPIContext.GetSteamVideo(), unVideoAppID);
+        }
 
-		/// <summary>
-		/// <para> returns true if user is uploading a live broadcast</para>
-		/// </summary>
-		public static bool IsBroadcasting(out int pnNumViewers) {
-			InteropHelp.TestIfAvailableClient();
-			return NativeMethods.ISteamVideo_IsBroadcasting(CSteamAPIContext.GetSteamVideo(), out pnNumViewers);
-		}
+        /// <summary>
+        /// <para> returns true if user is uploading a live broadcast</para>
+        /// </summary>
+        public static bool IsBroadcasting(out int pnNumViewers)
+        {
+            InteropHelp.TestIfAvailableClient();
+            return NativeMethods.ISteamVideo_IsBroadcasting(CSteamAPIContext.GetSteamVideo(), out pnNumViewers);
+        }
 
-		/// <summary>
-		/// <para> Get the OPF Details for 360 Video Playback</para>
-		/// </summary>
-		public static void GetOPFSettings(AppId_t unVideoAppID) {
-			InteropHelp.TestIfAvailableClient();
-			NativeMethods.ISteamVideo_GetOPFSettings(CSteamAPIContext.GetSteamVideo(), unVideoAppID);
-		}
+        /// <summary>
+        /// <para> Get the OPF Details for 360 Video Playback</para>
+        /// </summary>
+        public static void GetOPFSettings(AppId_t unVideoAppID)
+        {
+            InteropHelp.TestIfAvailableClient();
+            NativeMethods.ISteamVideo_GetOPFSettings(CSteamAPIContext.GetSteamVideo(), unVideoAppID);
+        }
 
-		public static bool GetOPFStringForApp(AppId_t unVideoAppID, out string pchBuffer, ref int pnBufferSize) {
-			InteropHelp.TestIfAvailableClient();
-			IntPtr pchBuffer2 = Marshal.AllocHGlobal((int)pnBufferSize);
-			bool ret = NativeMethods.ISteamVideo_GetOPFStringForApp(CSteamAPIContext.GetSteamVideo(), unVideoAppID, pchBuffer2, ref pnBufferSize);
-			pchBuffer = ret ? InteropHelp.PtrToStringUTF8(pchBuffer2) : null;
-			Marshal.FreeHGlobal(pchBuffer2);
-			return ret;
-		}
-	}
+        public static bool GetOPFStringForApp(AppId_t unVideoAppID, out string pchBuffer, ref int pnBufferSize)
+        {
+            InteropHelp.TestIfAvailableClient();
+            var pchBuffer2 = Marshal.AllocHGlobal((int)pnBufferSize);
+            var ret = NativeMethods.ISteamVideo_GetOPFStringForApp(CSteamAPIContext.GetSteamVideo(), unVideoAppID,
+                pchBuffer2, ref pnBufferSize);
+            pchBuffer = ret ? InteropHelp.PtrToStringUTF8(pchBuffer2) : null;
+            Marshal.FreeHGlobal(pchBuffer2);
+            return ret;
+        }
+    }
 }
 
 #endif // !DISABLESTEAMWORKS

@@ -1,4 +1,4 @@
-﻿namespace WorldGame
+﻿namespace GameSence.World.Game
 {
     /// <summary>
     /// 小游戏奖励专用
@@ -7,8 +7,8 @@
     {
         public Award(string cardName, int score)
         {
-            this.CardName = cardName;
-            this.Score = score;
+            CardName = cardName;
+            Score = score;
         }
 
         public string CardName;

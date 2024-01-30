@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.MatchmakingTypes
 {
     // servernetadr_t is all the addressing info the serverbrowser needs to know about a game server,
     // namely: its IP, its connection port, and its query port.
@@ -87,23 +84,24 @@ namespace Steamworks
 #if VALVE_BIG_ENDIAN
 		return string.Format("{0}.{1}.{2}.{3}:{4}", unIP & 0xFFul, (unIP >> 8) & 0xFFul, (unIP >> 16) & 0xFFul, (unIP >> 24) & 0xFFul, usPort);
 #else
-            return string.Format("{0}.{1}.{2}.{3}:{4}", (unIP >> 24) & 0xFFul, (unIP >> 16) & 0xFFul, (unIP >> 8) & 0xFFul, unIP & 0xFFul, usPort);
+            return string.Format("{0}.{1}.{2}.{3}:{4}", (unIP >> 24) & 0xFFul, (unIP >> 16) & 0xFFul,
+                (unIP >> 8) & 0xFFul, unIP & 0xFFul, usPort);
 #endif
         }
 
         public static bool operator <(servernetadr_t x, servernetadr_t y)
         {
-            return (x.m_unIP < y.m_unIP) || (x.m_unIP == y.m_unIP && x.m_usQueryPort < y.m_usQueryPort);
+            return x.m_unIP < y.m_unIP || (x.m_unIP == y.m_unIP && x.m_usQueryPort < y.m_usQueryPort);
         }
 
         public static bool operator >(servernetadr_t x, servernetadr_t y)
         {
-            return (x.m_unIP > y.m_unIP) || (x.m_unIP == y.m_unIP && x.m_usQueryPort > y.m_usQueryPort);
+            return x.m_unIP > y.m_unIP || (x.m_unIP == y.m_unIP && x.m_usQueryPort > y.m_usQueryPort);
         }
 
         public override bool Equals(object other)
         {
-            return other is servernetadr_t && this == (servernetadr_t) other;
+            return other is servernetadr_t && this == (servernetadr_t)other;
         }
 
         public override int GetHashCode()
@@ -113,7 +111,8 @@ namespace Steamworks
 
         public static bool operator ==(servernetadr_t x, servernetadr_t y)
         {
-            return (x.m_unIP == y.m_unIP) && (x.m_usQueryPort == y.m_usQueryPort) && (x.m_usConnectionPort == y.m_usConnectionPort);
+            return x.m_unIP == y.m_unIP && x.m_usQueryPort == y.m_usQueryPort &&
+                   x.m_usConnectionPort == y.m_usConnectionPort;
         }
 
         public static bool operator !=(servernetadr_t x, servernetadr_t y)
@@ -123,12 +122,14 @@ namespace Steamworks
 
         public bool Equals(servernetadr_t other)
         {
-            return (m_unIP == other.m_unIP) && (m_usQueryPort == other.m_usQueryPort) && (m_usConnectionPort == other.m_usConnectionPort);
+            return m_unIP == other.m_unIP && m_usQueryPort == other.m_usQueryPort &&
+                   m_usConnectionPort == other.m_usConnectionPort;
         }
 
         public int CompareTo(servernetadr_t other)
         {
-            return m_unIP.CompareTo(other.m_unIP) + m_usQueryPort.CompareTo(other.m_usQueryPort) + m_usConnectionPort.CompareTo(other.m_usConnectionPort);
+            return m_unIP.CompareTo(other.m_unIP) + m_usQueryPort.CompareTo(other.m_usQueryPort) +
+                   m_usConnectionPort.CompareTo(other.m_usConnectionPort);
         }
     }
 }

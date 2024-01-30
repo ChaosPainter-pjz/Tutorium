@@ -11,15 +11,13 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamHTTP
 {
     [System.Serializable]
-    public struct HTTPCookieContainerHandle : System.IEquatable<HTTPCookieContainerHandle>, System.IComparable<HTTPCookieContainerHandle>
+    public struct HTTPCookieContainerHandle : System.IEquatable<HTTPCookieContainerHandle>,
+        System.IComparable<HTTPCookieContainerHandle>
     {
-        public static readonly HTTPCookieContainerHandle Invalid = new HTTPCookieContainerHandle(0);
+        public static readonly HTTPCookieContainerHandle Invalid = new(0);
         public uint m_HTTPCookieContainerHandle;
 
         public HTTPCookieContainerHandle(uint value)
@@ -34,7 +32,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HTTPCookieContainerHandle && this == (HTTPCookieContainerHandle) other;
+            return other is HTTPCookieContainerHandle && this == (HTTPCookieContainerHandle)other;
         }
 
         public override int GetHashCode()

@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using Basic;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WorldGame
+namespace GameSence.World.Game
 {
     public class GameAwardControl : MonoBehaviour
     {
@@ -10,7 +12,7 @@ namespace WorldGame
         [SerializeField] private Text money;
         [SerializeField] private GameObject awardPrefab;
         [SerializeField] private Transform awardParent;
-        [SerializeField] private List<AwardCardControl> awardCardControls = new List<AwardCardControl>();
+        [SerializeField] private List<AwardCardControl> awardCardControls = new();
 
         /// <summary>
         /// 刷新世界游戏的排名、奖励结算面板
@@ -39,10 +41,7 @@ namespace WorldGame
         private void UpdateRanking(List<Ranking> rankings)
         {
             rankings.Sort();
-            for (int i = 0; i < rankingCardControls.Length; i++)
-            {
-                rankingCardControls[i].UIUpdate(rankings[i]);
-            }
+            for (var i = 0; i < rankingCardControls.Length; i++) rankingCardControls[i].UIUpdate(rankings[i]);
         }
 
         /// <summary>
@@ -50,12 +49,9 @@ namespace WorldGame
         /// </summary>
         private void UpdateAward(List<Award> awards)
         {
-            foreach (var control in awardCardControls)
-            {
-                control.gameObject.SetActive(false);
-            }
+            foreach (var control in awardCardControls) control.gameObject.SetActive(false);
 
-            for (int i = 0; i < awards.Count; i++)
+            for (var i = 0; i < awards.Count; i++)
             {
                 if (i >= awardCardControls.Count)
                 {
@@ -70,7 +66,8 @@ namespace WorldGame
 
         public void OnEnter()
         {
-            GameManager.Instance.bgmAudioControl.PlayBackgroundMusic(AudioControl.BackgroundMusicType.World);
+            GameManager.GameManager.Instance.bgmAudioControl.PlayBackgroundMusic(AudioControl.BackgroundMusicType
+                .World);
             gameObject.SetActive(false);
         }
     }

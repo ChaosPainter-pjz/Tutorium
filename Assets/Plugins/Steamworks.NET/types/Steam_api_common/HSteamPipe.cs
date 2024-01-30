@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.Steam_api_common
 {
     [System.Serializable]
     public struct HSteamPipe : System.IEquatable<HSteamPipe>, System.IComparable<HSteamPipe>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HSteamPipe && this == (HSteamPipe) other;
+            return other is HSteamPipe && this == (HSteamPipe)other;
         }
 
         public override int GetHashCode()

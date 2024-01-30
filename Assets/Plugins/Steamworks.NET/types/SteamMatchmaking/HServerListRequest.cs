@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamMatchmaking
 {
     [System.Serializable]
     public struct HServerListRequest : System.IEquatable<HServerListRequest>
     {
-        public static readonly HServerListRequest Invalid = new HServerListRequest(System.IntPtr.Zero);
+        public static readonly HServerListRequest Invalid = new(System.IntPtr.Zero);
         public System.IntPtr m_HServerListRequest;
 
         public HServerListRequest(System.IntPtr value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HServerListRequest && this == (HServerListRequest) other;
+            return other is HServerListRequest && this == (HServerListRequest)other;
         }
 
         public override int GetHashCode()

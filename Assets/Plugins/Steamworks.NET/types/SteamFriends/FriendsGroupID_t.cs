@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamFriends
 {
     [System.Serializable]
     public struct FriendsGroupID_t : System.IEquatable<FriendsGroupID_t>, System.IComparable<FriendsGroupID_t>
     {
-        public static readonly FriendsGroupID_t Invalid = new FriendsGroupID_t(-1);
+        public static readonly FriendsGroupID_t Invalid = new(-1);
         public short m_FriendsGroupID;
 
         public FriendsGroupID_t(short value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is FriendsGroupID_t && this == (FriendsGroupID_t) other;
+            return other is FriendsGroupID_t && this == (FriendsGroupID_t)other;
         }
 
         public override int GetHashCode()

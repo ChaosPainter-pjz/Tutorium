@@ -1,24 +1,24 @@
-﻿using UnityEngine;
-using UnityEditor;
+﻿using System;
 using System.Collections.Generic;
-using System;
 using System.IO;
+using UnityEditor;
+using UnityEngine;
 
 /************************************************************************************
- * 
+ *
  *							           Save Manager
- *							  
+ *
  *				               Save Manager Data Editor Window
- *			
- *			                        Script written by: 
+ *
+ *			                        Script written by:
  *			           Jonathan Carter (https://jonathan.carter.games)
- *			        
+ *
  *									Version: 1.0.2
- *						   Last Updated: 05/10/2020 (d/m/y)					
- * 
-*************************************************************************************/
+ *						   Last Updated: 05/10/2020 (d/m/y)
+ *
+ *************************************************************************************/
 
-namespace CarterGames.Assets.SaveManager
+namespace SaveManager.Editor
 {
     /// <summary>
     /// Editor Window Script (*not static*) | Controls what is shown on the save data editor window tool.
@@ -28,7 +28,20 @@ namespace CarterGames.Assets.SaveManager
         /// <summary>
         /// Enum containing all the supported save types by this asset
         /// </summary>
-        public enum dataTypes { intValue, floatValue, shortValue, longValue, boolValue, stringValue, Vector2Value, Vector3Value, Vector4Value, ColorValue, classValue };
+        public enum dataTypes
+        {
+            intValue,
+            floatValue,
+            shortValue,
+            longValue,
+            boolValue,
+            stringValue,
+            Vector2Value,
+            Vector3Value,
+            Vector4Value,
+            ColorValue,
+            classValue
+        };
 
         // The position on the tab menu variable
         private int tabPos;
@@ -54,7 +67,7 @@ namespace CarterGames.Assets.SaveManager
         public Rect DeselectWindow;
 
         // Variable used in scroll views
-        Vector2 ScrollPos;
+        private Vector2 ScrollPos;
 
 
         /// <summary>
@@ -87,7 +100,9 @@ namespace CarterGames.Assets.SaveManager
             // The tab menu used to decide what is shown on the editor window.
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
-            tabPos = GUILayout.Toolbar(tabPos, new string[] { "Create New SaveData", "Edit Existing SaveData", "About Asset" }, GUILayout.MaxWidth(800f), GUILayout.MaxHeight(25f));
+            tabPos = GUILayout.Toolbar(tabPos,
+                new string[] { "Create New SaveData", "Edit Existing SaveData", "About Asset" },
+                GUILayout.MaxWidth(800f), GUILayout.MaxHeight(25f));
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
 
@@ -97,13 +112,13 @@ namespace CarterGames.Assets.SaveManager
             switch (tabPos)
             {
                 case 0:
-                    TabOneDisplay();    // show the creation menu
+                    TabOneDisplay(); // show the creation menu
                     break;
                 case 1:
-                    TabTwoDisplay();    // show the edit menu
+                    TabTwoDisplay(); // show the edit menu
                     break;
                 case 2:
-                    ShowAboutTab();     // show the about asset menu
+                    ShowAboutTab(); // show the about asset menu
                     break;
                 default:
                     break;
@@ -114,10 +129,7 @@ namespace CarterGames.Assets.SaveManager
 
             // Makes it so you can deselect elements in the window by adding a button the size of the window that you can't see under everything
             //make sure the following code is at the very end of OnGUI Function
-            if (GUI.Button(DeselectWindow, "", GUIStyle.none))
-            {
-                GUI.FocusControl(null);
-            }
+            if (GUI.Button(DeselectWindow, "", GUIStyle.none)) GUI.FocusControl(null);
         }
 
         /// <summary>
@@ -141,10 +153,8 @@ namespace CarterGames.Assets.SaveManager
             // Shows either the Carter Games Logo or an alternative for if the icon is deleted when you import the package
             if (Resources.Load<Texture2D>("Carter Games/Save Manager/LogoSM"))
             {
-                if (GUILayout.Button(Resources.Load<Texture2D>("Carter Games/Save Manager/LogoSM"), GUIStyle.none, GUILayout.Width(50), GUILayout.Height(50)))
-                {
-                    GUI.FocusControl(null);
-                }
+                if (GUILayout.Button(Resources.Load<Texture2D>("Carter Games/Save Manager/LogoSM"), GUIStyle.none,
+                        GUILayout.Width(50), GUILayout.Height(50))) GUI.FocusControl(null);
             }
             else
             {
@@ -154,6 +164,7 @@ namespace CarterGames.Assets.SaveManager
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
             }
+
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
@@ -164,9 +175,11 @@ namespace CarterGames.Assets.SaveManager
         /// </summary>
         private void TabOneDisplay()
         {
-            EditorGUILayout.HelpBox("Create a new SaveData class here.\n\nYou may just write it yourself, however if you wish " +
+            EditorGUILayout.HelpBox(
+                "Create a new SaveData class here.\n\nYou may just write it yourself, however if you wish " +
                 "for the asset to work with the data you want to save, we advise you use the provided editor to generate it. " +
-                "To begin, press the add field button, and repeat for each field you need. When done, press the Generate Class button.", MessageType.Info, true);
+                "To begin, press the add field button, and repeat for each field you need. When done, press the Generate Class button.",
+                MessageType.Info, true);
 
             GUI.backgroundColor = Color.green;
             EditorGUILayout.BeginHorizontal();
@@ -196,34 +209,36 @@ namespace CarterGames.Assets.SaveManager
                     classNames.Add("");
                 }
             }
+
             GUI.backgroundColor = Color.white;
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
             EditorGUILayout.Space();
 
             /*
-             * 
+             *
              *      Stuff that displays the fields...
-             * 
-             */ 
+             *
+             */
 
             if (isCreatingFile)
             {
                 if (types.Count > 0)
                 {
-                    ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Width(position.width), GUILayout.ExpandHeight(true));
+                    ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Width(position.width),
+                        GUILayout.ExpandHeight(true));
 
-                    for (int i = 0; i < types.Count; i++)
+                    for (var i = 0; i < types.Count; i++)
                     {
                         EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
                         EditorGUILayout.BeginHorizontal();
                         EditorGUILayout.LabelField("Data Type", EditorStyles.boldLabel, GUILayout.Width(125f));
-                        EditorGUILayout.LabelField("Variable Name", EditorStyles.boldLabel, GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
+                        EditorGUILayout.LabelField("Variable Name", EditorStyles.boldLabel, GUILayout.MinWidth(100),
+                            GUILayout.MaxWidth(300));
                         if (types[i] == dataTypes.classValue)
-                        {
-                            EditorGUILayout.LabelField("Class Name", EditorStyles.boldLabel, GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
-                        }
+                            EditorGUILayout.LabelField("Class Name", EditorStyles.boldLabel, GUILayout.MinWidth(100),
+                                GUILayout.MaxWidth(300));
                         EditorGUILayout.EndHorizontal();
 
                         EditorGUILayout.BeginHorizontal();
@@ -232,11 +247,11 @@ namespace CarterGames.Assets.SaveManager
                         types[i] = (dataTypes)EditorGUILayout.EnumPopup(types[i], GUILayout.Width(125f));
                         GUI.backgroundColor = Color.white;
 
-                        valueNames[i] = EditorGUILayout.TextField(valueNames[i], GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
+                        valueNames[i] = EditorGUILayout.TextField(valueNames[i], GUILayout.MinWidth(100),
+                            GUILayout.MaxWidth(300));
                         if (types[i] == dataTypes.classValue)
-                        {
-                            classNames[i] = EditorGUILayout.TextField(classNames[i], GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
-                        }
+                            classNames[i] = EditorGUILayout.TextField(classNames[i], GUILayout.MinWidth(100),
+                                GUILayout.MaxWidth(300));
                         EditorGUILayout.EndHorizontal();
 
                         EditorGUILayout.Space();
@@ -249,7 +264,8 @@ namespace CarterGames.Assets.SaveManager
 
                         EditorGUILayout.BeginHorizontal();
                         EditorGUILayout.LabelField("Should be an List of type?", GUILayout.Width(170f));
-                        shouldList[i] = EditorGUILayout.Toggle(shouldList[i], GUILayout.MinWidth(38f), GUILayout.MaxWidth(535));
+                        shouldList[i] = EditorGUILayout.Toggle(shouldList[i], GUILayout.MinWidth(38f),
+                            GUILayout.MaxWidth(535));
                         GUILayout.FlexibleSpace();
                         GUI.backgroundColor = Color.red;
                         if (GUILayout.Button("- Remove Field", GUILayout.MaxWidth(110f)))
@@ -260,6 +276,7 @@ namespace CarterGames.Assets.SaveManager
                             valueNames.Remove(valueNames[i]);
                             classNames.Remove(classNames[i]);
                         }
+
                         GUI.backgroundColor = Color.white;
 
                         EditorGUILayout.EndHorizontal();
@@ -305,6 +322,7 @@ namespace CarterGames.Assets.SaveManager
                         GenerateClass();
                     }
                 }
+
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
                 GUI.backgroundColor = Color.white;
@@ -318,9 +336,11 @@ namespace CarterGames.Assets.SaveManager
         {
             EditorGUILayout.Space();
 
-            EditorGUILayout.HelpBox("Edit a existing SaveData class here.\n\nIf you have a generated class and want to add or remove elements of it, you can use this " +
+            EditorGUILayout.HelpBox(
+                "Edit a existing SaveData class here.\n\nIf you have a generated class and want to add or remove elements of it, you can use this " +
                 "tool to do so, or just do it manually if you wish...\n\nPress the Resfresh File to get the latest version of the file and then use the editor as you would " +
-                "when generating a file. Once done, remember to press the save changes button! to apply the changes to the class file.", MessageType.Info, true);
+                "when generating a file. Once done, remember to press the save changes button! to apply the changes to the class file.",
+                MessageType.Info, true);
 
             EditorGUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
@@ -331,10 +351,7 @@ namespace CarterGames.Assets.SaveManager
             }
 
             GUI.backgroundColor = Color.green;
-            if (GUILayout.Button("Save Changes", GUILayout.Width(110f)))
-            {
-                GenerateClass(true);
-            }
+            if (GUILayout.Button("Save Changes", GUILayout.Width(110f))) GenerateClass(true);
             GUI.backgroundColor = Color.white;
             GUILayout.FlexibleSpace();
             EditorGUILayout.EndHorizontal();
@@ -343,19 +360,20 @@ namespace CarterGames.Assets.SaveManager
 
             if (hasReadFile)
             {
-                ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Width(position.width), GUILayout.ExpandHeight(true));
+                ScrollPos = EditorGUILayout.BeginScrollView(ScrollPos, GUILayout.Width(position.width),
+                    GUILayout.ExpandHeight(true));
 
-                for (int i = 0; i < readTypes.Count; i++)
+                for (var i = 0; i < readTypes.Count; i++)
                 {
                     EditorGUILayout.BeginVertical(EditorStyles.helpBox);
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Data Type", EditorStyles.boldLabel, GUILayout.Width(125f));
-                    EditorGUILayout.LabelField("Variable Name", EditorStyles.boldLabel, GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
+                    EditorGUILayout.LabelField("Variable Name", EditorStyles.boldLabel, GUILayout.MinWidth(100),
+                        GUILayout.MaxWidth(300));
                     if (readTypes[i] == dataTypes.classValue)
-                    {
-                        EditorGUILayout.LabelField("Class Name", EditorStyles.boldLabel, GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
-                    }
+                        EditorGUILayout.LabelField("Class Name", EditorStyles.boldLabel, GUILayout.MinWidth(100),
+                            GUILayout.MaxWidth(300));
                     EditorGUILayout.EndHorizontal();
 
 
@@ -364,12 +382,12 @@ namespace CarterGames.Assets.SaveManager
                     readTypes[i] = (dataTypes)EditorGUILayout.EnumPopup(readTypes[i], GUILayout.Width(125f));
                     GUI.backgroundColor = Color.white;
 
-                    readValueNames[i] = EditorGUILayout.TextField(readValueNames[i], GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
+                    readValueNames[i] = EditorGUILayout.TextField(readValueNames[i], GUILayout.MinWidth(100),
+                        GUILayout.MaxWidth(300));
 
                     if (readTypes[i] == dataTypes.classValue)
-                    {
-                        readClassNames[i] = EditorGUILayout.TextField(readClassNames[i], GUILayout.MinWidth(100), GUILayout.MaxWidth(300));
-                    }
+                        readClassNames[i] = EditorGUILayout.TextField(readClassNames[i], GUILayout.MinWidth(100),
+                            GUILayout.MaxWidth(300));
 
                     EditorGUILayout.EndHorizontal();
 
@@ -383,7 +401,8 @@ namespace CarterGames.Assets.SaveManager
 
                     EditorGUILayout.BeginHorizontal();
                     EditorGUILayout.LabelField("Should be an List of type?", GUILayout.Width(170f));
-                    readShouldList[i] = EditorGUILayout.Toggle(readShouldList[i], GUILayout.MinWidth(38f), GUILayout.MaxWidth(535));
+                    readShouldList[i] = EditorGUILayout.Toggle(readShouldList[i], GUILayout.MinWidth(38f),
+                        GUILayout.MaxWidth(535));
                     GUILayout.FlexibleSpace();
                     GUI.backgroundColor = Color.red;
 
@@ -415,6 +434,7 @@ namespace CarterGames.Assets.SaveManager
                     readShouldArray.Add(false);
                     readShouldList.Add(false);
                 }
+
                 GUI.backgroundColor = Color.white;
                 GUILayout.FlexibleSpace();
                 EditorGUILayout.EndHorizontal();
@@ -427,7 +447,7 @@ namespace CarterGames.Assets.SaveManager
         /// </summary>
         private void GenerateClass(bool isRead = false)
         {
-            string copyPath = "Assets/Scripts/Carter Games/Save Manager/SaveData.cs";
+            var copyPath = "Assets/Scripts/Carter Games/Save Manager/SaveData.cs";
             //Debug.Log("Creating Classfile: " + copyPath);
 
             if (!isRead)
@@ -435,8 +455,8 @@ namespace CarterGames.Assets.SaveManager
                 if (!File.Exists(copyPath))
                 {
                     // do not overwrite
-                    using (StreamWriter outfile =
-                        new StreamWriter(copyPath))
+                    using (var outfile =
+                           new StreamWriter(copyPath))
                     {
                         outfile.WriteLine("using UnityEngine;");
                         outfile.WriteLine("using System;");
@@ -450,12 +470,9 @@ namespace CarterGames.Assets.SaveManager
                         outfile.WriteLine("    {");
 
                         if (types.Count > 0)
-                        {
-                            for (int i = 0; i < types.Count; i++)
-                            {
-                                outfile.WriteLine(ConvertTypeToString(types[i], shouldArray[i], shouldList[i], valueNames[i], classNames[i], i));
-                            }
-                        }
+                            for (var i = 0; i < types.Count; i++)
+                                outfile.WriteLine(ConvertTypeToString(types[i], shouldArray[i], shouldList[i],
+                                    valueNames[i], classNames[i], i));
 
                         outfile.WriteLine("    }");
                         outfile.WriteLine("}");
@@ -467,8 +484,8 @@ namespace CarterGames.Assets.SaveManager
                     File.Delete(copyPath);
 
                     // do not overwrite
-                    using (StreamWriter outfile =
-                        new StreamWriter(copyPath))
+                    using (var outfile =
+                           new StreamWriter(copyPath))
                     {
                         outfile.WriteLine("using UnityEngine;");
                         outfile.WriteLine("using System;");
@@ -482,12 +499,9 @@ namespace CarterGames.Assets.SaveManager
                         outfile.WriteLine("    {");
 
                         if (types.Count > 0)
-                        {
-                            for (int i = 0; i < types.Count; i++)
-                            {
-                                outfile.WriteLine(ConvertTypeToString(types[i], shouldArray[i], shouldList[i], valueNames[i], classNames[i], i));
-                            }
-                        }
+                            for (var i = 0; i < types.Count; i++)
+                                outfile.WriteLine(ConvertTypeToString(types[i], shouldArray[i], shouldList[i],
+                                    valueNames[i], classNames[i], i));
 
                         outfile.WriteLine("    }");
                         outfile.WriteLine("}");
@@ -500,8 +514,8 @@ namespace CarterGames.Assets.SaveManager
                 if (!File.Exists(copyPath))
                 {
                     // do not overwrite
-                    using (StreamWriter outfile =
-                        new StreamWriter(copyPath))
+                    using (var outfile =
+                           new StreamWriter(copyPath))
                     {
                         outfile.WriteLine("using UnityEngine;");
                         outfile.WriteLine("using System;");
@@ -515,12 +529,9 @@ namespace CarterGames.Assets.SaveManager
                         outfile.WriteLine("    {");
 
                         if (readTypes.Count > 0)
-                        {
-                            for (int i = 0; i < readTypes.Count; i++)
-                            {
-                                outfile.WriteLine(ConvertTypeToString(readTypes[i], readShouldArray[i], readShouldList[i], readValueNames[i], readClassNames[i], i));
-                            }
-                        }
+                            for (var i = 0; i < readTypes.Count; i++)
+                                outfile.WriteLine(ConvertTypeToString(readTypes[i], readShouldArray[i],
+                                    readShouldList[i], readValueNames[i], readClassNames[i], i));
 
                         outfile.WriteLine("    }");
                         outfile.WriteLine("}");
@@ -532,8 +543,8 @@ namespace CarterGames.Assets.SaveManager
                     File.Delete(copyPath);
 
                     // do not overwrite
-                    using (StreamWriter outfile =
-                        new StreamWriter(copyPath))
+                    using (var outfile =
+                           new StreamWriter(copyPath))
                     {
                         outfile.WriteLine("using UnityEngine;");
                         outfile.WriteLine("using System;");
@@ -547,12 +558,9 @@ namespace CarterGames.Assets.SaveManager
                         outfile.WriteLine("    {");
 
                         if (readTypes.Count > 0)
-                        {
-                            for (int i = 0; i < readTypes.Count; i++)
-                            {
-                                outfile.WriteLine(ConvertTypeToString(readTypes[i], readShouldArray[i], readShouldList[i], readValueNames[i], readClassNames[i], i));
-                            }
-                        }
+                            for (var i = 0; i < readTypes.Count; i++)
+                                outfile.WriteLine(ConvertTypeToString(readTypes[i], readShouldArray[i],
+                                    readShouldList[i], readValueNames[i], readClassNames[i], i));
 
                         outfile.WriteLine("    }");
                         outfile.WriteLine("}");
@@ -573,49 +581,36 @@ namespace CarterGames.Assets.SaveManager
         /// <param name="name">the value name to apply</param>
         /// <param name="cName">class name value</param>
         /// <returns>string with the result</returns>
-        private string ConvertTypeToString(dataTypes type, bool isArray, bool isList, string name, string cName, int pos)
+        private string ConvertTypeToString(dataTypes type, bool isArray, bool isList, string name, string cName,
+            int pos)
         {
-            string _newString = "";
+            var _newString = "";
 
-            string _type = type.ToString().Replace("Value", "");
+            var _type = type.ToString().Replace("Value", "");
 
-            if (name == "")
-            {
-                name = _type + pos;
-            }
+            if (name == "") name = _type + pos;
 
 
             if (type != dataTypes.classValue)
             {
-                if (!_type.Equals("Vector2") && !_type.Equals("Vector3") && !_type.Equals("Vector4") && !_type.Equals("Color"))
+                if (!_type.Equals("Vector2") && !_type.Equals("Vector3") && !_type.Equals("Vector4") &&
+                    !_type.Equals("Color"))
                 {
                     if (isArray)
-                    {
                         _newString = "        [SerializeField] public " + _type + "[] " + name + ";";
-                    }
                     else if (isList)
-                    {
                         _newString = "        [SerializeField] public List<" + _type + "> " + name + ";";
-                    }
                     else
-                    {
                         _newString = "        [SerializeField] public " + _type + " " + name + ";";
-                    }
                 }
                 else
                 {
                     if (isArray)
-                    {
                         _newString = "        [SerializeField] public " + "Save" + _type + "[] " + name + ";";
-                    }
                     else if (isList)
-                    {
                         _newString = "        [SerializeField] public " + "List<Save" + _type + "> " + name + ";";
-                    }
                     else
-                    {
                         _newString = "        [SerializeField] public " + "Save" + _type + " " + name + ";";
-                    }
                 }
             }
             else
@@ -623,24 +618,19 @@ namespace CarterGames.Assets.SaveManager
                 if (cName != "")
                 {
                     if (isArray)
-                    {
                         _newString = "        [SerializeField] public " + cName + "[] " + name + ";";
-                    }
                     else if (isList)
-                    {
                         _newString = "        [SerializeField] public " + "List<" + cName + "> " + name + ";";
-                    }
                     else
-                    {
                         _newString = "        [SerializeField] public " + cName + " " + name + ";";
-                    }
                 }
                 else
                 {
-                    Debug.LogError(" *** (Save Manager) *** | Unable to final a class of type " + cName + ". Please check the class exsits in your project, if it is under a namespace you will need to add the using... to the generated class yourself or declare it with the namespace in the class value.");
+                    Debug.LogError(" *** (Save Manager) *** | Unable to final a class of type " + cName +
+                                   ". Please check the class exsits in your project, if it is under a namespace you will need to add the using... to the generated class yourself or declare it with the namespace in the class value.");
                 }
             }
-            
+
 
             return _newString;
         }
@@ -671,15 +661,10 @@ namespace CarterGames.Assets.SaveManager
             GUILayout.FlexibleSpace();
 
             if (GUILayout.Button("Documentation", GUILayout.Width(100)))
-            {
                 Application.OpenURL("https://carter.games/savemanager");
-            }
 
             GUI.color = Color.cyan;
-            if (GUILayout.Button("Discord", GUILayout.Width(65f)))
-            {
-                Application.OpenURL("https://carter.games/discord");
-            }
+            if (GUILayout.Button("Discord", GUILayout.Width(65f))) Application.OpenURL("https://carter.games/discord");
             GUI.color = Color.white;
 
             GUILayout.FlexibleSpace();
@@ -687,8 +672,10 @@ namespace CarterGames.Assets.SaveManager
 
             EditorGUILayout.Space();
 
-            EditorGUILayout.HelpBox("Save Manager is a tool to help beginners save and load their games with ease. The asset allow the saving and loading of multiple data types.\n\n" +
-                "should you need any help with the asset, please get in touch either via our community discord server or via email (hello@carter.games)", MessageType.Info);
+            EditorGUILayout.HelpBox(
+                "Save Manager is a tool to help beginners save and load their games with ease. The asset allow the saving and loading of multiple data types.\n\n" +
+                "should you need any help with the asset, please get in touch either via our community discord server or via email (hello@carter.games)",
+                MessageType.Info);
 
             EditorGUILayout.Space();
         }
@@ -699,23 +686,17 @@ namespace CarterGames.Assets.SaveManager
         private void ReadFile()
         {
             if (File.Exists("Assets/Scripts/Carter Games/Save Manager/SaveData.cs"))
-            {
                 if (!hasReadFile)
                 {
-                    string[] _fileData = File.ReadAllLines("Assets/Scripts/Carter Games/Save Manager/SaveData.cs");
+                    var _fileData = File.ReadAllLines("Assets/Scripts/Carter Games/Save Manager/SaveData.cs");
                     readLines = new List<string>();
 
-                    for (int i = 0; i < _fileData.Length; i++)
-                    {
+                    for (var i = 0; i < _fileData.Length; i++)
                         if (_fileData[i].Contains("[SerializeField]"))
-                        {
                             readLines.Add(_fileData[i]);
-                        }
-                    }
 
                     ConvertStringsToData();
                 }
-            }
         }
 
         /// <summary>
@@ -729,17 +710,20 @@ namespace CarterGames.Assets.SaveManager
             readShouldList = new List<bool>();
             readClassNames = new List<string>();
 
-            for (int i = 0; i < readLines.Count; i++)
+            for (var i = 0; i < readLines.Count; i++)
             {
                 if (!IsClass(readLines[i].Split(' ')[10]))
                 {
-                    readTypes.Add((dataTypes)Enum.Parse(typeof(dataTypes), readLines[i].Split(' ')[10].Replace("Save", "").Replace("[]", "").Replace("List<", "").Replace(">", "") + "Value", true));
+                    readTypes.Add((dataTypes)Enum.Parse(typeof(dataTypes),
+                        readLines[i].Split(' ')[10].Replace("Save", "").Replace("[]", "").Replace("List<", "")
+                            .Replace(">", "") + "Value", true));
                     readClassNames.Add("");
                 }
                 else
                 {
                     readTypes.Add(dataTypes.classValue);
-                    readClassNames.Add(readLines[i].Split(' ')[10].Replace("[]", "").Replace("List<", "").Replace(">", ""));
+                    readClassNames.Add(readLines[i].Split(' ')[10].Replace("[]", "").Replace("List<", "")
+                        .Replace(">", ""));
                 }
 
                 readValueNames.Add(readLines[i].Split(' ')[11].Replace(";", ""));
@@ -759,22 +743,18 @@ namespace CarterGames.Assets.SaveManager
         /// <returns></returns>
         private bool IsClass(string checkValue)
         {
-            if ((!checkValue.Contains("int")) &&
-                (!checkValue.Contains("float")) &&
-                (!checkValue.Contains("short")) &&
-                (!checkValue.Contains("long")) &&
-                (!checkValue.Contains("string")) &&
-                (!checkValue.Contains("Vector2")) &&
-                (!checkValue.Contains("Vector3")) &&
-                (!checkValue.Contains("Vector4")) &&
-                (!checkValue.Contains("Color")))
-            {
+            if (!checkValue.Contains("int") &&
+                !checkValue.Contains("float") &&
+                !checkValue.Contains("short") &&
+                !checkValue.Contains("long") &&
+                !checkValue.Contains("string") &&
+                !checkValue.Contains("Vector2") &&
+                !checkValue.Contains("Vector3") &&
+                !checkValue.Contains("Vector4") &&
+                !checkValue.Contains("Color"))
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
     }
 }

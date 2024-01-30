@@ -11,10 +11,7 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworking
 {
     [System.Serializable]
     public struct SNetListenSocket_t : System.IEquatable<SNetListenSocket_t>, System.IComparable<SNetListenSocket_t>
@@ -33,7 +30,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SNetListenSocket_t && this == (SNetListenSocket_t) other;
+            return other is SNetListenSocket_t && this == (SNetListenSocket_t)other;
         }
 
         public override int GetHashCode()

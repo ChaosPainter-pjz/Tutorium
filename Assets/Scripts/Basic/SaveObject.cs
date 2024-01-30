@@ -1,7 +1,12 @@
+using SaveManager.Scripts;
 using UnityEngine;
-[CreateAssetMenuAttribute]
-public class SaveObject : ScriptableObject
+
+namespace Basic
 {
-    public SaveData SaveData;
-    public OverSaveData OverSaveData;
+    [CreateAssetMenu]
+    public class SaveObject : ScriptableObject
+    {
+        public SaveData SaveData;
+        public OverSaveData OverSaveData;
+    }
 }

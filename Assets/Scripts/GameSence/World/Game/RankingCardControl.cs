@@ -1,9 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WorldGame
+namespace GameSence.World.Game
 {
     public class RankingCardControl : MonoBehaviour
     {

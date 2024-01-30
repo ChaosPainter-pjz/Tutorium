@@ -12,9 +12,9 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.autogen;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// Used to return English-language diagnostic error messages to caller.
     /// (For debugging or spewing to a console, etc.  Not intended for UI.)

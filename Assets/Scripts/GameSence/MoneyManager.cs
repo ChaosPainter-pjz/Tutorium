@@ -1,36 +1,38 @@
-using System;
+using Basic;
 using UnityEngine;
-using UnityEngine.Serialization;
 using UnityEngine.UI;
 
-public class MoneyManager : MonoInstance<MoneyManager>
+namespace GameSence
 {
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private Text moneyNumber;
-
-    /// <summary>
-    /// 安全的设置金钱数
-    /// </summary>
-    public int Money
+    public class MoneyManager : MonoInstance<MoneyManager>
     {
-        set
+        [SerializeField] private GameManager.GameManager gameManager;
+        [SerializeField] private Text moneyNumber;
+
+        /// <summary>
+        /// 安全的设置金钱数
+        /// </summary>
+        public int Money
         {
-            gameManager.saveObject.SaveData.money = value;
+            set
+            {
+                gameManager.saveObject.SaveData.money = value;
+                UpdateMoney();
+            }
+            get => gameManager.saveObject.SaveData.money;
+        }
+
+        /// <summary>
+        /// 刷新金钱UI显示
+        /// </summary>
+        private void UpdateMoney()
+        {
+            moneyNumber.text = Money.ToString();
+        }
+
+        private void Start()
+        {
             UpdateMoney();
         }
-        get => gameManager.saveObject.SaveData.money;
-    }
-
-    /// <summary>
-    /// 刷新金钱UI显示
-    /// </summary>
-    private void UpdateMoney()
-    {
-        moneyNumber.text = Money.ToString();
-    }
-
-    private void Start()
-    {
-        UpdateMoney();
     }
 }

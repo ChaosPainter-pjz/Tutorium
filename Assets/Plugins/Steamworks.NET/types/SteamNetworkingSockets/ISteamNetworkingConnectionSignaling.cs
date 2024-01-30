@@ -12,9 +12,11 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
+using Plugins.Steamworks.NET.types.SteamNetworkingtypes;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingSockets
 {
     /// Interface used to send signaling messages for a particular connection.
     ///
@@ -44,7 +46,8 @@ namespace Steamworks
         /// every time.
         public bool SendSignal(HSteamNetConnection hConn, ref SteamNetConnectionInfo_t info, IntPtr pMsg, int cbMsg)
         {
-            return NativeMethods.SteamAPI_ISteamNetworkingConnectionSignaling_SendSignal(ref this, hConn, ref info, pMsg, cbMsg);
+            return NativeMethods.SteamAPI_ISteamNetworkingConnectionSignaling_SendSignal(ref this, hConn, ref info,
+                pMsg, cbMsg);
         }
 
         /// Called when the connection no longer needs to send signals.

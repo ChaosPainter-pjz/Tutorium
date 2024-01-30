@@ -1,28 +1,27 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerPropertyChangeMoneyControl : MonoBehaviour
+namespace GameSence.PropertyChange
 {
-
-    [SerializeField] private Text lowMoneyText;
-    [SerializeField] private Text newMoneyText;
-    public int LowMoneyNumber { get; set; }
-
-    public void SetMoneyPanel(int newMoney)
+    public class PlayerPropertyChangeMoneyControl : MonoBehaviour
     {
-        if (LowMoneyNumber==newMoney)
+        [SerializeField] private Text lowMoneyText;
+        [SerializeField] private Text newMoneyText;
+        public int LowMoneyNumber { get; set; }
+
+        public void SetMoneyPanel(int newMoney)
         {
-            gameObject.SetActive(false);
-        }
-        else
-        {
-            gameObject.SetActive(true);
-            lowMoneyText.text = LowMoneyNumber.ToString();
-            newMoneyText.text = newMoney.ToString();
-            transform.SetAsLastSibling();
+            if (LowMoneyNumber == newMoney)
+            {
+                gameObject.SetActive(false);
+            }
+            else
+            {
+                gameObject.SetActive(true);
+                lowMoneyText.text = LowMoneyNumber.ToString();
+                newMoneyText.text = newMoney.ToString();
+                transform.SetAsLastSibling();
+            }
         }
     }
-
 }

@@ -1,105 +1,108 @@
-﻿using UnityEngine;
-using System;
+﻿using System;
+using UnityEngine;
 using UnityEngine.Serialization;
 
-/// <summary>
-/// Holds the values required to save a Vector2
-/// </summary>
-[Serializable]
-public class SaveVector2
+namespace SaveManager.Scripts
 {
-    [FormerlySerializedAs("_x")] public float x;
-    [FormerlySerializedAs("_y")] public float y;
-
     /// <summary>
-    /// Get & Set the Vector 2 that is saved
+    /// Holds the values required to save a Vector2
     /// </summary>
-    public Vector2 Vector2
+    [Serializable]
+    public class SaveVector2
     {
-        get => new Vector2(x, y);
-        set
+        [FormerlySerializedAs("_x")] public float x;
+        [FormerlySerializedAs("_y")] public float y;
+
+        /// <summary>
+        /// Get & Set the Vector 2 that is saved
+        /// </summary>
+        public Vector2 Vector2
         {
-            x = value.x;
-            y = value.y;
+            get => new(x, y);
+            set
+            {
+                x = value.x;
+                y = value.y;
+            }
         }
     }
-}
-
-/// <summary>
-/// Holds the values required to save a Vector3
-/// </summary>
-[Serializable]
-public class SaveVector3
-{
-    [FormerlySerializedAs("_x")] public float x;
-    [FormerlySerializedAs("_y")] public float y;
-    [FormerlySerializedAs("_z")] public float z;
 
     /// <summary>
-    /// Get & Set the Vector 3 that is saved
+    /// Holds the values required to save a Vector3
     /// </summary>
-    public Vector3 Vector3
+    [Serializable]
+    public class SaveVector3
     {
-        get => new Vector3(x, y, z);
-        set
+        [FormerlySerializedAs("_x")] public float x;
+        [FormerlySerializedAs("_y")] public float y;
+        [FormerlySerializedAs("_z")] public float z;
+
+        /// <summary>
+        /// Get & Set the Vector 3 that is saved
+        /// </summary>
+        public Vector3 Vector3
         {
-            x = value.x;
-            y = value.y;
-            z = value.z;
+            get => new(x, y, z);
+            set
+            {
+                x = value.x;
+                y = value.y;
+                z = value.z;
+            }
         }
     }
-}
-
-/// <summary>
-/// Holds the values required to save a Vector4
-/// </summary>
-[Serializable]
-public class SaveVector4
-{
-    [FormerlySerializedAs("_x")] public float x;
-    [FormerlySerializedAs("_y")] public float y;
-    [FormerlySerializedAs("_z")] public float z;
-    [FormerlySerializedAs("_w")] public float w;
 
     /// <summary>
-    /// Get & Set the Vector 4 that is saved
+    /// Holds the values required to save a Vector4
     /// </summary>
-    public Vector4 Vector4
+    [Serializable]
+    public class SaveVector4
     {
-        get => new Vector4(x, y, z, w);
-        set
+        [FormerlySerializedAs("_x")] public float x;
+        [FormerlySerializedAs("_y")] public float y;
+        [FormerlySerializedAs("_z")] public float z;
+        [FormerlySerializedAs("_w")] public float w;
+
+        /// <summary>
+        /// Get & Set the Vector 4 that is saved
+        /// </summary>
+        public Vector4 Vector4
         {
-            x = value.x;
-            y = value.y;
-            z = value.z;
-            w = value.w;
+            get => new(x, y, z, w);
+            set
+            {
+                x = value.x;
+                y = value.y;
+                z = value.z;
+                w = value.w;
+            }
         }
     }
-}
-
-/// <summary>
-/// Holds the values required to save a Color
-/// </summary>
-[Serializable]
-public class SaveColor
-{
-    [FormerlySerializedAs("_r")] public float r;
-    [FormerlySerializedAs("_g")] public float g;
-    [FormerlySerializedAs("_b")] public float b;
-    [FormerlySerializedAs("_a")] public float a;
 
     /// <summary>
-    /// Get & Set the Color that is saved
+    /// Holds the values required to save a Color
     /// </summary>
-    public Color Color
+    [Serializable]
+    public class SaveColor
     {
-        get => new Color(r, g, b, a);
-        set
+        [FormerlySerializedAs("_r")] public float r;
+        [FormerlySerializedAs("_g")] public float g;
+        [FormerlySerializedAs("_b")] public float b;
+        [FormerlySerializedAs("_a")] public float a;
+
+        /// <summary>
+        /// Get & Set the Color that is saved
+        /// </summary>
+        public Color Color
         {
-            r = value.r;
-            g = value.g;
-            b = value.b;
-            a = value.a;
+            get => new(r, g, b, a);
+            set
+            {
+                r = value.r;
+                g = value.g;
+                b = value.b;
+                a = value.a;
+            }
         }
     }
 }

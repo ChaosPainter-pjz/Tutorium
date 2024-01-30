@@ -1,9 +1,9 @@
 using System.Collections.Generic;
-using WorldGame;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace PhotographyGame
+namespace GameSence.World.Game.PhotographyGame
 {
     /// <summary>
     /// 摄影小游戏结算面板控制器
@@ -25,11 +25,11 @@ namespace PhotographyGame
             achievements = _achievements;
             studentUnit = _studentUnit;
             scoreCardControls ??= new List<ScoreCardControl>();
-            for (int i = 0; i < achievements.Count; i++)
+            for (var i = 0; i < achievements.Count; i++)
             {
                 if (i >= scoreCardControls.Count)
                 {
-                    ScoreCardControl control = Instantiate(scoreCardPrefab, scoreCardParent).GetComponent<ScoreCardControl>();
+                    var control = Instantiate(scoreCardPrefab, scoreCardParent).GetComponent<ScoreCardControl>();
                     scoreCardControls.Add(control);
                 }
 
@@ -37,10 +37,7 @@ namespace PhotographyGame
             }
 
             totalScore = 0;
-            foreach (var achievement in achievements)
-            {
-                totalScore += achievement.IntValue;
-            }
+            foreach (var achievement in achievements) totalScore += achievement.IntValue;
 
             totalPoints.text = totalScore.ToString();
         }
@@ -58,23 +55,23 @@ namespace PhotographyGame
         private void CreationAward()
         {
             //创建排名
-            string[] npcName = GameManager.Instance.dataObject.randomName;
-            List<int> nameList = GameMathf.RandomList(0, npcName.Length - 1, 5);
-            List<Ranking> rankings = new List<Ranking>();
-            for (int i = 0; i < nameList.Count; i++)
+            var npcName = GameManager.GameManager.Instance.dataObject.randomName;
+            var nameList = GameMathf.RandomList(0, npcName.Length - 1, 5);
+            var rankings = new List<Ranking>();
+            for (var i = 0; i < nameList.Count; i++)
             {
-                int score = Random.Range(150 + i * 25, (250 + i * 15) > 300 ? 300 : 250 + i * 10);
+                var score = Random.Range(150 + i * 25, 250 + i * 15 > 300 ? 300 : 250 + i * 10);
                 rankings.Add(new Ranking(npcName[nameList[i]], score));
             }
 
-            Ranking ranking = new Ranking(studentUnit.fullName, totalScore) {IsEmphasis = true};
+            var ranking = new Ranking(studentUnit.fullName, totalScore) { IsEmphasis = true };
             rankings.Add(ranking);
             rankings.Sort();
 
             //创建奖励,studentRanking为学生的名次
-            int studentRanking = rankings.IndexOf(ranking) + 1;
+            var studentRanking = rankings.IndexOf(ranking) + 1;
             int money;
-            List<Award> awards = new List<Award>();
+            var awards = new List<Award>();
             switch (studentRanking)
             {
                 case 1:

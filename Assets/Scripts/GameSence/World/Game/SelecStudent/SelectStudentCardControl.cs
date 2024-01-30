@@ -1,8 +1,10 @@
 using System.Collections.Generic;
+using GameSence.GameManager;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace WorldGame
+namespace GameSence.World.Game.SelecStudent
 {
     /// <summary>
     /// 小游戏选人界面学生卡片控制器
@@ -23,14 +25,11 @@ namespace WorldGame
             studentUnit = _studentUnit;
             OnToggle();
 
-            headPortrait.sprite = ResourceManager.Instance.studentHeadPortrait[int.Parse(_studentUnit.id)-1];
+            headPortrait.sprite = ResourceManager.Instance.studentHeadPortrait[int.Parse(_studentUnit.id) - 1];
             scoreCardControls ??= new List<ScoreCardControl>();
-            foreach (var control in scoreCardControls)
-            {
-                control.gameObject.SetActive(false);
-            }
+            foreach (var control in scoreCardControls) control.gameObject.SetActive(false);
 
-            for (int i = 0; i < grades.Count; i++)
+            for (var i = 0; i < grades.Count; i++)
             {
                 if (i >= scoreCardControls.Count)
                 {
@@ -44,10 +43,7 @@ namespace WorldGame
 
         public void OnToggle()
         {
-            if (toggle.group == null)
-            {
-                toggle.group = GetComponentInParent<ToggleGroup>();
-            }
+            if (toggle.group == null) toggle.group = GetComponentInParent<ToggleGroup>();
         }
     }
 }

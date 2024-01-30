@@ -12,9 +12,10 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// In a few places we need to set configuration options on listen sockets and connections, and
     /// have them take effect *before* the listen socket or connection really starts doing anything.

@@ -12,9 +12,11 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
+using Plugins.Steamworks.NET.types.SteamClientPublic;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     /// An abstract way to represent the identity of a network host.  All identities can
     /// be represented as simple string.  Furthermore, this string representation is actually
@@ -40,8 +42,14 @@ namespace Steamworks
         private uint[] m_reserved; // Pad structure to leave easy room for future expansion
 
         // Max sizes
-        public const int k_cchMaxString = 128; // Max length of the buffer needed to hold any identity, formatted in string format by ToString
-        public const int k_cchMaxGenericString = 32; // Max length of the string for generic string identities.  Including terminating '\0'
+        public const int
+            k_cchMaxString =
+                128; // Max length of the buffer needed to hold any identity, formatted in string format by ToString
+
+        public const int
+            k_cchMaxGenericString =
+                32; // Max length of the string for generic string identities.  Including terminating '\0'
+
         public const int k_cbMaxGenericBytes = 32;
 
         //
@@ -61,13 +69,13 @@ namespace Steamworks
 
         public void SetSteamID(CSteamID steamID)
         {
-            NativeMethods.SteamAPI_SteamNetworkingIdentity_SetSteamID(ref this, (ulong) steamID);
+            NativeMethods.SteamAPI_SteamNetworkingIdentity_SetSteamID(ref this, (ulong)steamID);
         }
 
         // Return black CSteamID (!IsValid()) if identity is not a SteamID
         public CSteamID GetSteamID()
         {
-            return (CSteamID) NativeMethods.SteamAPI_SteamNetworkingIdentity_GetSteamID(ref this);
+            return (CSteamID)NativeMethods.SteamAPI_SteamNetworkingIdentity_GetSteamID(ref this);
         }
 
         // Takes SteamID as raw 64-bit number
@@ -121,7 +129,8 @@ namespace Steamworks
         // Returns nullptr if not generic string type
         public string GetGenericString()
         {
-            return InteropHelp.PtrToStringUTF8(NativeMethods.SteamAPI_SteamNetworkingIdentity_GetGenericString(ref this));
+            return InteropHelp.PtrToStringUTF8(
+                NativeMethods.SteamAPI_SteamNetworkingIdentity_GetGenericString(ref this));
         }
 
         // Returns false if invalid size.
@@ -151,7 +160,7 @@ namespace Steamworks
         /// See also SteamNetworkingIPAddrRender
         public void ToString(out string buf)
         {
-            IntPtr buf2 = Marshal.AllocHGlobal(k_cchMaxString);
+            var buf2 = Marshal.AllocHGlobal(k_cchMaxString);
             NativeMethods.SteamNetworkingIdentity_ToString(ref this, buf2, k_cchMaxString);
             buf = InteropHelp.PtrToStringUTF8(buf2);
             Marshal.FreeHGlobal(buf2);

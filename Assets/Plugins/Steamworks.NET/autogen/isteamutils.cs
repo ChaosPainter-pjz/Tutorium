@@ -12,9 +12,12 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.types.SteamClient;
+using Plugins.Steamworks.NET.types.SteamClientPublic;
+using Plugins.Steamworks.NET.types.SteamTypes;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.autogen
 {
     public static class SteamUtils
     {
@@ -58,7 +61,8 @@ namespace Steamworks
         public static string GetIPCountry()
         {
             InteropHelp.TestIfAvailableClient();
-            return InteropHelp.PtrToStringUTF8(NativeMethods.ISteamUtils_GetIPCountry(CSteamAPIContext.GetSteamUtils()));
+            return InteropHelp.PtrToStringUTF8(
+                NativeMethods.ISteamUtils_GetIPCountry(CSteamAPIContext.GetSteamUtils()));
         }
 
         /// <summary>
@@ -67,7 +71,8 @@ namespace Steamworks
         public static bool GetImageSize(int iImage, out uint pnWidth, out uint pnHeight)
         {
             InteropHelp.TestIfAvailableClient();
-            return NativeMethods.ISteamUtils_GetImageSize(CSteamAPIContext.GetSteamUtils(), iImage, out pnWidth, out pnHeight);
+            return NativeMethods.ISteamUtils_GetImageSize(CSteamAPIContext.GetSteamUtils(), iImage, out pnWidth,
+                out pnHeight);
         }
 
         /// <summary>
@@ -78,7 +83,8 @@ namespace Steamworks
         public static bool GetImageRGBA(int iImage, byte[] pubDest, int nDestBufferSize)
         {
             InteropHelp.TestIfAvailableClient();
-            return NativeMethods.ISteamUtils_GetImageRGBA(CSteamAPIContext.GetSteamUtils(), iImage, pubDest, nDestBufferSize);
+            return NativeMethods.ISteamUtils_GetImageRGBA(CSteamAPIContext.GetSteamUtils(), iImage, pubDest,
+                nDestBufferSize);
         }
 
         /// <summary>
@@ -96,7 +102,7 @@ namespace Steamworks
         public static AppId_t GetAppID()
         {
             InteropHelp.TestIfAvailableClient();
-            return (AppId_t) NativeMethods.ISteamUtils_GetAppID(CSteamAPIContext.GetSteamUtils());
+            return (AppId_t)NativeMethods.ISteamUtils_GetAppID(CSteamAPIContext.GetSteamUtils());
         }
 
         /// <summary>
@@ -106,7 +112,8 @@ namespace Steamworks
         public static void SetOverlayNotificationPosition(ENotificationPosition eNotificationPosition)
         {
             InteropHelp.TestIfAvailableClient();
-            NativeMethods.ISteamUtils_SetOverlayNotificationPosition(CSteamAPIContext.GetSteamUtils(), eNotificationPosition);
+            NativeMethods.ISteamUtils_SetOverlayNotificationPosition(CSteamAPIContext.GetSteamUtils(),
+                eNotificationPosition);
         }
 
         /// <summary>
@@ -116,7 +123,8 @@ namespace Steamworks
         public static bool IsAPICallCompleted(SteamAPICall_t hSteamAPICall, out bool pbFailed)
         {
             InteropHelp.TestIfAvailableClient();
-            return NativeMethods.ISteamUtils_IsAPICallCompleted(CSteamAPIContext.GetSteamUtils(), hSteamAPICall, out pbFailed);
+            return NativeMethods.ISteamUtils_IsAPICallCompleted(CSteamAPIContext.GetSteamUtils(), hSteamAPICall,
+                out pbFailed);
         }
 
         public static ESteamAPICallFailure GetAPICallFailureReason(SteamAPICall_t hSteamAPICall)
@@ -125,10 +133,12 @@ namespace Steamworks
             return NativeMethods.ISteamUtils_GetAPICallFailureReason(CSteamAPIContext.GetSteamUtils(), hSteamAPICall);
         }
 
-        public static bool GetAPICallResult(SteamAPICall_t hSteamAPICall, IntPtr pCallback, int cubCallback, int iCallbackExpected, out bool pbFailed)
+        public static bool GetAPICallResult(SteamAPICall_t hSteamAPICall, IntPtr pCallback, int cubCallback,
+            int iCallbackExpected, out bool pbFailed)
         {
             InteropHelp.TestIfAvailableClient();
-            return NativeMethods.ISteamUtils_GetAPICallResult(CSteamAPIContext.GetSteamUtils(), hSteamAPICall, pCallback, cubCallback, iCallbackExpected, out pbFailed);
+            return NativeMethods.ISteamUtils_GetAPICallResult(CSteamAPIContext.GetSteamUtils(), hSteamAPICall,
+                pCallback, cubCallback, iCallbackExpected, out pbFailed);
         }
 
         /// <summary>
@@ -196,20 +206,23 @@ namespace Steamworks
             InteropHelp.TestIfAvailableClient();
             using (var szFileName2 = new InteropHelp.UTF8StringHandle(szFileName))
             {
-                return (SteamAPICall_t) NativeMethods.ISteamUtils_CheckFileSignature(CSteamAPIContext.GetSteamUtils(), szFileName2);
+                return (SteamAPICall_t)NativeMethods.ISteamUtils_CheckFileSignature(CSteamAPIContext.GetSteamUtils(),
+                    szFileName2);
             }
         }
 
         /// <summary>
         /// <para> Activates the Big Picture text input dialog which only supports gamepad input</para>
         /// </summary>
-        public static bool ShowGamepadTextInput(EGamepadTextInputMode eInputMode, EGamepadTextInputLineMode eLineInputMode, string pchDescription, uint unCharMax, string pchExistingText)
+        public static bool ShowGamepadTextInput(EGamepadTextInputMode eInputMode,
+            EGamepadTextInputLineMode eLineInputMode, string pchDescription, uint unCharMax, string pchExistingText)
         {
             InteropHelp.TestIfAvailableClient();
             using (var pchDescription2 = new InteropHelp.UTF8StringHandle(pchDescription))
             using (var pchExistingText2 = new InteropHelp.UTF8StringHandle(pchExistingText))
             {
-                return NativeMethods.ISteamUtils_ShowGamepadTextInput(CSteamAPIContext.GetSteamUtils(), eInputMode, eLineInputMode, pchDescription2, unCharMax, pchExistingText2);
+                return NativeMethods.ISteamUtils_ShowGamepadTextInput(CSteamAPIContext.GetSteamUtils(), eInputMode,
+                    eLineInputMode, pchDescription2, unCharMax, pchExistingText2);
             }
         }
 
@@ -225,8 +238,9 @@ namespace Steamworks
         public static bool GetEnteredGamepadTextInput(out string pchText, uint cchText)
         {
             InteropHelp.TestIfAvailableClient();
-            IntPtr pchText2 = Marshal.AllocHGlobal((int) cchText);
-            bool ret = NativeMethods.ISteamUtils_GetEnteredGamepadTextInput(CSteamAPIContext.GetSteamUtils(), pchText2, cchText);
+            var pchText2 = Marshal.AllocHGlobal((int)cchText);
+            var ret = NativeMethods.ISteamUtils_GetEnteredGamepadTextInput(CSteamAPIContext.GetSteamUtils(), pchText2,
+                cchText);
             pchText = ret ? InteropHelp.PtrToStringUTF8(pchText2) : null;
             Marshal.FreeHGlobal(pchText2);
             return ret;
@@ -238,7 +252,8 @@ namespace Steamworks
         public static string GetSteamUILanguage()
         {
             InteropHelp.TestIfAvailableClient();
-            return InteropHelp.PtrToStringUTF8(NativeMethods.ISteamUtils_GetSteamUILanguage(CSteamAPIContext.GetSteamUtils()));
+            return InteropHelp.PtrToStringUTF8(
+                NativeMethods.ISteamUtils_GetSteamUILanguage(CSteamAPIContext.GetSteamUtils()));
         }
 
         /// <summary>
@@ -256,7 +271,8 @@ namespace Steamworks
         public static void SetOverlayNotificationInset(int nHorizontalInset, int nVerticalInset)
         {
             InteropHelp.TestIfAvailableClient();
-            NativeMethods.ISteamUtils_SetOverlayNotificationInset(CSteamAPIContext.GetSteamUtils(), nHorizontalInset, nVerticalInset);
+            NativeMethods.ISteamUtils_SetOverlayNotificationInset(CSteamAPIContext.GetSteamUtils(), nHorizontalInset,
+                nVerticalInset);
         }
 
         /// <summary>
@@ -332,13 +348,15 @@ namespace Steamworks
         /// <para>   nByteSizeOutFilteredText is the size (in bytes) of pchOutFilteredText, should be at least strlen(pchInputText)+1</para>
         /// <para> Returns the number of characters (not bytes) filtered</para>
         /// </summary>
-        public static int FilterText(ETextFilteringContext eContext, CSteamID sourceSteamID, string pchInputMessage, out string pchOutFilteredText, uint nByteSizeOutFilteredText)
+        public static int FilterText(ETextFilteringContext eContext, CSteamID sourceSteamID, string pchInputMessage,
+            out string pchOutFilteredText, uint nByteSizeOutFilteredText)
         {
             InteropHelp.TestIfAvailableClient();
-            IntPtr pchOutFilteredText2 = Marshal.AllocHGlobal((int) nByteSizeOutFilteredText);
+            var pchOutFilteredText2 = Marshal.AllocHGlobal((int)nByteSizeOutFilteredText);
             using (var pchInputMessage2 = new InteropHelp.UTF8StringHandle(pchInputMessage))
             {
-                int ret = NativeMethods.ISteamUtils_FilterText(CSteamAPIContext.GetSteamUtils(), eContext, sourceSteamID, pchInputMessage2, pchOutFilteredText2, nByteSizeOutFilteredText);
+                var ret = NativeMethods.ISteamUtils_FilterText(CSteamAPIContext.GetSteamUtils(), eContext,
+                    sourceSteamID, pchInputMessage2, pchOutFilteredText2, nByteSizeOutFilteredText);
                 pchOutFilteredText = ret != -1 ? InteropHelp.PtrToStringUTF8(pchOutFilteredText2) : null;
                 Marshal.FreeHGlobal(pchOutFilteredText2);
                 return ret;

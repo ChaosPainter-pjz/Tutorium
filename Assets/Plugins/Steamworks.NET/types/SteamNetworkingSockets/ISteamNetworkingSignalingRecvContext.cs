@@ -12,9 +12,11 @@
 #if !DISABLESTEAMWORKS
 
 using System.Runtime.InteropServices;
+using Plugins.Steamworks.NET.autogen;
+using Plugins.Steamworks.NET.types.SteamNetworkingtypes;
 using IntPtr = System.IntPtr;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingSockets
 {
     /// Interface used when a custom signal is received.
     /// See ISteamNetworkingSockets::ReceivedP2PCustomSignal
@@ -48,9 +50,11 @@ namespace Steamworks
         ///
         /// After accepting a connection (through either means), the connection
         /// will transition into the "finding route" state.
-        public IntPtr OnConnectRequest(HSteamNetConnection hConn, ref SteamNetworkingIdentity identityPeer, int nLocalVirtualPort)
+        public IntPtr OnConnectRequest(HSteamNetConnection hConn, ref SteamNetworkingIdentity identityPeer,
+            int nLocalVirtualPort)
         {
-            return NativeMethods.SteamAPI_ISteamNetworkingSignalingRecvContext_OnConnectRequest(ref this, hConn, ref identityPeer, nLocalVirtualPort);
+            return NativeMethods.SteamAPI_ISteamNetworkingSignalingRecvContext_OnConnectRequest(ref this, hConn,
+                ref identityPeer, nLocalVirtualPort);
         }
 
         /// This is called to actively communicate rejection or failure
@@ -59,7 +63,8 @@ namespace Steamworks
         /// implement this.
         public void SendRejectionSignal(ref SteamNetworkingIdentity identityPeer, IntPtr pMsg, int cbMsg)
         {
-            NativeMethods.SteamAPI_ISteamNetworkingSignalingRecvContext_SendRejectionSignal(ref this, ref identityPeer, pMsg, cbMsg);
+            NativeMethods.SteamAPI_ISteamNetworkingSignalingRecvContext_SendRejectionSignal(ref this, ref identityPeer,
+                pMsg, cbMsg);
         }
     }
 }

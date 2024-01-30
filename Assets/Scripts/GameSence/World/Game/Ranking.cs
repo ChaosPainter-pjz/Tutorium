@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace WorldGame
+namespace GameSence.World.Game
 {
     /// <summary>
     /// 小游戏排名单位

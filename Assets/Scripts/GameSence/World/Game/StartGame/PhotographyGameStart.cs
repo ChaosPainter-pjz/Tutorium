@@ -1,14 +1,13 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace WorldGame
+namespace GameSence.World.Game.StartGame
 {
     public class PhotographyGameStart : MonoBehaviour
     {
-        private List<string> gradeIds = new List<string>()
+        private List<string> gradeIds = new()
         {
-            "心情","16"
+            "心情", "16"
         };
 
         private WorldGameManager worldGameManager;
@@ -16,7 +15,8 @@ namespace WorldGame
         public void StartGame()
         {
             worldGameManager ??= WorldGameManager.Instance;
-            worldGameManager.selectStudentControl.UpdateUI(gradeIds,3,gameObject,worldGameManager.photographyGameControl.Init);
+            worldGameManager.selectStudentControl.UpdateUI(gradeIds, 3, gameObject,
+                worldGameManager.photographyGameControl.Init);
         }
     }
 }

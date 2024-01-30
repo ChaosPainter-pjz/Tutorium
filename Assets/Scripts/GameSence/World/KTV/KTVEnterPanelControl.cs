@@ -1,11 +1,12 @@
-using System.Collections;
 using System.Collections.Generic;
 using Basic;
+using GameSence.Hint;
+using Unit;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace World.KTV
+namespace GameSence.World.KTV
 {
     /// <summary>
     /// KTV确认面板控制器
@@ -28,22 +29,23 @@ namespace World.KTV
         [SerializeField] private GameObject cardPrefab;
         [SerializeField] private List<SelectStudentCardControl> studentCardControls;
         private UnityAction callBack;
+
         /// <summary>
         /// 被选中的学生
         /// </summary>
-        [SerializeField] private List<StudentUnit> selectStudentUnits = new List<StudentUnit>();
+        [SerializeField] private List<StudentUnit> selectStudentUnits = new();
 
         /// <summary>
         /// KTV的安排,不要直接将它赋值到学生日程，应该赋值它的值
         /// </summary>
-        private readonly Schedule thisSchedule = new Schedule() { id = "42", lockTime = 1 };
+        private readonly Unit.Schedule thisSchedule = new() { id = "42", lockTime = 1 };
 
         /// <summary>
         /// 进入确认面版
         /// </summary>
         /// <param name="price">当前选中的房间的价格</param>
         /// <param name="time">当前房间的时间段</param>
-        public void OnPanel(int price, int time,UnityAction callBack)
+        public void OnPanel(int price, int time, UnityAction callBack)
         {
             gameObject.SetActive(true);
             this.price = price;
@@ -77,12 +79,8 @@ namespace World.KTV
             priceText.text = allPrice.ToString();
 
             if (enterButton.interactable)
-            {
                 if (selectStudentUnits == null || selectStudentUnits.Count == 0)
-                {
                     enterButton.interactable = false;
-                }
-            }
         }
 
         /// <summary>
@@ -97,20 +95,17 @@ namespace World.KTV
                 studentCardControls.Add(control);
             }
 
-            foreach (var control in studentCardControls)
-            {
-                control.gameObject.SetActive(false);
-            }
+            foreach (var control in studentCardControls) control.gameObject.SetActive(false);
 
-            for (int i = 0; i < students.Count; i++)
+            for (var i = 0; i < students.Count; i++)
             {
                 //词条会显示心情和音乐数值
                 var grade = new List<Grade>()
                 {
-                    new Grade() { name = "心情", score = students[i].Mood },
+                    new() { name = "心情", score = students[i].Mood },
                     students[i].interestGrade.Find(grade => grade.gradeID == "10")
                 };
-                bool isOn = selectStudentUnits.Contains(students[i]);
+                var isOn = selectStudentUnits.Contains(students[i]);
                 studentCardControls[i].UpdateUI(students[i], grade, OnCard, isOn);
             }
         }
@@ -135,13 +130,9 @@ namespace World.KTV
         private void OnCard(StudentUnit unit, bool isOn)
         {
             if (isOn)
-            {
                 selectStudentUnits.Add(unit);
-            }
             else
-            {
                 selectStudentUnits.Remove(unit);
-            }
 
             UpdateUI();
         }
@@ -150,7 +141,8 @@ namespace World.KTV
         {
             if (MoneyManager.Instance.Money < allPrice)
             {
-                HintManager.Instance.AddHint(new Hint("支付失败", $"余额不足，还差{allPrice - MoneyManager.Instance.Money}元，你非常尴尬"));
+                HintManager.Instance.AddHint(new Hint.Hint("支付失败",
+                    $"余额不足，还差{allPrice - MoneyManager.Instance.Money}元，你非常尴尬"));
             }
             else
             {
@@ -161,7 +153,6 @@ namespace World.KTV
                     {
                         unit.schedule[time + 3].id = thisSchedule.id;
                         unit.schedule[time + 3].lockTime = thisSchedule.lockTime;
-
                     }
 
                     if (isDay6)
@@ -171,19 +162,16 @@ namespace World.KTV
                     }
                 }
 
-                if (selectStudentUnits.Count<=1)
-                {
-                    HintManager.Instance.AddHint(new Hint("支付成功", $"{selectStudentUnits[0].fullName}会在周末前往蜂窝KTV娱乐"));
-                }
+                if (selectStudentUnits.Count <= 1)
+                    HintManager.Instance.AddHint(
+                        new Hint.Hint("支付成功", $"{selectStudentUnits[0].fullName}会在周末前往蜂窝KTV娱乐"));
                 else
-                {
-                    HintManager.Instance.AddHint(new Hint("支付成功", $"{selectStudentUnits[0].fullName}等多名学生会在周末前往蜂窝KTV娱乐"));
-                }
+                    HintManager.Instance.AddHint(new Hint.Hint("支付成功",
+                        $"{selectStudentUnits[0].fullName}等多名学生会在周末前往蜂窝KTV娱乐"));
 
                 callBack();
                 gameObject.SetActive(false);
             }
-
         }
     }
 }

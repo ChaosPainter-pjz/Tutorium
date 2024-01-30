@@ -11,13 +11,11 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     [System.Serializable]
-    public struct SteamNetworkingPOPID : System.IEquatable<SteamNetworkingPOPID>, System.IComparable<SteamNetworkingPOPID>
+    public struct SteamNetworkingPOPID : System.IEquatable<SteamNetworkingPOPID>,
+        System.IComparable<SteamNetworkingPOPID>
     {
         public uint m_SteamNetworkingPOPID;
 
@@ -33,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is SteamNetworkingPOPID && this == (SteamNetworkingPOPID) other;
+            return other is SteamNetworkingPOPID && this == (SteamNetworkingPOPID)other;
         }
 
         public override int GetHashCode()

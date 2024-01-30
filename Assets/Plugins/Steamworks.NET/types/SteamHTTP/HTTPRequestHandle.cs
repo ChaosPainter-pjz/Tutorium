@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamHTTP
 {
     [System.Serializable]
     public struct HTTPRequestHandle : System.IEquatable<HTTPRequestHandle>, System.IComparable<HTTPRequestHandle>
     {
-        public static readonly HTTPRequestHandle Invalid = new HTTPRequestHandle(0);
+        public static readonly HTTPRequestHandle Invalid = new(0);
         public uint m_HTTPRequestHandle;
 
         public HTTPRequestHandle(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HTTPRequestHandle && this == (HTTPRequestHandle) other;
+            return other is HTTPRequestHandle && this == (HTTPRequestHandle)other;
         }
 
         public override int GetHashCode()

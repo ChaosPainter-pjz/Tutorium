@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Diagnostics;
+using Basic.CSV2Table;
+using GameSence.Classroom;
+using Unit;
 
 namespace Basic
 {
@@ -15,7 +18,7 @@ namespace Basic
         /// <returns></returns>
         public static StudentCourse Row2StudentCourse(this CourseList.Row row)
         {
-            StudentCourse.Type type = row.Type switch
+            var type = row.Type switch
             {
                 "M" => StudentCourse.Type.Main,
                 "I" => StudentCourse.Type.Interest,
@@ -25,6 +28,7 @@ namespace Basic
             };
             return new StudentCourse(row.Id, row.Name, type);
         }
+
         /// <summary>
         /// 将一个物品row，转化为用于存档的类
         /// </summary>
@@ -32,8 +36,7 @@ namespace Basic
         /// <returns></returns>
         public static Article Row2Article(this ArticleList.Row row)
         {
-            return new Article(row.ID,row.Name,0);
+            return new Article(row.ID, row.Name, 0);
         }
-
     }
 }

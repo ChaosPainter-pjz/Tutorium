@@ -11,20 +11,29 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.autogen;
+using Plugins.Steamworks.NET.types.SteamTypes;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamClientPublic
 {
     [System.Serializable]
     [System.Runtime.InteropServices.StructLayout(System.Runtime.InteropServices.LayoutKind.Sequential, Pack = 4)]
     public struct CSteamID : System.IEquatable<CSteamID>, System.IComparable<CSteamID>
     {
-        public static readonly CSteamID Nil = new CSteamID();
-        public static readonly CSteamID OutofDateGS = new CSteamID(new AccountID_t(0), 0, EUniverse.k_EUniverseInvalid, EAccountType.k_EAccountTypeInvalid);
-        public static readonly CSteamID LanModeGS = new CSteamID(new AccountID_t(0), 0, EUniverse.k_EUniversePublic, EAccountType.k_EAccountTypeInvalid);
-        public static readonly CSteamID NotInitYetGS = new CSteamID(new AccountID_t(1), 0, EUniverse.k_EUniverseInvalid, EAccountType.k_EAccountTypeInvalid);
-        public static readonly CSteamID NonSteamGS = new CSteamID(new AccountID_t(2), 0, EUniverse.k_EUniverseInvalid, EAccountType.k_EAccountTypeInvalid);
+        public static readonly CSteamID Nil = new();
+
+        public static readonly CSteamID OutofDateGS = new(new AccountID_t(0), 0, EUniverse.k_EUniverseInvalid,
+            EAccountType.k_EAccountTypeInvalid);
+
+        public static readonly CSteamID LanModeGS = new(new AccountID_t(0), 0, EUniverse.k_EUniversePublic,
+            EAccountType.k_EAccountTypeInvalid);
+
+        public static readonly CSteamID NotInitYetGS = new(new AccountID_t(1), 0, EUniverse.k_EUniverseInvalid,
+            EAccountType.k_EAccountTypeInvalid);
+
+        public static readonly CSteamID NonSteamGS = new(new AccountID_t(2), 0, EUniverse.k_EUniverseInvalid,
+            EAccountType.k_EAccountTypeInvalid);
+
         public ulong m_SteamID;
 
         public CSteamID(AccountID_t unAccountID, EUniverse eUniverse, EAccountType eAccountType)
@@ -53,17 +62,15 @@ namespace Steamworks
             SetEUniverse(eUniverse);
             SetEAccountType(eAccountType);
 
-            if (eAccountType == EAccountType.k_EAccountTypeClan || eAccountType == EAccountType.k_EAccountTypeGameServer)
-            {
+            if (eAccountType == EAccountType.k_EAccountTypeClan ||
+                eAccountType == EAccountType.k_EAccountTypeGameServer)
                 SetAccountInstance(0);
-            }
             else
-            {
                 SetAccountInstance(Constants.k_unSteamUserDefaultInstance);
-            }
         }
 
-        public void InstancedSet(AccountID_t unAccountID, uint unInstance, EUniverse eUniverse, EAccountType eAccountType)
+        public void InstancedSet(AccountID_t unAccountID, uint unInstance, EUniverse eUniverse,
+            EAccountType eAccountType)
         {
             SetAccountID(unAccountID);
             SetEUniverse(eUniverse);
@@ -105,7 +112,8 @@ namespace Steamworks
         //-----------------------------------------------------------------------------
         public bool BGameServerAccount()
         {
-            return GetEAccountType() == EAccountType.k_EAccountTypeGameServer || GetEAccountType() == EAccountType.k_EAccountTypeAnonGameServer;
+            return GetEAccountType() == EAccountType.k_EAccountTypeGameServer ||
+                   GetEAccountType() == EAccountType.k_EAccountTypeAnonGameServer;
         }
 
         //-----------------------------------------------------------------------------
@@ -155,8 +163,8 @@ namespace Steamworks
         //-----------------------------------------------------------------------------
         public bool IsLobby()
         {
-            return (GetEAccountType() == EAccountType.k_EAccountTypeChat)
-                   && (GetUnAccountInstance() & (int) EChatSteamIDInstanceFlags.k_EChatInstanceFlagLobby) != 0;
+            return GetEAccountType() == EAccountType.k_EAccountTypeChat
+                   && (GetUnAccountInstance() & (int)EChatSteamIDInstanceFlags.k_EChatInstanceFlagLobby) != 0;
         }
 
 
@@ -165,7 +173,8 @@ namespace Steamworks
         //-----------------------------------------------------------------------------
         public bool BIndividualAccount()
         {
-            return GetEAccountType() == EAccountType.k_EAccountTypeIndividual || GetEAccountType() == EAccountType.k_EAccountTypeConsoleUser;
+            return GetEAccountType() == EAccountType.k_EAccountTypeIndividual ||
+                   GetEAccountType() == EAccountType.k_EAccountTypeConsoleUser;
         }
 
 
@@ -174,7 +183,8 @@ namespace Steamworks
         //-----------------------------------------------------------------------------
         public bool BAnonAccount()
         {
-            return GetEAccountType() == EAccountType.k_EAccountTypeAnonUser || GetEAccountType() == EAccountType.k_EAccountTypeAnonGameServer;
+            return GetEAccountType() == EAccountType.k_EAccountTypeAnonUser ||
+                   GetEAccountType() == EAccountType.k_EAccountTypeAnonGameServer;
         }
 
         //-----------------------------------------------------------------------------
@@ -195,72 +205,67 @@ namespace Steamworks
 
         public void SetAccountID(AccountID_t other)
         {
-            m_SteamID = (m_SteamID & ~(0xFFFFFFFFul << (ushort) 0)) | (((ulong) (other) & 0xFFFFFFFFul) << (ushort) 0);
+            m_SteamID = (m_SteamID & ~(0xFFFFFFFFul << (ushort)0)) | (((ulong)other & 0xFFFFFFFFul) << (ushort)0);
         }
 
         public void SetAccountInstance(uint other)
         {
-            m_SteamID = (m_SteamID & ~(0xFFFFFul << (ushort) 32)) | (((ulong) (other) & 0xFFFFFul) << (ushort) 32);
+            m_SteamID = (m_SteamID & ~(0xFFFFFul << (ushort)32)) | (((ulong)other & 0xFFFFFul) << (ushort)32);
         }
 
         // This is a non standard/custom function not found in C++ Steamworks
         public void SetEAccountType(EAccountType other)
         {
-            m_SteamID = (m_SteamID & ~(0xFul << (ushort) 52)) | (((ulong) (other) & 0xFul) << (ushort) 52);
+            m_SteamID = (m_SteamID & ~(0xFul << (ushort)52)) | (((ulong)other & 0xFul) << (ushort)52);
         }
 
         public void SetEUniverse(EUniverse other)
         {
-            m_SteamID = (m_SteamID & ~(0xFFul << (ushort) 56)) | (((ulong) (other) & 0xFFul) << (ushort) 56);
+            m_SteamID = (m_SteamID & ~(0xFFul << (ushort)56)) | (((ulong)other & 0xFFul) << (ushort)56);
         }
 
         public AccountID_t GetAccountID()
         {
-            return new AccountID_t((uint) (m_SteamID & 0xFFFFFFFFul));
+            return new AccountID_t((uint)(m_SteamID & 0xFFFFFFFFul));
         }
 
         public uint GetUnAccountInstance()
         {
-            return (uint) ((m_SteamID >> 32) & 0xFFFFFul);
+            return (uint)((m_SteamID >> 32) & 0xFFFFFul);
         }
 
         public EAccountType GetEAccountType()
         {
-            return (EAccountType) ((m_SteamID >> 52) & 0xFul);
+            return (EAccountType)((m_SteamID >> 52) & 0xFul);
         }
 
         public EUniverse GetEUniverse()
         {
-            return (EUniverse) ((m_SteamID >> 56) & 0xFFul);
+            return (EUniverse)((m_SteamID >> 56) & 0xFFul);
         }
 
         public bool IsValid()
         {
-            if (GetEAccountType() <= EAccountType.k_EAccountTypeInvalid || GetEAccountType() >= EAccountType.k_EAccountTypeMax)
+            if (GetEAccountType() <= EAccountType.k_EAccountTypeInvalid ||
+                GetEAccountType() >= EAccountType.k_EAccountTypeMax)
                 return false;
 
             if (GetEUniverse() <= EUniverse.k_EUniverseInvalid || GetEUniverse() >= EUniverse.k_EUniverseMax)
                 return false;
 
             if (GetEAccountType() == EAccountType.k_EAccountTypeIndividual)
-            {
-                if (GetAccountID() == new AccountID_t(0) || GetUnAccountInstance() > Constants.k_unSteamUserDefaultInstance)
+                if (GetAccountID() == new AccountID_t(0) ||
+                    GetUnAccountInstance() > Constants.k_unSteamUserDefaultInstance)
                     return false;
-            }
 
             if (GetEAccountType() == EAccountType.k_EAccountTypeClan)
-            {
                 if (GetAccountID() == new AccountID_t(0) || GetUnAccountInstance() != 0)
                     return false;
-            }
 
             if (GetEAccountType() == EAccountType.k_EAccountTypeGameServer)
-            {
                 if (GetAccountID() == new AccountID_t(0))
                     return false;
-                // Any limit on instances?  We use them for local users and bots
-            }
-
+            // Any limit on instances?  We use them for local users and bots
             return true;
         }
 
@@ -273,7 +278,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is CSteamID && this == (CSteamID) other;
+            return other is CSteamID && this == (CSteamID)other;
         }
 
         public override int GetHashCode()

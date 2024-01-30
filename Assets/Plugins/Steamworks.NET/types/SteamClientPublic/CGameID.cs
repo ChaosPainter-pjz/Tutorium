@@ -11,10 +11,9 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
+using Plugins.Steamworks.NET.types.SteamTypes;
 
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamClientPublic
 {
     [System.Serializable]
     public struct CGameID : System.IEquatable<CGameID>, System.IComparable<CGameID>
@@ -26,7 +25,7 @@ namespace Steamworks
             k_EGameIDTypeApp = 0,
             k_EGameIDTypeGameMod = 1,
             k_EGameIDTypeShortcut = 2,
-            k_EGameIDTypeP2P = 3,
+            k_EGameIDTypeP2P = 3
         };
 
         public CGameID(ulong GameID)
@@ -70,17 +69,17 @@ namespace Steamworks
 
         public AppId_t AppID()
         {
-            return new AppId_t((uint) (m_GameID & 0xFFFFFFul));
+            return new AppId_t((uint)(m_GameID & 0xFFFFFFul));
         }
 
         public EGameIDType Type()
         {
-            return (EGameIDType) ((m_GameID >> 24) & 0xFFul);
+            return (EGameIDType)((m_GameID >> 24) & 0xFFul);
         }
 
         public uint ModID()
         {
-            return (uint) ((m_GameID >> 32) & 0xFFFFFFFFul);
+            return (uint)((m_GameID >> 32) & 0xFFFFFFFFul);
         }
 
         public bool IsValid()
@@ -119,17 +118,17 @@ namespace Steamworks
 
         private void SetAppID(AppId_t other)
         {
-            m_GameID = (m_GameID & ~(0xFFFFFFul << (ushort) 0)) | (((ulong) (other) & 0xFFFFFFul) << (ushort) 0);
+            m_GameID = (m_GameID & ~(0xFFFFFFul << (ushort)0)) | (((ulong)other & 0xFFFFFFul) << (ushort)0);
         }
 
         private void SetType(EGameIDType other)
         {
-            m_GameID = (m_GameID & ~(0xFFul << (ushort) 24)) | (((ulong) (other) & 0xFFul) << (ushort) 24);
+            m_GameID = (m_GameID & ~(0xFFul << (ushort)24)) | (((ulong)other & 0xFFul) << (ushort)24);
         }
 
         private void SetModID(uint other)
         {
-            m_GameID = (m_GameID & ~(0xFFFFFFFFul << (ushort) 32)) | (((ulong) (other) & 0xFFFFFFFFul) << (ushort) 32);
+            m_GameID = (m_GameID & ~(0xFFFFFFFFul << (ushort)32)) | (((ulong)other & 0xFFFFFFFFul) << (ushort)32);
         }
 
         #endregion
@@ -143,7 +142,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is CGameID && this == (CGameID) other;
+            return other is CGameID && this == (CGameID)other;
         }
 
         public override int GetHashCode()

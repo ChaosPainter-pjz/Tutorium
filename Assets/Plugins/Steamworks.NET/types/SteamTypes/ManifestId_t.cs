@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamTypes
 {
     [System.Serializable]
     public struct ManifestId_t : System.IEquatable<ManifestId_t>, System.IComparable<ManifestId_t>
     {
-        public static readonly ManifestId_t Invalid = new ManifestId_t(0x0);
+        public static readonly ManifestId_t Invalid = new(0x0);
         public ulong m_ManifestId;
 
         public ManifestId_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is ManifestId_t && this == (ManifestId_t) other;
+            return other is ManifestId_t && this == (ManifestId_t)other;
         }
 
         public override int GetHashCode()

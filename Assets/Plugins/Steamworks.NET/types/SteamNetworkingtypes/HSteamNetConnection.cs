@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamNetworkingtypes
 {
     [System.Serializable]
     public struct HSteamNetConnection : System.IEquatable<HSteamNetConnection>, System.IComparable<HSteamNetConnection>
     {
-        public static readonly HSteamNetConnection Invalid = new HSteamNetConnection(0);
+        public static readonly HSteamNetConnection Invalid = new(0);
         public uint m_HSteamNetConnection;
 
         public HSteamNetConnection(uint value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is HSteamNetConnection && this == (HSteamNetConnection) other;
+            return other is HSteamNetConnection && this == (HSteamNetConnection)other;
         }
 
         public override int GetHashCode()

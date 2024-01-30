@@ -1,9 +1,11 @@
-﻿using System;
+﻿using Basic.CSV2Table;
+using Basic.CSV2Table.World;
+using GameSence.Classroom;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-namespace Supermarket
+namespace GameSence.World.Supermarket
 {
     public class SupermarketCard : MonoBehaviour
     {
@@ -18,7 +20,8 @@ namespace Supermarket
         private UnityAction<string> CallBack;
         private Article thisArticle;
 
-        public void UpdateUI(Article article, SupermarketGoodsList.Row supermarketGoodRow, ArticleList.Row articleRow, Sprite image, UnityAction<string> callBack)
+        public void UpdateUI(Article article, SupermarketGoodsList.Row supermarketGoodRow, ArticleList.Row articleRow,
+            Sprite image, UnityAction<string> callBack)
         {
             cardName.text = articleRow.Name;
             productionCompany.text = supermarketGoodRow.productionCompany;

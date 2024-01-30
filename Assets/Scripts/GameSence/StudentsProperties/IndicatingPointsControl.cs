@@ -1,24 +1,26 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using Unit;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class IndicatingPointsControl : MonoBehaviour
+namespace GameSence.StudentsProperties
 {
-    [SerializeField] private Text number;
-    [SerializeField] private List<IndicatingControl> indicatingList;
-    public List<string> indicatingNow;
-
-    private void Start()
+    public class IndicatingPointsControl : MonoBehaviour
     {
-        GetComponentInParent<StudentPropertiesControl>().UIUpdateEvent += UIUpdate;
-        UIUpdate();
-    }
+        [SerializeField] private Text number;
+        [SerializeField] private List<IndicatingControl> indicatingList;
+        public List<string> indicatingNow;
 
-    private void UIUpdate()
-    {
-        StudentUnit studentUnit = GetComponentInParent<StudentPropertiesControl>().studentUnit;
-        number.text = ( studentUnit.indicatingPoints- studentUnit.indicatingNow.Count).ToString();
+        private void Start()
+        {
+            GetComponentInParent<StudentPropertiesControl>().UIUpdateEvent += UIUpdate;
+            UIUpdate();
+        }
+
+        private void UIUpdate()
+        {
+            var studentUnit = GetComponentInParent<StudentPropertiesControl>().studentUnit;
+            number.text = (studentUnit.indicatingPoints - studentUnit.indicatingNow.Count).ToString();
+        }
     }
 }

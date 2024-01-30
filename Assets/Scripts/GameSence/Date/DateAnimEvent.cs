@@ -1,29 +1,24 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+using GameSence.StoryLine;
 using UnityEngine;
 
-public class DateAnimEvent : MonoBehaviour
+namespace GameSence.Date
 {
-    [SerializeField] private StoryLineManager storyLineManager;
-    [SerializeField] private GameManager gameManager;
-    [SerializeField] private DatetimeManager datetimeManager;
-    private bool isFirstTime = true;
-    public void StartStoryLine()
+    public class DateAnimEvent : MonoBehaviour
     {
-        if (gameManager.saveObject.SaveData.gameDate == new Date(datetimeManager.InitYear,0,1,0))
-        {
-            isFirstTime = false;
-        }
-        if (isFirstTime)
-        {
-            isFirstTime = false;
-            //Debug.Log("初次");
-        }
-        else
-        {
-            storyLineManager.StartPlotJudgment();
-        }
+        [SerializeField] private StoryLineManager storyLineManager;
+        [SerializeField] private GameManager.GameManager gameManager;
+        [SerializeField] private DatetimeManager datetimeManager;
+        private bool isFirstTime = true;
 
+        public void StartStoryLine()
+        {
+            if (gameManager.saveObject.SaveData.gameDate == new Unit.Date(datetimeManager.InitYear, 0, 1, 0))
+                isFirstTime = false;
+            if (isFirstTime)
+                isFirstTime = false;
+            //Debug.Log("初次");
+            else
+                storyLineManager.StartPlotJudgment();
+        }
     }
 }

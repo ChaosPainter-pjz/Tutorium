@@ -11,15 +11,12 @@
 
 #if !DISABLESTEAMWORKS
 
-using System.Runtime.InteropServices;
-using IntPtr = System.IntPtr;
-
-namespace Steamworks
+namespace Plugins.Steamworks.NET.types.SteamUGC
 {
     [System.Serializable]
     public struct UGCUpdateHandle_t : System.IEquatable<UGCUpdateHandle_t>, System.IComparable<UGCUpdateHandle_t>
     {
-        public static readonly UGCUpdateHandle_t Invalid = new UGCUpdateHandle_t(0xffffffffffffffff);
+        public static readonly UGCUpdateHandle_t Invalid = new(0xffffffffffffffff);
         public ulong m_UGCUpdateHandle;
 
         public UGCUpdateHandle_t(ulong value)
@@ -34,7 +31,7 @@ namespace Steamworks
 
         public override bool Equals(object other)
         {
-            return other is UGCUpdateHandle_t && this == (UGCUpdateHandle_t) other;
+            return other is UGCUpdateHandle_t && this == (UGCUpdateHandle_t)other;
         }
 
         public override int GetHashCode()
