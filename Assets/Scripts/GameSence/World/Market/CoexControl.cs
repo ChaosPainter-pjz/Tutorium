@@ -19,13 +19,13 @@ namespace GameSence.World.Market
 
         private void OnEnable()
         {
-            AudioControl.Instance.PlayBackgroundMusic(AudioControl.BackgroundMusicType.World);
+            AudioControl.Instance?.PlayBackgroundMusic(AudioControl.BackgroundMusicType.World);
             coexData ??= saveObject.SaveData.coexData;
             RefreshTaskList();
             OnTaskPanel();
-            CardUpdate();
+            //CardUpdate();
 
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -48,6 +48,10 @@ namespace GameSence.World.Market
                     m_tasks[i].Init(saveObject.SaveData, coexData.LockTasks[i], OnFetchTask);
                 else if (i < coexData.LockTasks.Count + coexData.Tasks.Count)
                     m_tasks[i].Init(saveObject.SaveData, coexData.Tasks[i - coexData.LockTasks.Count], OnFetchTask);
+                else
+                {
+                    m_tasks[i].gameObject.SetActive(false);
+                }
         }
 
         /// <summary>

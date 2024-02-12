@@ -45,9 +45,11 @@ namespace Unit
         {
             return new Grade()
             {
-                gradeID = gradeID,
-                score = score
+                gradeID = this.gradeID,
+                score = this.score,
+                name = this.name,
             };
         }
+        
     }
 }

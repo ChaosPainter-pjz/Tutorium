@@ -47,9 +47,16 @@ namespace GameSence.World.Market
         {
             if (!gameObject.activeSelf) return;
             if (_saveData.coexData.Tasks.Contains(_task))
+            {
                 buttonText.text = "参加";
+                isTask = true;
+            }
             else if (_saveData.coexData.LockTasks.Contains(_task))
+            {
                 buttonText.text = "放弃";
+                isTask = false;
+            }
+                
             grade.text = $"类目：{_task.Grade.name}    要求分数：{_task.Grade.score}";
             var student = _saveData.studentUnits.Find(st => st.id == _task.UnitId);
             if (student != null)
@@ -66,6 +73,7 @@ namespace GameSence.World.Market
             {
                 studentName.text = "待报名";
             }
+            Debug.Log("刷新卡片");
         }
 
         /// <summary>
