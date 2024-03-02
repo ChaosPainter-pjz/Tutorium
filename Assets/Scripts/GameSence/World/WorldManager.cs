@@ -77,8 +77,8 @@ namespace GameSence.World
         /// </summary>
         public void OnCoex()
         {
-            //if (IsCoex())
-            if (false)
+            if (IsCoex())
+                //if (false)
                 coexControl.gameObject.SetActive(true);
             else
                 HintManager.Instance.AddHint(new Hint.Hint("施工即将完成", "工作人员告诉你：该商户还在装修中，尚不知晓何时开业"));

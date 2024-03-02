@@ -47,13 +47,14 @@ MonoBehaviour:
     - 65
     - 76
     - 73
+    - 5
     isInstance: 1
-    money: 39420
+    money: 31945
     gameDate:
-      year: 2023
+      year: 2024
       semester: 0
-      week: 6
-      whatDay: 0
+      week: 7
+      whatDay: 5
     isWorld: 1
     parkDate:
       year: 2022
@@ -61,26 +62,26 @@ MonoBehaviour:
       week: 7
       whatDay: 0
     supermarketDate:
-      year: 2023
+      year: 2024
       semester: 0
-      week: 5
+      week: 7
       whatDay: 5
     supermarketCommodities:
     - id: 1
       name: "\u53EF\u662F\u53EF\u4E50"
-      number: 0
+      number: 4
     - id: 2
       name: "\u4E09\u5C3E\u4ED3\u9F20"
-      number: 0
+      number: 3
     - id: 4
       name: "\u8005\u4E5F\u4F1A\u5458"
-      number: 0
+      number: 2
     - id: 8
       name: "\u7D20\u63CF\u753B\u677F"
       number: 0
     - id: 17
       name: "\u4E00\u7247\u897F\u74DC"
-      number: 8
+      number: 10
     - id: 3
       name: "\u5B66\u751F\u5361"
       number: 1
@@ -92,10 +93,10 @@ MonoBehaviour:
       number: 0
     - id: 5
       name: "\u5E03\u4E01\u86CB\u7CD5"
-      number: 0
+      number: 2
     - id: 6
       name: "\u65B0\u624B\u5409\u4ED6"
-      number: 0
+      number: 1
     - id: 7
       name: "\u5E72\u82B1\u4E0E\u74F6"
       number: 1
@@ -110,6 +111,14 @@ MonoBehaviour:
       semester: 0
       week: 4
       whatDay: 0
+    coexData:
+      date:
+        year: 2024
+        semester: 0
+        week: 7
+        whatDay: 5
+      Tasks: []
+      LockTasks: []
     midtermEfficiency: 0.07
     isDivideIntoClass: 0
     isTranscript: 0
@@ -164,6 +173,9 @@ MonoBehaviour:
       - id: 11
         name: "\u6B4C\u5531\u7EC3\u4E60"
         type: 1
+      - id: 12
+        name: "\u97F3\u4E50\u57FA\u672C\u7406\u8BBA"
+        type: 1
       playerCourses:
       - id: 10
         name: "\u5FEB\u4E50\u8BFE\u5802"
@@ -212,7 +224,7 @@ MonoBehaviour:
         isHave: 1
       - id: 101
         name: "\u865A\u62DF\u6D3B\u52A8\u4E3B\u6301"
-        level: 0
+        level: 1
         empiricalValue: 0
         isHave: 1
       - id: 102
@@ -256,7 +268,7 @@ MonoBehaviour:
         number: 2
       - id: 11
         name: "\u54D1\u94C3"
-        number: 1
+        number: 0
       - id: 12
         name: "\u52A8\u4F5C\u6355\u6349\u8DF3\u821E\u57AB"
         number: 1
@@ -268,7 +280,7 @@ MonoBehaviour:
         number: 1
       - id: 17
         name: "\u4E00\u7247\u897F\u74DC"
-        number: 1
+        number: 0
     studentUnits:
     - id: 1
       fullName: "\u8096\u675C\u8587\u8587"
@@ -281,7 +293,7 @@ MonoBehaviour:
       personalData: "\u8F85\u5BFC\u73ED\u539F\u80A1\u4E1C\u8096\u6B63\u9053\u7684\u5C0F\u5973\u513F\uFF0C\u8FD9\u4F4D\u53C8\u6295\u94B1\u53C8\u6295\u5973\u513F\u7684\u8001\u7236\u4EB2\u975E\u5E38\u5E0C\u671B\u8096\u675C\u8587\u8587\u80FD\u8003\u4E0A\u597D\u5927\u5B66\u3002\r\n\u597D\u597D\u57F9\u517B\u8FD9\u4F4D\u5B66\u751F\u5427\uFF0C\u5979\u5BF9\u5F85\u5B66\u4E1A\u6BD4\u5176\u5979\u5B66\u751F\u90FD\u8981\u8BA4\u771F\u3001\u52AA\u529B\uFF0C\u867D\u7136\u5076\u5C14\u6709\u4E9B\u5C0F\u5FC3\u601D\uFF0C\u4F46\u662F\u66F4\u591A\u65F6\u5019\u90FD\u662F\u4E2A\u4E09\u597D\u5B66\u751F\u3002\r\n\u5E73\u65F6\u6253\u626E\u5F97\u5F88\u6210\u719F\uFF0C\u7ECF\u5E38\u8BA9\u4EBA\u6000\u7591\u5979\u5230\u5E95\u662F\u4E0D\u662F\u4E2A\u9AD8\u4E2D\u751F\u3002\u7136\u800C\u4E8B\u5B9E\u662F\u8587\u8587\u6839\u672C\u4E0D\u4F1A\u6253\u626E\uFF0C\u600E\u4E48\u7A7F\u8863\u6253\u626E\u90FD\u662F\u5B66\u5979\u5988\u5988\u7684\u3002\r\n\u5468\u5B50\u8F69\uFF1A\u201C\u5979\u5C31\u662F\u4E2A\u6BCD\u8001\u864E\uFF01\u5343\u4E07\u522B\u60F9\u5979\uFF01\uFF01\u201D"
       school: "\u9ED1\u6E56\u4E2D\u5B66"
       enrollmentYear: 2022
-      trust: 38
+      trust: 40
       mood: 100
       indicatingPoints: 1
       indicatingNow: []
@@ -296,7 +308,7 @@ MonoBehaviour:
         score: 40
         name: "\u53E3\u624D"
       - gradeID: physique
-        score: 80
+        score: 83
         name: "\u8EAB\u4F53\u7D20\u8D28"
       - gradeID: goodAndEvil
         score: 20
@@ -304,38 +316,38 @@ MonoBehaviour:
       interpersonalRelationship: []
       mainGrade:
       - gradeID: 0
-        score: 800
+        score: 804
         name: "\u8BED\u6587"
       - gradeID: 1
-        score: 800
+        score: 802
         name: "\u6570\u5B66"
       - gradeID: 2
-        score: 800
+        score: 838
         name: "\u82F1\u8BED"
       - gradeID: 3
-        score: 800
+        score: 804
         name: "\u653F\u6CBB"
       - gradeID: 4
-        score: 800
+        score: 804
         name: "\u5386\u53F2"
       - gradeID: 5
-        score: 800
+        score: 804
         name: "\u5730\u7406"
       - gradeID: 6
-        score: 800
+        score: 802
         name: "\u7269\u7406"
       - gradeID: 7
-        score: 800
+        score: 822
         name: "\u5316\u5B66"
       - gradeID: 8
-        score: 800
+        score: 802
         name: "\u751F\u7269"
       interestGrade:
       - gradeID: 10
-        score: 50
+        score: 78
         name: "\u97F3\u4E50"
       - gradeID: 11
-        score: 30
+        score: 36
         name: "\u8868\u6F14"
       - gradeID: 12
         score: 0
@@ -365,7 +377,7 @@ MonoBehaviour:
         score: 0
         name: "\u7ED8\u753B"
       - gradeID: 21
-        score: 218
+        score: 221
         name: "\u8FD0\u52A8"
       schedule:
       - id: 3
@@ -374,7 +386,7 @@ MonoBehaviour:
         lockTime: 0
       - id: 30
         lockTime: 0
-      - id: 1
+      - id: 12
         lockTime: 0
       - id: 30
         lockTime: 0
@@ -406,8 +418,8 @@ MonoBehaviour:
       personalData: "\u6765\u81EA\u201C\u8131\u8D2B\u201D\u7684\u4E61\u4E0B\u3002\u4ECE\u5C0F\u5C31\u80FD\u5403\u9971\u7A7F\u6696\uFF0C\u7236\u6BCD\u773C\u4E2D\u7684\u5927\u5B9D\u8D1D\u300210\u5C81\u5C31\u5B66\u4F1A\u4E86\u5438\u5F15\u5973\u5B69\u5B50\u7684\u6CE8\u610F\u529B\uFF0C\u90BB\u5C45\u5BB6\u773C\u4E2D\u7684\u5C0F\u767D\u8138\u3002\r\n\u70ED\u7231\u4EA4\u9645\u3001\u81EA\u6765\u719F\uFF0C\u66FE\u5229\u7528\u751C\u8A00\u871C\u8BED\u8BA9\u5C0F\u5356\u90E8\u7684\u5C0F\u59D0\u59D0\u8BF7\u4ED6\u5403\u4E86\u534A\u5E74\u5C0F\u5E03\u4E01\u3002\r\n\u4E0A\u9AD8\u4E2D\u540E\u7531\u4E8E\u5B66\u6821\u5BBF\u820D\u665A\u4E0A\u8981\u67E5\u5BDD\uFF0C\u4E14\u8FD0\u6C14\u4E0D\u9519\u7684\u62BD\u5230\u4E86\u5B9E\u9A8C\u73ED\u7684\u540D\u989D\uFF0C\u6240\u4EE5\u6BC5\u7136\u52A0\u5165\u4E86\u5B9E\u9A8C\u73ED\u3002\u4E00\u6B21\u591C\u4E0D\u5F52\u5BBF\u540E\u88AB\u53D1\u73B0\uFF0C\u73B0\u5728\u5DF2\u7ECF\u88AB\u5F3A\u52BF\u9547\u538B\u3002\r\n\u5C31\u76EE\u524D\u6765\u770B\uFF0C\u51FA\u95E8\u662F\u4ED6\u552F\u4E00\u7684\u4E50\u8DA3\u3002\u4F46\u4ED6\u51FA\u95E8\u540E\u53BB\u505A\u4E86\u4EC0\u4E48\u5462\uFF0C\u8C01\u53C8\u77E5\u9053\u5462\u3002"
       school: "\u9ED1\u6E56\u4E2D\u5B66"
       enrollmentYear: 2022
-      trust: 22
-      mood: 99
+      trust: 24
+      mood: 100
       indicatingPoints: 1
       indicatingNow: []
       properties:
@@ -421,7 +433,7 @@ MonoBehaviour:
         score: 11
         name: "\u53E3\u624D"
       - gradeID: physique
-        score: 72
+        score: 75
         name: "\u8EAB\u4F53\u7D20\u8D28"
       - gradeID: goodAndEvil
         score: -30
@@ -435,38 +447,38 @@ MonoBehaviour:
         messageLogging: "[\u5386\u53F2\u6D88\u606F]\u597D\uFF0C\u6211\u90FD\u542C\u4F60\u7684"
       mainGrade:
       - gradeID: 0
-        score: 540
+        score: 543
         name: "\u8BED\u6587"
       - gradeID: 1
-        score: 426
+        score: 429
         name: "\u6570\u5B66"
       - gradeID: 2
-        score: 1057
+        score: 1098
         name: "\u82F1\u8BED"
       - gradeID: 3
-        score: 86
+        score: 89
         name: "\u653F\u6CBB"
       - gradeID: 4
-        score: 177
+        score: 179
         name: "\u5386\u53F2"
       - gradeID: 5
-        score: 97
+        score: 99
         name: "\u5730\u7406"
       - gradeID: 6
-        score: 139
+        score: 142
         name: "\u7269\u7406"
       - gradeID: 7
-        score: 105
+        score: 142
         name: "\u5316\u5B66"
       - gradeID: 8
-        score: 95
+        score: 98
         name: "\u751F\u7269"
       interestGrade:
       - gradeID: 10
-        score: 55
+        score: 83
         name: "\u97F3\u4E50"
       - gradeID: 11
-        score: 2
+        score: 8
         name: "\u8868\u6F14"
       - gradeID: 12
         score: 0
@@ -490,13 +502,13 @@ MonoBehaviour:
         score: 0
         name: "\u8003\u53E4"
       - gradeID: 19
-        score: 0
+        score: 40
         name: "\u7F16\u7A0B"
       - gradeID: 20
         score: 0
         name: "\u7ED8\u753B"
       - gradeID: 21
-        score: 157
+        score: 160
         name: "\u8FD0\u52A8"
       schedule:
       - id: 3
@@ -505,7 +517,7 @@ MonoBehaviour:
         lockTime: 0
       - id: 30
         lockTime: 0
-      - id: 1
+      - id: 12
         lockTime: 0
       - id: 30
         lockTime: 0
@@ -534,13 +546,13 @@ MonoBehaviour:
       personalData: "\u539F\u540D\u8881\u5C0F\u4E2B\uFF0C\u662F\u90CA\u533A\u519C\u6751\u6765\u7684\u5B69\u5B50\u3002\u7531\u4E8E\u5FD8\u8BB0\u7533\u8BF7\u4F4F\u6821\uFF0C\u7B49\u7533\u8BF7\u7684\u65F6\u5019\u540D\u989D\u5DF2\u7ECF\u6EE1\u4E86\uFF0C\u8FD0\u6C14\u4E0D\u9519\u7684\u88AB\u585E\u5230\u4E86\u5B9E\u9A8C\u73ED\u3002\r\n\u4E3A\u4EBA\u8C6A\u6C14\u4ED7\u4E49\u3001\u5927\u667A\u82E5\u611A\uFF08\uFF1F\uFF1F\uFF09\u3001\u5FC3\u5730\u5584\u826F\u3002\u7ECF\u5E38\u505A\u516C\u4E3B\u68A6\uFF0C\u68A6\u60F3\u81EA\u5DF1\u662F\u4E2A\u4EBA\u89C1\u4EBA\u7231\u7684\u5927\u7F8E\u5973\u3002\u4F46\u662F\u5979\u7684\u6027\u683C\u5B8C\u5168\u5C31\u662F\u50BB\u72CD\u5B50\uFF0C\u73ED\u91CC\u7684\u7537\u5B69\u5B50\u751A\u81F3\u548C\u5979\u79F0\u5144\u9053\u5F1F\u3002\u6216\u8BB8\u662F\u6765\u81EA\u519C\u6751\u7684\u7F18\u6545\uFF0C\u5BFC\u81F4\u5979\u5FC3\u673A\u592A\u5C0F\uFF0C\u7ECF\u5E38\u88AB\u6349\u5F04\u8FD8\u7B11\u563B\u563B\u7684\uFF0C\u6216\u8BB8\u662F\u56E0\u4E3A\u50BB\u4EBA\u6709\u50BB\u798F\uFF0C\u73B0\u5728\u7684\u5979\u8FD0\u6C14\u975E\u5E38\u4E0D\u9519\u3002"
       school: "\u9ED1\u6E56\u4E2D\u5B66"
       enrollmentYear: 2022
-      trust: 30
-      mood: 99
+      trust: 32
+      mood: 100
       indicatingPoints: 1
       indicatingNow: []
       properties:
       - gradeID: temperament
-        score: 5
+        score: 10
         name: "\u6C14\u8D28"
       - gradeID: thought
         score: 8
@@ -549,7 +561,7 @@ MonoBehaviour:
         score: 5
         name: "\u53E3\u624D"
       - gradeID: physique
-        score: 76
+        score: 85
         name: "\u8EAB\u4F53\u7D20\u8D28"
       - gradeID: goodAndEvil
         score: 10
@@ -557,31 +569,31 @@ MonoBehaviour:
       interpersonalRelationship: []
       mainGrade:
       - gradeID: 0
-        score: 493
+        score: 508
         name: "\u8BED\u6587"
       - gradeID: 1
-        score: 346
+        score: 348
         name: "\u6570\u5B66"
       - gradeID: 2
-        score: 819
+        score: 857
         name: "\u82F1\u8BED"
       - gradeID: 3
-        score: 73
+        score: 75
         name: "\u653F\u6CBB"
       - gradeID: 4
-        score: 145
+        score: 149
         name: "\u5386\u53F2"
       - gradeID: 5
-        score: 103
+        score: 105
         name: "\u5730\u7406"
       - gradeID: 6
-        score: 108
+        score: 110
         name: "\u7269\u7406"
       - gradeID: 7
-        score: 73
+        score: 75
         name: "\u5316\u5B66"
       - gradeID: 8
-        score: 89
+        score: 91
         name: "\u751F\u7269"
       interestGrade:
       - gradeID: 10
@@ -618,7 +630,7 @@ MonoBehaviour:
         score: 0
         name: "\u7ED8\u753B"
       - gradeID: 21
-        score: 230
+        score: 243
         name: "\u8FD0\u52A8"
       schedule:
       - id: 3
@@ -656,8 +668,8 @@ MonoBehaviour:
       personalData: "\u6765\u81EA\u201C\u5BCC\u4EBA\u533A\u201D\u9633\u5149\u5C9B\u7684\u5B66\u751F\u3002\u662F\u7236\u6BCD\u79EF\u6781\u54CD\u5E94\u4E8C\u80CE\u653F\u7B56\u7684\u4EA7\u7269\uFF0C\u5BB6\u91CC\u6709\u4E00\u4F4D\u5927\u4ED67\u5C81\u7684\u5144\u957F\uFF0C\u201C\u8001\u6765\u5F97\u5B50\u201D\u7684\u5BB6\u4EBA\u5BF9\u4ED6\u975E\u5E38\u5BA0\u7231\u3002\r\n\u559C\u6B22\u201C\u900F\u8FC7\u73B0\u8C61\u770B\u672C\u8D28\u201D\uFF0C\u8BF4\u8BDD\u5F80\u5F80\u8DE8\u5EA6\u6781\u5927\uFF0C\u8BA9\u4EBA\u6478\u4E0D\u7740\u5934\u8111\u3002\u867D\u7136\u6709\u65F6\u96BE\u4EE5\u6C9F\u901A\uFF0C\u4F46\u662F\u53EA\u8981\u6C9F\u901A\u8D77\u6765\u5C31\u4F1A\u53D1\u73B0\uFF0C\u4ED6\u7684\u601D\u7EF4\u89D2\u5EA6\u786E\u5B9E\u5F88\u6E05\u5947\u3001\u5F88\u6709\u610F\u601D\u3002\r\n\u5BB6\u91CC\u8DDF\u5C40\u91CC\u5173\u7CFB\u83AB\u6D4B\uFF0C\u5373\u4F7F\u5C31\u8BFB\u7684\u9644\u5C5E\u4E2D\u5B66\u79BB\u8F85\u5BFC\u73ED\u6709\u70B9\u8DDD\u79BB\uFF0C\u4F46\u6587\u6709\u5E0C\u8FD8\u662F\u88AB\u6254\u5230\u4E86\u6211\u4EEC\u73ED\u91CC\u3002\r\n\u70ED\u8877\u4E8E\u5404\u79CD\u751C\u98DF\u3001\u5976\u8336\uFF0C\u5BB3\u6015\u4F53\u80B2\u8FD0\u52A8\u3002"
       school: "\u9ED1\u6E56\u5B66\u9662\u9644\u5C5E\u4E2D\u5B66"
       enrollmentYear: 2022
-      trust: 25
-      mood: 99
+      trust: 27
+      mood: 100
       indicatingPoints: 1
       indicatingNow: []
       properties:
@@ -671,7 +683,7 @@ MonoBehaviour:
         score: 0
         name: "\u53E3\u624D"
       - gradeID: physique
-        score: 71
+        score: 74
         name: "\u8EAB\u4F53\u7D20\u8D28"
       - gradeID: goodAndEvil
         score: 0
@@ -679,31 +691,31 @@ MonoBehaviour:
       interpersonalRelationship: []
       mainGrade:
       - gradeID: 0
-        score: 559
+        score: 576
         name: "\u8BED\u6587"
       - gradeID: 1
-        score: 483
+        score: 487
         name: "\u6570\u5B66"
       - gradeID: 2
-        score: 865
+        score: 905
         name: "\u82F1\u8BED"
       - gradeID: 3
-        score: 80
+        score: 82
         name: "\u653F\u6CBB"
       - gradeID: 4
-        score: 158
+        score: 163
         name: "\u5386\u53F2"
       - gradeID: 5
-        score: 130
+        score: 133
         name: "\u5730\u7406"
       - gradeID: 6
-        score: 210
+        score: 213
         name: "\u7269\u7406"
       - gradeID: 7
-        score: 130
+        score: 133
         name: "\u5316\u5B66"
       - gradeID: 8
-        score: 155
+        score: 157
         name: "\u751F\u7269"
       interestGrade:
       - gradeID: 10
@@ -740,7 +752,7 @@ MonoBehaviour:
         score: 0
         name: "\u7ED8\u753B"
       - gradeID: 21
-        score: 200
+        score: 203
         name: "\u8FD0\u52A8"
       schedule:
       - id: 3
@@ -781,11 +793,11 @@ MonoBehaviour:
     - id: 0
       lockTime: 0
     playerPlan:
-    - 100
-    - 100
-    - 100
-    - 100
-    - 100
+    - 101
+    - 101
+    - 101
+    - 101
+    - 101
     classroomEfficiency: 1.6
     plotSaveID:
     - 2015
@@ -804,6 +816,13 @@ MonoBehaviour:
     - N4007
     - I1009
     - N1005
+    - 1001
+    - N1004
+    - N1006
+    - N1007
+    - N1008
+    - N1009
+    - 1002
     timerShaftNodes:
     - nodeType: 0
       date:
@@ -996,6 +1015,32 @@ MonoBehaviour:
       timerShaftStudentNodeList:
       - studentID: 1
         text: "\u8096\u675C\u8587\u8587\u7684\u5386\u53F2\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+    - nodeType: 1
+      date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+      timerShaftStudentNodeList:
+      - studentID: 1
+        text: "\u8096\u675C\u8587\u8587\u7684\u653F\u6CBB\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      - studentID: 1
+        text: "\u8096\u675C\u8587\u8587\u7684\u5730\u7406\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      - studentID: 1
+        text: "\u8096\u675C\u8587\u8587\u7684\u7269\u7406\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      - studentID: 1
+        text: "\u8096\u675C\u8587\u8587\u7684\u5316\u5B66\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      - studentID: 1
+        text: "\u8096\u675C\u8587\u8587\u7684\u751F\u7269\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+    - nodeType: 1
+      date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 2
+      timerShaftStudentNodeList:
+      - studentID: 1
+        text: "\u4E0D\u591F\u901A\u4FD7\u7684\u6559\u5B66\u8BA9\u5B66\u751F\u63D0\u4E0D\u8D77\u52B2\uFF0C\u5931\u53BB\u4E86\u5BF9\u5316\u5B66\u7684\u5174\u8DA3"
     hints:
     - Headline: "\u6D3B\u52A8\u7ECF\u8D39"
       Text: "\u672C\u5B66\u671F\u5B9E\u9A8C\u73ED\u6559\u80B2\u7ECF\u8D39<color=red>10000</color>\u5143\u3002\u63D0\u793A\uFF1A\u4EC5\u4F9B\u6559\u80B2\u652F\u51FA\uFF0C\u5176\u4ED6\u8D39\u7528\u65E0\u9700\u8001\u5E08\u7ECF\u624B\u3002"
@@ -2019,38 +2064,117 @@ MonoBehaviour:
         semester: 0
         week: 6
         whatDay: 0
+    - Headline: "\u653F\u6CBB\xB7\u53CA\u683C"
+      Text: "\u8096\u675C\u8587\u8587\u7684\u653F\u6CBB\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+    - Headline: "\u5730\u7406\xB7\u53CA\u683C"
+      Text: "\u8096\u675C\u8587\u8587\u7684\u5730\u7406\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+    - Headline: "\u7269\u7406\xB7\u53CA\u683C"
+      Text: "\u8096\u675C\u8587\u8587\u7684\u7269\u7406\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+    - Headline: "\u5316\u5B66\xB7\u53CA\u683C"
+      Text: "\u8096\u675C\u8587\u8587\u7684\u5316\u5B66\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+    - Headline: "\u751F\u7269\xB7\u53CA\u683C"
+      Text: "\u8096\u675C\u8587\u8587\u7684\u751F\u7269\u6C34\u5E73\u8FBE\u5230\u4E86\u53CA\u683C\uFF0C\u73B0\u5DF2\u52A0\u5165\u53CA\u683C\u7387\u7684\u5206\u5B50\u3002"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 1
+    - Headline: "\u5931\u53BB\u4FE1\u5FC3"
+      Text: "\u4E0D\u591F\u901A\u4FD7\u7684\u6559\u5B66\u8BA9\u5B66\u751F\u63D0\u4E0D\u8D77\u52B2\uFF0C\u5931\u53BB\u4E86\u5BF9\u5316\u5B66\u7684\u5174\u8DA3"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 2
+    - Headline: "\u8BA2\u9605\u5B8C\u6210"
+      Text: "\u6210\u529F\u8BA2\u9605\u201C\u4E50\u66F2\u603B\u7EB2\u201D,\u53EF\u4EE5\u5728\u201C\u5B66\u751F\u65E5\u7A0B\u201D\u4E2D\u627E\u5230\u4ED6\uFF01"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u54D1\u94C3"
+      Text: "\u8881\u606C\u96C5\u5F97\u5230\u4E86\u4E00\u5BF9\u54D1\u94C3\uFF0C\u7EC3\u4E86\u4E00\u4F1A\u513F\u5C31\u5931\u53BB\u4E86\u5174\u8DA3\uFF0C\u4F53\u8D28+6\u3001\u5FC3\u60C5+10\u3001\u8FD0\u52A8+10\u3001\u6C14\u8D28+5"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u4E00\u7247\u897F\u74DC"
+      Text: "\u73B0\u5728\u4E0D\u662F\u590F\u5929\uFF0C\u8881\u606C\u96C5\u5403\u4E86\u897F\u74DC\u53EA\u89C9\u5F97\u5473\u9053\u4E0D\u9519\uFF0C\u5FC3\u60C5+5"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u65BD\u5DE5\u5373\u5C06\u5B8C\u6210"
+      Text: "\u5DE5\u4F5C\u4EBA\u5458\u544A\u8BC9\u4F60\uFF1A\u8BE5\u5546\u6237\u8FD8\u5728\u88C5\u4FEE\u4E2D\uFF0C\u5C1A\u4E0D\u77E5\u6653\u4F55\u65F6\u5F00\u4E1A"
+      Date:
+        year: 2023
+        semester: 0
+        week: 6
+        whatDay: 5
+    - Headline: "\u4EFB\u52A1\u8FBE\u6210"
+      Text: "\u7ECF\u8FC7\u4E00\u6BB5\u65F6\u95F4\u7684\u52AA\u529B\uFF0C\u5468\u5B50\u8F69\u7684\u7F16\u7A0B\u80FD\u529B\u63D0\u5347\u4E864"
+      Date:
+        year: 2024
+        semester: 0
+        week: 7
+        whatDay: 5
   OverSaveData:
-    overUnits:
-    - studentName: "\u8096\u675C\u8587\u8587"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 1
-    - studentName: "\u5468\u5B50\u8F69"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 2
-    - studentName: "\u8881\u606C\u96C5"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 1
-    - studentName: "\u6587\u6709\u5E0C"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 117
-    - studentName: "\u8096\u675C\u8587\u8587"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 1
-    - studentName: "\u5468\u5B50\u8F69"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 2
-    - studentName: "\u8881\u606C\u96C5"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 1
-    - studentName: "\u6587\u6709\u5E0C"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 117
-    - studentName: "\u8096\u675C\u8587\u8587"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 14
-    - studentName: "\u6587\u6709\u5E0C"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 118
-    - studentName: "\u8096\u675C\u8587\u8587"
-      playerName: "\u4E00\u4E00\u5F97\u4E00"
-      overId: 33
+    overUnits: []

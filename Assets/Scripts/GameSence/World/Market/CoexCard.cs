@@ -1,4 +1,5 @@
-﻿using SaveManager.Scripts;
+﻿using GameSence.Hint;
+using SaveManager.Scripts;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
@@ -10,6 +11,7 @@ namespace GameSence.World.Market
     /// </summary>
     public class CoexCard : MonoBehaviour
     {
+        [SerializeField] private Text taskName;
         [SerializeField] private Text studentName;
         [SerializeField] private Text grade; //要求的学科和分数
         [SerializeField] private Button buttonTake;
@@ -48,6 +50,7 @@ namespace GameSence.World.Market
             if (!gameObject.activeSelf) return;
             if (_saveData.coexData.Tasks.Contains(_task))
             {
+                buttonAccomplish.gameObject.SetActive(false);
                 buttonText.text = "参加";
                 isTask = true;
             }
@@ -56,8 +59,10 @@ namespace GameSence.World.Market
                 buttonText.text = "放弃";
                 isTask = false;
             }
-                
-            grade.text = $"类目：{_task.Grade.name}    要求分数：{_task.Grade.score}";
+
+            taskName.text = $"{_task.Grade.name}能力比拼";
+            grade.text = $"类目：{_task.Grade.name}    要求分数：{_task.Grade.score}   奖励：能力提升{_task.RewardValue}分";
+
             var student = _saveData.studentUnits.Find(st => st.id == _task.UnitId);
             if (student != null)
             {
@@ -66,13 +71,14 @@ namespace GameSence.World.Market
 
                 if (pro == null) pro = student.mainGrade.Find(grade => grade.gradeID == _task.Grade.gradeID);
 
-                if (pro.score >= _task.Grade.score) buttonAccomplish.gameObject.SetActive(true);
+                buttonAccomplish.gameObject.SetActive(pro.score >= _task.Grade.score);
                 studentName.text = $"接取人：{student.fullName}";
             }
             else
             {
                 studentName.text = "待报名";
             }
+
             Debug.Log("刷新卡片");
         }
 
@@ -105,6 +111,16 @@ namespace GameSence.World.Market
             _saveData.coexData.Tasks.Remove(_task);
             gameObject.SetActive(false);
             //这里还要给奖励
+            var student = _saveData.studentUnits.Find(st => st.id == _task.UnitId);
+
+            var studentGrade = student.properties.Find(x => x.gradeID == _task.Grade.gradeID);
+            studentGrade ??= student.mainGrade.Find(x => x.gradeID == _task.Grade.gradeID);
+
+            studentGrade ??= student.interestGrade.Find(x => x.gradeID == _task.Grade.gradeID);
+
+            if (studentGrade != null) studentGrade.score += _task.RewardValue;
+
+            HintManager.Instance.AddHint(new Hint.Hint("任务达成", $"经过一段时间的努力，{student.fullName}的{_task.Grade.name}能力提升了{_task.RewardValue}"));
             _buttonCallback?.Invoke();
         }
     }

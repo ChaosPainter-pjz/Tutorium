@@ -108,7 +108,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProblemsViewState">
-    <option name="selectedTabId" value="QODANA_PROBLEMS_VIEW_TAB" />
+    <option name="selectedTabId" value="CurrentFile" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 7
@@ -122,54 +122,54 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "rider.code.cleanup.on.save": "true",
-    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
-    "settings.editor.selected.configurable": "settings.qodana",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
+    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "rider.external.source.directories": [
-      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache",
-      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache",
-      "C:\\Users\\panji\\AppData\\Local\\Symbols\\src"
+  &quot;keyToStringList&quot;: {
+    &quot;rider.external.source.directories&quot;: [
+      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
+      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
+      &quot;C:\\Users\\panji\\AppData\\Local\\Symbols\\src&quot;
     ]
   }
-}]]></component>
+}</component>
+  <component name="QodanaCIConfigService">
+    <option name="ciType" value="GITHUB" />
+    <option name="path" value="$PROJECT_DIR$/.github/workflows/code_quality.yml" />
+  </component>
+  <component name="QodanaCloudProjectLink">
+    <option name="lastReportId" value="Ld8PR" />
+    <option name="linkedProjectId" value="AG0RY" />
+    <option name="linkedProjectName" value="Tutorium" />
+    <option name="organizationId" value="3eBLD" />
+    <option name="userId" value="Ag8GQ" />
+  </component>
   <component name="QodanaHighlightedReportService">
-    <option name="localRunPublishedPersistedInfo">
-      <LocalRunPublishedPersistedInfo>
-        <option name="fileReportPersistedInfo">
-          <LocalReportPersistedInfo>
-            <option name="path" value="C:\Users\panji\AppData\Local\Temp\qodana_output\qodana.sarif.json" />
-            <option name="reportGuid" value="5f512519-4329-45ea-9cea-37d545edba2b" />
-            <option name="reportName" value="Tutorium/qodana/2024-01-30" />
-          </LocalReportPersistedInfo>
-        </option>
-        <option name="reportLink" value="https://qodana.cloud/projects/AG0RY/reports/Ylg0a" />
-      </LocalRunPublishedPersistedInfo>
+    <option name="cloudReportPersistedInfo">
+      <CloudReportPersistedInfo>
+        <option name="projectId" value="AG0RY" />
+        <option name="reportId" value="Ld8PR" />
+      </CloudReportPersistedInfo>
     </option>
   </component>
   <component name="QodanaIsSelectedPersistenceService">
     <option name="selectedOrLoading" value="true" />
   </component>
-  <component name="QodanaReportsService">
-    <option name="descriptions">
-      <ReportDescription localRun="true" path="C:\Users\panji\AppData\Local\Temp\qodana_output\qodana.sarif.json" publishedReportLink="https://qodana.cloud/projects/AG0RY/reports/Ylg0a" reportGuid="5f512519-4329-45ea-9cea-37d545edba2b" reportId="Tutorium/qodana/2024-01-30" />
-    </option>
-  </component>
   <component name="RunManager" selected="独立播放器.Standalone Player">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.4f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\2022.3.17f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -193,7 +193,7 @@
       <method v="2" />
     </configuration>
     <configuration name="单元测试(批处理模式)" type="RunUnityExe" factoryName="Unity Executable">
-      <option name="EXE_PATH" value="C:\Program Files\Unity\Hub\Editor\2022.3.4f1c1\Editor\Unity.exe" />
+      <option name="EXE_PATH" value="D:\Program Files\Unity\2022.3.17f1c1\Editor\Unity.exe" />
       <option name="PROGRAM_PARAMETERS" value="-runTests -batchmode -projectPath &quot;D:\Xiang Mu\Tutorium_Git&quot; -testResults Logs/results.xml -testPlatform EditMode -debugCodeOptimization" />
       <option name="WORKING_DIRECTORY" value="D:\Xiang Mu\Tutorium_Git" />
       <option name="PASS_PARENT_ENVS" value="1" />
@@ -233,6 +233,7 @@
       <workItem from="1704097098883" duration="1115000" />
       <workItem from="1706104290905" duration="2345000" />
       <workItem from="1706584275963" duration="1429000" />
+      <workItem from="1709364327082" duration="4290000" />
     </task>
     <servers />
   </component>

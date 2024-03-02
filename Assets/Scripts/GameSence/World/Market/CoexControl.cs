@@ -49,9 +49,7 @@ namespace GameSence.World.Market
                 else if (i < coexData.LockTasks.Count + coexData.Tasks.Count)
                     m_tasks[i].Init(saveObject.SaveData, coexData.Tasks[i - coexData.LockTasks.Count], OnFetchTask);
                 else
-                {
                     m_tasks[i].gameObject.SetActive(false);
-                }
         }
 
         /// <summary>
@@ -123,19 +121,25 @@ namespace GameSence.World.Market
                 //基本属性任务 20%
                 task.Grade = studentUnit.properties[Random.Range(0, studentUnit.properties.Count)].Copy();
                 task.Grade.score += Random.Range(5, 10);
+                var range = Random.Range(0.08f, 0.12f);
+                task.RewardValue = Mathf.RoundToInt(task.Grade.score * range);
             }
             else if (Random.Range(0, 1f) < 0.5f || studentUnit.interestGrade.Count == 0)
             {
                 //如果不存在兴趣，就转为学科studentUnit.interestGrade.Count==0
                 //学科任务 40%
                 task.Grade = studentUnit.mainGrade[Random.Range(0, studentUnit.mainGrade.Count)].Copy();
-                task.Grade.score += Random.Range(25, 40);
-            }
+                task.Grade.score += Random.Range(25, 60);
+                var range = Random.Range(0.08f, 0.16f);
+                task.RewardValue = Mathf.RoundToInt(task.Grade.score * range);
+              }
             else
             {
                 //兴趣任务 40%
                 task.Grade = studentUnit.interestGrade[Random.Range(0, studentUnit.interestGrade.Count)].Copy();
-                task.Grade.score += Random.Range(25, 40);
+                task.Grade.score += Random.Range(25, 60);
+                var range = Random.Range(0.08f, 0.16f);
+                task.RewardValue = Mathf.RoundToInt(task.Grade.score * range);
             }
 
             return task;
@@ -155,7 +159,8 @@ namespace GameSence.World.Market
         /// </summary>
         private void CardUpdate()
         {
-            foreach (var card in m_tasks) card.CardUpdate();
+            OnTaskPanel();
+            //foreach (var card in m_tasks) card.CardUpdate();
         }
     }
 }
