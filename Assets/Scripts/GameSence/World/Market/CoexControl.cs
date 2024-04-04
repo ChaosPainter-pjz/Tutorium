@@ -132,7 +132,7 @@ namespace GameSence.World.Market
                 task.Grade.score += Random.Range(25, 60);
                 var range = Random.Range(0.08f, 0.16f);
                 task.RewardValue = Mathf.RoundToInt(task.Grade.score * range);
-              }
+            }
             else
             {
                 //兴趣任务 40%

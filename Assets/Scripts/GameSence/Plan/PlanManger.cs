@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Basic;
 using Basic.CSV2Table;
 using Unit;
@@ -38,15 +39,7 @@ namespace GameSence.Plan
         /// </summary>
         public int RemainingDays
         {
-            get
-            {
-                var day = 0;
-                foreach (var i in playerPlan)
-                    if (i == "0")
-                        day++;
-
-                return day;
-            }
+            get { return playerPlan.Count(i => i == "0"); }
         }
 
         private PlayerCourseLevelList playerCourseLevelList;
