@@ -122,50 +122,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;rider.code.cleanup.on.save&quot;: &quot;true&quot;,
-    &quot;rider.code.cleanup.on.save.profile&quot;: &quot;Built-in: Reformat &amp; Apply Syntax Style&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.qodana&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "rider.code.cleanup.on.save": "true",
+    "rider.code.cleanup.on.save.profile": "Built-in: Reformat & Apply Syntax Style",
+    "settings.editor.selected.configurable": "settings.qodana",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;rider.external.source.directories&quot;: [
-      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\DecompilerCache&quot;,
-      &quot;C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2023.3\\resharper-host\\SourcesCache&quot;,
-      &quot;C:\\Users\\panji\\AppData\\Local\\Symbols\\src&quot;
+  "keyToStringList": {
+    "rider.external.source.directories": [
+      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\DecompilerCache",
+      "C:\\Users\\panji\\AppData\\Roaming\\JetBrains\\Rider2024.1\\resharper-host\\SourcesCache",
+      "C:\\Users\\panji\\AppData\\Local\\Symbols\\src"
     ]
   }
-}</component>
+}]]></component>
   <component name="QodanaCIConfigService">
     <option name="ciType" value="GITHUB" />
     <option name="path" value="$PROJECT_DIR$/.github/workflows/code_quality.yml" />
-  </component>
-  <component name="QodanaCloudProjectLink">
-    <option name="lastReportId" value="Ld8PR" />
-    <option name="linkedProjectId" value="AG0RY" />
-    <option name="linkedProjectName" value="Tutorium" />
-    <option name="organizationId" value="3eBLD" />
-    <option name="userId" value="Ag8GQ" />
-  </component>
-  <component name="QodanaHighlightedReportService">
-    <option name="cloudReportPersistedInfo">
-      <CloudReportPersistedInfo>
-        <option name="projectId" value="AG0RY" />
-        <option name="reportId" value="Ld8PR" />
-      </CloudReportPersistedInfo>
-    </option>
-  </component>
-  <component name="QodanaIsSelectedPersistenceService">
-    <option name="selectedOrLoading" value="true" />
   </component>
   <component name="RunManager" selected="独立播放器.Standalone Player">
     <configuration name="启动 Unity" type="RunUnityExe" factoryName="Unity Executable">
@@ -235,6 +217,7 @@
       <workItem from="1706584275963" duration="1429000" />
       <workItem from="1709364327082" duration="4290000" />
       <workItem from="1712221610680" duration="323000" />
+      <workItem from="1715773107945" duration="280000" />
     </task>
     <servers />
   </component>
@@ -242,6 +225,11 @@
     <option name="version" value="3" />
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityProjectDiscoverer">
+    <option name="hasUnityReference" value="true" />
+    <option name="unityProject" value="true" />
+    <option name="unityProjectFolder" value="true" />
+  </component>
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
@@ -255,19 +243,19 @@
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/Unit/Grade.cs</url>
           <line>37</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" initialLine="36" containingFunctionPresentation="property 'GradeScore'" />
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\Unit\Grade.cs" containingFunctionPresentation="property 'GradeScore'" />
           <option name="timeStamp" value="3" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
           <line>67</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="80" containingFunctionPresentation="method 'Midterm'" />
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="5" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Assets/Scripts/GameSence/StoryLine/UnlockEventManager.cs</url>
           <line>66</line>
-          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" initialLine="76" containingFunctionPresentation="method 'Midterm'" />
+          <properties documentPath="D:\Xiang Mu\Tutorium\Assets\Scripts\GameSence\StoryLine\UnlockEventManager.cs" containingFunctionPresentation="method 'Midterm'" />
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

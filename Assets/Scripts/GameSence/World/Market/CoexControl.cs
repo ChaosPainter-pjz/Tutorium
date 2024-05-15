@@ -23,9 +23,6 @@ namespace GameSence.World.Market
             coexData ??= saveObject.SaveData.coexData;
             RefreshTaskList();
             OnTaskPanel();
-            //CardUpdate();
-
-            //gameObject.SetActive(false);
         }
 
         /// <summary>
@@ -160,7 +157,6 @@ namespace GameSence.World.Market
         private void CardUpdate()
         {
             OnTaskPanel();
-            //foreach (var card in m_tasks) card.CardUpdate();
         }
     }
 }
